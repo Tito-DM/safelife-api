@@ -25,6 +25,7 @@ production:
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   port: 5432
+  url: postgres://kkdositjshanse:1bc304981127e9034580b8f2b228c1b26022f0cd986009794ac469e300a230b1@ec2-54-74-14-109.eu-west-1.compute.amazonaws.com:5432/d1oqfrna7t5drg
   database: d1oqfrna7t5drg
   username: kkdositjshanse
   password: 1bc304981127e9034580b8f2b228c1b26022f0cd986009794ac469e300a230b1
