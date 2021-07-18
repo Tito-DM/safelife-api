@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  birthdate: 2021-06-25
+  weight: 1.5
+  blood: MyString
+  status: 1
+  province: MyString
+  gender: 1
+
+two:
+  user: two
+  birthdate: 2021-06-25
+  weight: 1.5
+  blood: MyString
+  status: 1
+  province: MyString
+  gender: 1

@@ -1,0 +1,15 @@
+current directory: /home/cuidado/Documentos/projects/unitel_challenge/savelife/app_api/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+/home/cuidado/.rbenv/versions/2.7.1/bin/ruby -I /home/cuidado/.rbenv/versions/2.7.1/lib/ruby/2.7.0 -r ./siteconf20210625-80235-si1i36.rb extconf.rb
+creating Makefile
+
+current directory: /home/cuidado/Documentos/projects/unitel_challenge/savelife/app_api/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /home/cuidado/Documentos/projects/unitel_challenge/savelife/app_api/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/cuidado/Documentos/projects/unitel_challenge/savelife/app_api/vendor/bundle/ruby/2.7.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20210625-80235-e4z44o
