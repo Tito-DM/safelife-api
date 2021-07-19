@@ -3778,3 +3778,75 @@ Completed 422 Unprocessable Entity in 336ms (Views: 0.4ms | ActiveRecord: 0.3ms 
 
   [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDonor Load (0.7ms)[0m  [1m[34mSELECT "donors".* FROM "donors" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/api/v1/donors_all" for ::1 at 2021-07-19 23:34:33 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::PublicController#index_donors as JSON
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "donors" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:9:in `index_donors'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:9:in `index_donors'
+Completed 200 OK in 9ms (Views: 1.6ms | ActiveRecord: 0.9ms | Allocations: 3752)
+
+
+Started POST "/api/v1/sign_up_donor?user[email]=jaofa@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[phone]=934641870&user[type_user]=1&donor[birthdate]=03-01-1998&donor[weight]=70&donor[blood]=O-&donor[province]=Namibe&donor[gender]=0&user[name]=Ariclene" for ::1 at 2021-07-19 23:34:51 +0100
+Processing by Api::V1::RegistrationsController#create_donor as JSON
+  Parameters: {"user"=>{"email"=>"jaofa@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"934641870", "type_user"=>"1", "name"=>"Ariclene"}, "donor"=>{"birthdate"=>"03-01-1998", "weight"=>"70", "blood"=>"O-", "province"=>"Namibe", "gender"=>"0"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jaofa@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "2BN3XfGE1y2yp6jKka2h"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "type_user", "name") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "jaofa@gmail.com"], ["encrypted_password", "$2a$12$DwsenrpwQqCMB2UUGW7ukuKJs6eQi5U5rvigRRWPt4MkJ53hVfLAC"], ["created_at", "2021-07-19 22:34:51.707918"], ["updated_at", "2021-07-19 22:34:51.707918"], ["authentication_token", "2BN3XfGE1y2yp6jKka2h"], ["phone", "934641870"], ["type_user", 1], ["name", "Ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[36mDonor Create (0.4ms)[0m  [1m[32mINSERT INTO "donors" ("user_id", "birthdate", "weight", "blood", "status", "province", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["birthdate", "1998-01-03"], ["weight", 70.0], ["blood", "O-"], ["status", 0], ["province", "Namibe"], ["gender", "0"], ["created_at", "2021-07-19 22:34:51.765502"], ["updated_at", "2021-07-19 22:34:51.765502"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+Completed 200 OK in 382ms (Views: 1.0ms | ActiveRecord: 10.0ms | Allocations: 29044)
+
+
+  [1m[36mDonor Load (0.4ms)[0m  [1m[34mSELECT "donors".* FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDonor Load (0.9ms)[0m  [1m[34mSELECT "donors".* FROM "donors" INNER JOIN users ON users.id = donors.user_id LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT books.*, users.name, users.email FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDonor Load (0.6ms)[0m  [1m[34mSELECT donors.*, users.name, users.email FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mDonor Load (0.8ms)[0m  [1m[34mSELECT * FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*, users.* FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mDonor Load (0.8ms)[0m  [1m[34mSELECT donors.*, users.* FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mDonor Load (0.4ms)[0m  [1m[34mSELECT users.* FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mDonor Load (0.6ms)[0m  [1m[34mSELECT users.name FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mDonor Load (0.9ms)[0m  [1m[34mSELECT "donors".* FROM "donors" INNER JOIN users ON users.id = donors.user_id LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT donors.*, users.* FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT donors.*, users.* FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT donors.*, users.* FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT donors.*, users.* FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT donors.*, user.name, users.email, users.phone, type_user FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM donors
+        INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM donors
+        INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM donors
+        INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mDonor Load (0.5ms)[0m  [1m[34mSELECT "donors".* FROM "donors" LIMIT ? OFFSET ?[0m  [["LIMIT", 11], ["OFFSET", 0]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM donors
+        INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM donors INNER JOIN users ON users.id = donors.user_id[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" LIMIT ? OFFSET ?[0m  [["LIMIT", 11], ["OFFSET", 0]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT donors.*, users.name, users.email FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT donors.*, users.name, users.email FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 11], ["OFFSET", 0]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 11], ["OFFSET", 0]]

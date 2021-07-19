@@ -7,11 +7,6 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     def create
       user = User.new user_params
       if user.save
-        if(user.type_user == 0)
-          
-        else
-
-        end
         render json: {
           message: "Sign Up Successfully",
           is_success: true,
@@ -33,7 +28,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
         user = User.new user_params
         if user.save
             donor = Donor.new donor_params
-            donor.status = 0
+            donor.status = 'disponivel'
             donor.user_id = user.id
             if(donor.save)        
                 render json: {
@@ -69,7 +64,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
         params.require(:donor).permit(:birthdate, :weight, :blood, :province, :gender)
     end
   
-    def s r
+    def ensure_params_exist
       return if params[:user].present?
       render json: {
           message: "Missing Params",
