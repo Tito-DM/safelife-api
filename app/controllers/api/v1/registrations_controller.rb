@@ -32,7 +32,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
             donor.user_id = user.id
             if(donor.save)        
                 render json: {
-                    message: "Sign Up Successfully",
+                    message: "Sign Up Successfully Donor",
                     is_success: true,
                     error_message: {},
                     data: {user: user}
@@ -52,7 +52,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
             is_success: false,
             error_message: user.errors.messages,
             data: {}
-          }, status: :unprocessable_entity
+          }, status: :ok
         end
     end
 
