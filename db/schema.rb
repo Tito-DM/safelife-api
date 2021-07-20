@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 2021_07_15_191309) do
     t.date "birthdate"
     t.float "weight"
     t.string "blood"
-    t.string "status"
+    t.integer "status"
     t.string "province"
-    t.string "gender"
+    t.integer "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_donors_on_user_id"

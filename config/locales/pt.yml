@@ -4,6 +4,14 @@ pt:
   activerecord:
     errors:
       models:
+        donor:
+          attributes:
+            birthdate:
+              blank: "É necessário a data de nascimento"
+            weight:
+              blank: "É necessário o peso"
+            blood:
+              blank: "É necessário o tipo de sangue"
         request:
           attributes:
             description:
@@ -26,4 +34,3 @@ pt:
             password:
               blank: "É necessário uma senha"
               too_short: "A senha é muito curta, precisa no minimo 6 caracteres"
-              

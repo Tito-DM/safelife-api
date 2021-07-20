@@ -5,9 +5,9 @@ class CreateDonors < ActiveRecord::Migration[6.0]
       t.date :birthdate
       t.float :weight
       t.string :blood
-      t.string :status
+      t.integer :status
       t.string :province
-      t.string :gender
+      t.integer :gender
 
       t.timestamps
     end

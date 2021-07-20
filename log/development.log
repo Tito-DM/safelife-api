@@ -3850,3 +3850,350 @@ Completed 200 OK in 382ms (Views: 1.0ms | ActiveRecord: 10.0ms | Allocations: 29
   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT donors.*, users.name, users.email FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 11], ["OFFSET", 0]]
   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 11], ["OFFSET", 0]]
+Started POST "/api/v1/sign_up_donor?user[email]=j@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[phone]=934641870&user[type_user]=1&donor[birthdate]=03-01-1998&donor[weight]=70&donor[blood]=O-&donor[province]=Namibe&donor[gender]=0&user[name]=Ariclene" for ::1 at 2021-07-20 01:39:32 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RegistrationsController#create_donor as JSON
+  Parameters: {"user"=>{"email"=>"j@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"934641870", "type_user"=>"1", "name"=>"Ariclene"}, "donor"=>{"birthdate"=>"03-01-1998", "weight"=>"70", "blood"=>"O-", "province"=>"Namibe", "gender"=>"0"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "j@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "v-D3C55GfZUm7mpcyaPn"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "type_user", "name") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "j@gmail.com"], ["encrypted_password", "$2a$12$xH8nx2o8Cyu3eP.4y7v4LOl0iXukvF6CIMDNxx2GMKgaWbQRG2V7i"], ["created_at", "2021-07-20 00:39:32.628288"], ["updated_at", "2021-07-20 00:39:32.628288"], ["authentication_token", "v-D3C55GfZUm7mpcyaPn"], ["phone", "934641870"], ["type_user", 1], ["name", "Ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[36mDonor Create (0.3ms)[0m  [1m[32mINSERT INTO "donors" ("user_id", "birthdate", "weight", "blood", "status", "province", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["birthdate", "1998-01-03"], ["weight", 70.0], ["blood", "O-"], ["status", 0], ["province", "Namibe"], ["gender", "0"], ["created_at", "2021-07-20 00:39:32.651895"], ["updated_at", "2021-07-20 00:39:32.651895"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+Completed 200 OK in 327ms (Views: 0.7ms | ActiveRecord: 5.5ms | Allocations: 25995)
+
+
+Started POST "/api/v1/sign_up_donor?user[email]=kj@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[phone]=934641870&user[type_user]=1&donor[birthdate]=03-01-1998&donor[weight]=70&donor[blood]=O-&donor[province]=Namibe&donor[gender]=0&user[name]=Ariclene" for ::1 at 2021-07-20 01:40:07 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RegistrationsController#create_donor as JSON
+  Parameters: {"user"=>{"email"=>"kj@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"934641870", "type_user"=>"1", "name"=>"Ariclene"}, "donor"=>{"birthdate"=>"03-01-1998", "weight"=>"70", "blood"=>"O-", "province"=>"Namibe", "gender"=>"0"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kj@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "m4nTr1W8-CxHszTpQyXY"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "type_user", "name") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "kj@gmail.com"], ["encrypted_password", "$2a$12$Qdds2ze6x5/a7QNOI9ElquViTS5Elap9u21106juQpDblvUer5aLq"], ["created_at", "2021-07-20 00:40:07.835323"], ["updated_at", "2021-07-20 00:40:07.835323"], ["authentication_token", "m4nTr1W8-CxHszTpQyXY"], ["phone", "934641870"], ["type_user", 1], ["name", "Ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[36mDonor Create (0.3ms)[0m  [1m[32mINSERT INTO "donors" ("user_id", "birthdate", "weight", "blood", "status", "province", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 4], ["birthdate", "1998-01-03"], ["weight", 70.0], ["blood", "O-"], ["status", 0], ["province", "Namibe"], ["gender", "0"], ["created_at", "2021-07-20 00:40:07.863314"], ["updated_at", "2021-07-20 00:40:07.863314"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+Completed 200 OK in 319ms (Views: 0.6ms | ActiveRecord: 7.6ms | Allocations: 25971)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" ORDER BY "donors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDonor Update (0.3ms)[0m  [1m[33mUPDATE "donors" SET "status" = ?, "updated_at" = ? WHERE "donors"."id" = ?[0m  [["status", 1], ["updated_at", "2021-07-20 00:41:12.933151"], ["id", 1]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDonor Update (1.0ms)[0m  [1m[33mUPDATE "donors" SET "status" = ?, "updated_at" = ? WHERE "donors"."id" = ?[0m  [["status", 0], ["updated_at", "2021-07-20 00:41:50.089319"], ["id", 1]]
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDonor Update (1.0ms)[0m  [1m[33mUPDATE "donors" SET "status" = ?, "updated_at" = ? WHERE "donors"."id" = ?[0m  [["status", 0], ["updated_at", "2021-07-20 00:42:24.525761"], ["id", 1]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" ORDER BY "donors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20210625152856)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625152856"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAuthenticationTokenToUsers (20210625152913)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "authentication_token" varchar(30)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_authentication_token" ON "users" ("authentication_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625152913"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPhoneToUsers (20210625161146)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "phone" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625161146"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTypeUserToUsers (20210625161704)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "type_user" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625161704"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDonors (20210625163608)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "donors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "birthdate" date, "weight" float, "blood" varchar, "status" integer, "province" varchar, "gender" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_1840adf13b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_donors_on_user_id" ON "donors" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625163608"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRequests (20210625164332)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "requests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "type_request" integer, "description" varchar, "province" varchar, "date_limit" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8ead8b1e6b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_requests_on_user_id" ON "requests" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625164332"]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAnswersRequests (20210625164447)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "answers_requests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "request_id" integer NOT NULL, "donor_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_74b4cd4d62"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_18ad986a3d"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_answers_requests_on_request_id" ON "answers_requests" ("request_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_answers_requests_on_donor_id" ON "answers_requests" ("donor_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625164447"]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateApiV1AnswersRequests (20210626165616)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "api_v1_answers_requests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210626165616"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNameToUsers (20210715191309)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "name" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210715191309"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-20 02:25:06.677373"], ["updated_at", "2021-07-20 02:25:06.677373"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/sign_up_donor?user[email]=kj@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[phone]=934641870&user[type_user]=1&donor[birthdate]=03-01-1998&donor[weight]=70&donor[blood]=O-&donor[province]=Namibe&donor[gender]=0&user[name]=Ariclene" for ::1 at 2021-07-20 03:31:22 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RegistrationsController#create_donor as JSON
+  Parameters: {"user"=>{"email"=>"kj@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"934641870", "type_user"=>"1", "name"=>"Ariclene"}, "donor"=>{"birthdate"=>"03-01-1998", "weight"=>"70", "blood"=>"O-", "province"=>"Namibe", "gender"=>"0"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kj@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "B2zsquLoyyNAtcbo--Bm"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "type_user", "name") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "kj@gmail.com"], ["encrypted_password", "$2a$12$C0KrGq2S8akew9CtZRbHwe6XPy7K2lK3JdkvqxSa3rQofn9TtYYkO"], ["created_at", "2021-07-20 02:31:22.945880"], ["updated_at", "2021-07-20 02:31:22.945880"], ["authentication_token", "B2zsquLoyyNAtcbo--Bm"], ["phone", "934641870"], ["type_user", 1], ["name", "Ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[36mDonor Create (2.2ms)[0m  [1m[32mINSERT INTO "donors" ("user_id", "birthdate", "weight", "blood", "status", "province", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["birthdate", "1998-01-03"], ["weight", 70.0], ["blood", "O-"], ["status", 0], ["province", "Namibe"], ["gender", "0"], ["created_at", "2021-07-20 02:31:22.992550"], ["updated_at", "2021-07-20 02:31:22.992550"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:33:in `create_donor'
+Completed 200 OK in 352ms (Views: 2.8ms | ActiveRecord: 10.6ms | Allocations: 29654)
+
+
+Started GET "/api/v1/donors_all" for ::1 at 2021-07-20 03:32:26 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PublicController#index_donors as JSON
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "donors" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:9:in `index_donors'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:9:in `index_donors'
+Completed 200 OK in 18ms (Views: 12.3ms | ActiveRecord: 1.2ms | Allocations: 8438)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20210625152856)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625152856"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAuthenticationTokenToUsers (20210625152913)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "authentication_token" varchar(30)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_authentication_token" ON "users" ("authentication_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625152913"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPhoneToUsers (20210625161146)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "phone" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625161146"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTypeUserToUsers (20210625161704)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "type_user" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625161704"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDonors (20210625163608)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "donors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "birthdate" date, "weight" float, "blood" varchar, "status" integer, "province" varchar, "gender" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_1840adf13b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_donors_on_user_id" ON "donors" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625163608"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRequests (20210625164332)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "requests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "type_request" integer, "description" varchar, "province" varchar, "date_limit" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8ead8b1e6b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_requests_on_user_id" ON "requests" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625164332"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAnswersRequests (20210625164447)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "answers_requests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "request_id" integer NOT NULL, "donor_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_74b4cd4d62"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_18ad986a3d"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_answers_requests_on_request_id" ON "answers_requests" ("request_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_answers_requests_on_donor_id" ON "answers_requests" ("donor_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210625164447"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateApiV1AnswersRequests (20210626165616)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "api_v1_answers_requests" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210626165616"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddNameToUsers (20210715191309)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "name" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210715191309"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-07-20 02:33:47.174213"], ["updated_at", "2021-07-20 02:33:47.174213"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/sign_up_donor?user[email]=kj@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[phone]=934641870&user[type_user]=1&donor[birthdate]=03-01-1998&donor[weight]=70&donor[blood]=O-&donor[province]=Namibe&donor[gender]=0&user[name]=Ariclene" for ::1 at 2021-07-20 03:34:30 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RegistrationsController#create_donor as JSON
+  Parameters: {"user"=>{"email"=>"kj@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"934641870", "type_user"=>"1", "name"=>"Ariclene"}, "donor"=>{"birthdate"=>"03-01-1998", "weight"=>"70", "blood"=>"O-", "province"=>"Namibe", "gender"=>"0"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kj@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "be7hV23MjYSiqwXtg9n8"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "type_user", "name") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "kj@gmail.com"], ["encrypted_password", "$2a$12$otiCTdOM0qHDUaiSo8RqH.0Xiupv4b1w2qH27HGipjr0b4EyKwaBS"], ["created_at", "2021-07-20 02:34:30.739906"], ["updated_at", "2021-07-20 02:34:30.739906"], ["authentication_token", "be7hV23MjYSiqwXtg9n8"], ["phone", "934641870"], ["type_user", 1], ["name", "Ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+Completed 500 Internal Server Error in 329ms (ActiveRecord: 4.5ms | Allocations: 22356)
+
+
+  
+ArgumentError ('0' is not a valid gender):
+  
+app/controllers/api/v1/registrations_controller.rb:30:in `create_donor'
+Started POST "/api/v1/sign_up_donor?user[email]=kj@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[phone]=934641870&user[type_user]=1&donor[birthdate]=03-01-1998&donor[weight]=70&donor[blood]=O-&donor[province]=Namibe&donor[gender]=0&user[name]=Ariclene" for ::1 at 2021-07-20 03:36:06 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RegistrationsController#create_donor as JSON
+  Parameters: {"user"=>{"email"=>"kj@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"934641870", "type_user"=>"1", "name"=>"Ariclene"}, "donor"=>{"birthdate"=>"03-01-1998", "weight"=>"70", "blood"=>"O-", "province"=>"Namibe", "gender"=>"0"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kj@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+Completed 200 OK in 601ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 87944)
+
+
+Started POST "/api/v1/sign_up_donor?user[email]=kjk@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[phone]=934641870&user[type_user]=1&donor[birthdate]=03-01-1998&donor[weight]=70&donor[blood]=O-&donor[province]=Namibe&donor[gender]=0&user[name]=Ariclene" for ::1 at 2021-07-20 03:36:19 +0100
+Processing by Api::V1::RegistrationsController#create_donor as JSON
+  Parameters: {"user"=>{"email"=>"kjk@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"934641870", "type_user"=>"1", "name"=>"Ariclene"}, "donor"=>{"birthdate"=>"03-01-1998", "weight"=>"70", "blood"=>"O-", "province"=>"Namibe", "gender"=>"0"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kjk@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "_nbQUA4SVce521Wsgqkn"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "type_user", "name") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "kjk@gmail.com"], ["encrypted_password", "$2a$12$PWLKy98OB.VQBz7.LOOjdu7yDLZKQTR6P0t5ksvuD/WXd.sa4k4FO"], ["created_at", "2021-07-20 02:36:19.577030"], ["updated_at", "2021-07-20 02:36:19.577030"], ["authentication_token", "_nbQUA4SVce521Wsgqkn"], ["phone", "934641870"], ["type_user", 1], ["name", "Ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+Completed 500 Internal Server Error in 331ms (ActiveRecord: 4.0ms | Allocations: 13724)
+
+
+  
+ArgumentError ('0' is not a valid gender):
+  
+app/controllers/api/v1/registrations_controller.rb:30:in `create_donor'
+Started POST "/api/v1/sign_up_donor?user[email]=kjkk@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[phone]=934641870&user[type_user]=1&donor[birthdate]=03-01-1998&donor[weight]=70&donor[blood]=O-&donor[province]=Namibe&donor[gender]=0&user[name]=Ariclene" for ::1 at 2021-07-20 03:38:12 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RegistrationsController#create_donor as JSON
+  Parameters: {"user"=>{"email"=>"kjkk@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"934641870", "type_user"=>"1", "name"=>"Ariclene"}, "donor"=>{"birthdate"=>"03-01-1998", "weight"=>"70", "blood"=>"O-", "province"=>"Namibe", "gender"=>"0"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "kjkk@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "k_vyNJfimzs41iwxxwAU"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "type_user", "name") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "kjkk@gmail.com"], ["encrypted_password", "$2a$12$eiv5w2NR3aZBOR6R3V1w7OsdSx/uMdYOONKgd3DO0OkVhi2oPpvv2"], ["created_at", "2021-07-20 02:38:13.041918"], ["updated_at", "2021-07-20 02:38:13.041918"], ["authentication_token", "k_vyNJfimzs41iwxxwAU"], ["phone", "934641870"], ["type_user", 1], ["name", "Ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+[31mUnpermitted parameter: :gender[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:34:in `create_donor'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:34:in `create_donor'
+  [1m[36mDonor Create (0.4ms)[0m  [1m[32mINSERT INTO "donors" ("user_id", "birthdate", "weight", "blood", "status", "province", "gender", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["birthdate", "1998-01-03"], ["weight", 70.0], ["blood", "O-"], ["status", 0], ["province", "Namibe"], ["gender", 0], ["created_at", "2021-07-20 02:38:13.073045"], ["updated_at", "2021-07-20 02:38:13.073045"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:34:in `create_donor'
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:34:in `create_donor'
+Completed 200 OK in 329ms (Views: 0.6ms | ActiveRecord: 8.5ms | Allocations: 27662)
+
+
