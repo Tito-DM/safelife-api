@@ -1,4 +1,5 @@
 class Donor < ApplicationRecord
+  extend Enumerize
   belongs_to :user
   has_many :answers_requests
   validates :birthdate, presence: true

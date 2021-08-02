@@ -2,10 +2,23 @@ class Api::V1::PublicController < ApplicationController
   include Paginable
 
     def index_donors
+        province = (params[:province])
+        blood = (params[:blood])
+        gender = (params[:gender])
         p = params[:page]
         page = (p)?(p):1
-        @api_v1_donors= User.select('donors.*, users.name, users.email, users.phone, users.type_user').joins(:donor).page(p).per(20)
-
+        @api_v1_donors = User.select('donors.*, users.name, users.email, users.phone, users.type_user').joins(:donor)
+        if params[:province] 
+            @api_v1_donors = @api_v1_donors.where("province = ?",province )
+        end 
+        if params[:blood]
+            @api_v1_donors = @api_v1_donors.where("blood = ?",blood )
+        end
+        if params[:gender]
+            @api_v1_donors = @api_v1_donors.where("gender = ?",gender )
+        end
+        
+        @api_v1_donors = @api_v1_donors.page(p).per(20)
         render json: { donors: @api_v1_donors,page: page , per_page: 20, user_count: @api_v1_donors.count, success: true}, status: :ok
     end
 
