@@ -28,7 +28,6 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
         user = User.new user_params
         if user.save
             donor = Donor.new donor_params
-            donor.gender = (params['donor[gender]']).to_i
             donor.status = 0
             donor.user_id = user.id
             if(donor.save)        
@@ -62,7 +61,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
       params.require(:user).permit(:email, :password, :password_confirmation,:name, :phone, :type_user)
     end
     def donor_params
-        params.require(:donor).permit(:birthdate, :weight, :blood, :province)
+        params.require(:donor).permit(:birthdate, :weight, :blood, :province, :gender)
     end
   
     def ensure_params_exist

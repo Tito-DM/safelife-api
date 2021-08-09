@@ -5,6 +5,6 @@ class Donor < ApplicationRecord
   validates :birthdate, presence: true
   validates :weight, presence: true
   validates :blood, presence: true
+  validates :gender, presence: true
   enum status: { disponivel: 0, indisponivel: 1 }
-  enum gender: { masculino: 0, femenino: 1 }
 end
