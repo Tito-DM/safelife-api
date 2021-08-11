@@ -6589,3 +6589,137 @@ Processing by Api::V1::PublicController#index_donors as JSON
 Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.6ms | Allocations: 2184)
 
 
+Started POST "/api/v1/sign_up_donor?user[email]=a@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[phone]=934641870&user[type_user]=1&donor[birthdate]=03-01-1998&donor[weight]=70&donor[blood]=O-&donor[province]=Namibe&donor[gender]=Masculino&user[name]=Ariclene" for ::1 at 2021-08-09 21:55:10 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RegistrationsController#create_donor as JSON
+  Parameters: {"user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"934641870", "type_user"=>"1", "name"=>"Ariclene"}, "donor"=>{"birthdate"=>"03-01-1998", "weight"=>"70", "blood"=>"O-", "province"=>"Namibe", "gender"=>"Masculino"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:29:in `create_donor'
+Completed 200 OK in 382ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 26750)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=a@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-08-09 21:56:58 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:40:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:41:in `load_user'
+Completed 200 OK in 254ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 2422)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/api/v1/donors_all?page=1" for ::1 at 2021-08-12 00:29:46 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+Completed 200 OK in 70ms (Views: 42.3ms | ActiveRecord: 2.5ms | Allocations: 12470)
+
+
+Started GET "/api/v1/donors_all?page=1" for ::1 at 2021-08-12 00:29:53 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+Completed 200 OK in 8ms (Views: 3.5ms | ActiveRecord: 0.7ms | Allocations: 2207)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/api/v1/donors_al" for ::1 at 2021-08-12 00:30:43 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/donors_al"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/donors_all" for ::1 at 2021-08-12 00:30:50 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+Completed 200 OK in 13ms (Views: 7.6ms | ActiveRecord: 0.7ms | Allocations: 2184)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=a@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-08-12 00:31:09 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:50:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mDonor Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+Completed 200 OK in 279ms (Views: 1.4ms | ActiveRecord: 2.0ms | Allocations: 9715)
+
+
+Started POST "/api/v1/sign_up?user[email]=ari@g.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=ariclene&user[phone]=93453434" for ::1 at 2021-08-12 00:32:03 +0100
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"ari@g.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"ariclene", "phone"=>"93453434"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ari@g.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "8S6c5zQsX2iB---2NEmJ"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "ari@g.com"], ["encrypted_password", "$2a$12$fOU5EmLXClQLEzQ0XyI7EeYfAcLP1LwC5b7RBnEZLuXXYkVtQfOl2"], ["created_at", "2021-08-11 23:32:03.500559"], ["updated_at", "2021-08-11 23:32:03.500559"], ["authentication_token", "8S6c5zQsX2iB---2NEmJ"], ["phone", "93453434"], ["name", "ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 200 OK in 265ms (Views: 0.5ms | ActiveRecord: 4.7ms | Allocations: 7907)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ari@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-08-12 00:32:26 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ari@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:50:in `load_user'
+Completed 401 Unauthorized in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 833)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ari@g.com&sign_in[password]=[FILTERED]" for ::1 at 2021-08-12 00:32:45 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ari@g.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ari@g.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:50:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ari@g.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+Completed 200 OK in 274ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 2509)
+
+

@@ -6,12 +6,22 @@ class Api::V1::SessionsController < Devise::SessionsController
       if(@user)
         if @user.valid_password?(sign_in_params[:password])
           sign_in "user", @user
-          render json: {
-            message: "Login efetuado com sucesso",
-            is_success: true,
-            error_messages: {} ,
-            data: {User: @user}
-          }, status: :ok
+          if Donor.exists?(user_id: @user.id)
+            donor= Donor.find_by(user_id: @user.id)
+            render json: {
+              message: "Login efetuado com sucesso",
+              is_success: true,
+              error_messages: {} ,
+              data: {User: @user, Donor: donor}
+            }, status: :ok
+          else
+            render json: {
+              message: "Login efetuado com sucesso",
+              is_success: true,
+              error_messages: {} ,
+              data: {User: @user}
+            }, status: :ok
+          end
         else
           render json: {
             message: "Ocorreu algum problema",
