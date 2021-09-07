@@ -31,9 +31,9 @@ class Api::V1::DonorsController < DashboardController
 
   # PATCH/PUT /api/v1/donors/1
   def update
-    @api_v1_donor.authentication_token=params[:token]
-    if @api_v1_donor.update(api_v1_donor_params)
-        json_response("Dados Atualizados com sucesso",true,{},@api_v1_donor,model_name, :created)
+    if @api_v1_donor.update(api_v1_donor_params) && @api_v1_user.update(user_params)
+          set_api_v1_donor
+          json_response("Dados Atualizados com sucesso",true,{},@api_v1_donor,model_name, :created)
     else
         json_response("Ocorreu algum problema",false,@api_v1_donor.errors,{},model_name, :ok)
     end
@@ -47,9 +47,10 @@ class Api::V1::DonorsController < DashboardController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_api_v1_donor
-      donors = User.select('donors.*,users.id, users.name, users.email, users.phone, users.type_user').joins(:donor)
+      donors = Donor.select('donors.*,users.id, users.name, users.email, users.phone, users.type_user').joins(:user)
       if donors.exists?(params[:id])
         @api_v1_donor = donors.find(params[:id])
+        @api_v1_user = User.find(1)
       else
         json_response("Doador não existe",false,{},{},model_name, :ok)
       end
@@ -57,7 +58,7 @@ class Api::V1::DonorsController < DashboardController
 
     # Only allow a trusted parameter "white list" through.
     def api_v1_donor_params
-      params.require(:donor).permit(:birthdate, :weight, :blood, :province, :gender, :email, :password, :password_confirmation,:name, :phone, :type_user)
+      params.require(:donor).permit(:birthdate, :weight, :blood, :province, :gender)
     end
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation,:name, :phone, :type_user)

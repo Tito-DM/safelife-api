@@ -6723,3 +6723,624 @@ Processing by Api::V1::SessionsController#create as JSON
 Completed 200 OK in 274ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 2509)
 
 
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/" for ::1 at 2021-09-07 16:14:01 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 13.8ms | Allocations: 296)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 0.0ms | Allocations: 1539)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-09-07 16:14:01 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/sign_in" for ::1 at 2021-09-07 16:14:06 +0100
+Processing by Devise::SessionsController#new as HTML
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 8119)
+
+
+Started GET "/users" for ::1 at 2021-09-07 16:14:11 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rails/info/routes?path=user" for ::1 at 2021-09-07 16:14:17 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"user"}
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 3009)
+
+
+Started PUT "/api/v1/user/3?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392" for ::1 at 2021-09-07 16:17:25 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392"}, "id"=>"3"}
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `set_api_v1_user'
+Filter chain halted as :set_api_v1_user rendered or redirected
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1236)
+
+
+Started PUT "/api/v1/user/2?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392" for ::1 at 2021-09-07 16:17:35 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392"}, "id"=>"2"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:21:in `set_api_v1_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `set_api_v1_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "ti@gmail.com"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "x9WdhV56cDZVZMZgqzEu"]]
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "authentication_token" = ?, "email" = ?, "name" = ?, "phone" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["authentication_token", "x9WdhV56cDZVZMZgqzEu"], ["email", "ti@gmail.com"], ["name", "Tito"], ["phone", "934647392"], ["updated_at", "2021-09-07 15:17:35.401987"], ["id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+Completed 201 Created in 26ms (Views: 0.7ms | ActiveRecord: 4.9ms | Allocations: 9298)
+
+
+Started PUT "/api/v1/donors/3?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:33:34 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"token"=>"k_vyNJfimzs41iwxxwAU", "donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"3"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+Filter chain halted as :set_api_v1_donor rendered or redirected
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 4182)
+
+
+Started PUT "/api/v1/donors/3?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:34:46 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"token"=>"k_vyNJfimzs41iwxxwAU", "donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"3"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+Filter chain halted as :set_api_v1_donor rendered or redirected
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 933)
+
+
+Started PUT "/api/v1/donors/4?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:34:50 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"token"=>"k_vyNJfimzs41iwxxwAU", "donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"4"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+Filter chain halted as :set_api_v1_donor rendered or redirected
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 933)
+
+
+Started PUT "/api/v1/donors/5?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:34:54 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"token"=>"k_vyNJfimzs41iwxxwAU", "donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"5"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+Filter chain halted as :set_api_v1_donor rendered or redirected
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 919)
+
+
+Started PUT "/api/v1/donors/6?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:34:58 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"token"=>"k_vyNJfimzs41iwxxwAU", "donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"6"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+Filter chain halted as :set_api_v1_donor rendered or redirected
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 918)
+
+
+Started PUT "/api/v1/donors/7?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:35:02 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"token"=>"k_vyNJfimzs41iwxxwAU", "donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"7"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+Filter chain halted as :set_api_v1_donor rendered or redirected
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 918)
+
+
+Started GET "/api/v1/donors/3" for ::1 at 2021-09-07 16:36:51 +0100
+Processing by Api::V1::DonorsController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+Filter chain halted as :set_api_v1_donor rendered or redirected
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 905)
+
+
+Started GET "/api/v1/donors/" for ::1 at 2021-09-07 16:37:09 +0100
+Processing by Api::V1::DonorsController#index as JSON
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/donors_controller.rb:13:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/donors_controller.rb:13:in `index'
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.5ms | Allocations: 8193)
+
+
+Started PUT "/api/v1/donors/?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:38:31 +0100
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/donors"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PUT "/api/v1/donors/4?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:38:36 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"token"=>"k_vyNJfimzs41iwxxwAU", "donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"4"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+Filter chain halted as :set_api_v1_donor rendered or redirected
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 918)
+
+
+Started PUT "/api/v1/donors/3?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:38:43 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"token"=>"k_vyNJfimzs41iwxxwAU", "donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"3"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+Filter chain halted as :set_api_v1_donor rendered or redirected
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 918)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDonor Load (0.8ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" LIMIT ?[0m  [["LIMIT", 11]]
+Started PUT "/api/v1/donors/?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:43:15 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/donors"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PUT "/api/v1/donors/1?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:43:24 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"token"=>"k_vyNJfimzs41iwxxwAU", "donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+Completed 500 Internal Server Error in 137ms (ActiveRecord: 1.4ms | Allocations: 90701)
+
+
+  
+NameError (undefined local variable or method `api_v1_donor' for #<Api::V1::DonorsController:0x00007f4294056648>
+Did you mean?  @api_v1_donor):
+  
+app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+Started PUT "/api/v1/donors/1?token=k_vyNJfimzs41iwxxwAU&donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:44:15 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"token"=>"k_vyNJfimzs41iwxxwAU", "donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.8ms | Allocations: 18010)
+
+
+  
+NoMethodError (undefined method `authentication_token=' for #<Donor:0x00007f429401b480>):
+  
+app/controllers/api/v1/donors_controller.rb:34:in `update'
+Started PUT "/api/v1/donors/1?donor[name]=Ariclene&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:44:58 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"donor"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:50:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+[31mUnpermitted parameters: :name, :email, :phone[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[36mDonor Update (0.3ms)[0m  [1m[33mUPDATE "donors" SET "birthdate" = ?, "weight" = ?, "blood" = ?, "gender" = ?, "updated_at" = ? WHERE "donors"."id" = ?[0m  [["birthdate", "1999-12-12"], ["weight", 80.0], ["blood", "A "], ["gender", "femenino"], ["updated_at", "2021-09-07 15:44:58.609799"], ["id", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 58ms (Views: 0.6ms | ActiveRecord: 4.2ms | Allocations: 23233)
+
+
+Started PUT "/api/v1/donors/1?donor[name]=Chimbili&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:45:21 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"donor"=>{"name"=>"Chimbili", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:50:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+[31mUnpermitted parameters: :name, :email, :phone[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 10ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 3905)
+
+
+Started PUT "/api/v1/donors/1?donor[name]=Chimbili&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:47:30 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"donor"=>{"name"=>"Chimbili", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:50:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+[31mUnpermitted parameters: :name, :email, :phone[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 58ms (Views: 1.1ms | ActiveRecord: 2.2ms | Allocations: 21455)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDonor Load (0.6ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started PUT "/api/v1/donors/1?donor[name]=Chimbili&donor[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:54:24 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"donor"=>{"name"=>"Chimbili", "email"=>"ariclinis1@gmail.com", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:50:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+[31mUnpermitted parameters: :name, :email, :phone[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 33ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 16960)
+
+
+Started PUT "/api/v1/donors/1?donor[name]=Chimbili&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:55:30 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"donor"=>{"name"=>"Chimbili", "province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "user"=>{"email"=>"ariclinis1@gmail.com"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:50:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+[31mUnpermitted parameters: :name, :phone[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 35ms (Views: 0.6ms | ActiveRecord: 1.7ms | Allocations: 17781)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Chimbili&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&donor[phone]=934641875" for ::1 at 2021-09-07 16:57:18 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Chimbili", "email"=>"ariclinis1@gmail.com"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino", "phone"=>"934641875"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:50:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+[31mUnpermitted parameter: :phone[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 41ms (Views: 0.6ms | ActiveRecord: 2.0ms | Allocations: 17918)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Chimbili&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 16:59:23 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Chimbili", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:50:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 51ms (Views: 0.8ms | ActiveRecord: 2.1ms | Allocations: 21418)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Chimbili&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:00:00 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Chimbili", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:50:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 58ms (Views: 0.6ms | ActiveRecord: 1.9ms | Allocations: 21419)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Chimbili&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:01:36 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Chimbili", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "name" = ?, "phone" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "ariclinis1@gmail.com"], ["name", "Chimbili"], ["phone", "934641875"], ["updated_at", "2021-09-07 16:01:36.274852"], ["id", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update'
+Completed 201 Created in 50ms (Views: 0.7ms | ActiveRecord: 4.6ms | Allocations: 24380)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Chimbili&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:05:27 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Chimbili", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 204 No Content in 37ms (ActiveRecord: 1.9ms | Allocations: 18112)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Chimbili&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:06:03 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Chimbili", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 204 No Content in 58ms (ActiveRecord: 2.0ms | Allocations: 21741)
+
+
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "name" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2021-09-07 16:08:05.163617"], ["name", "Chimbili"], ["id", 1]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Started PUT "/api/v1/donors/1?user[name]=Chimbili&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:11:52 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Chimbili", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 31ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 17789)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Ariclene&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:12:02 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Ariclene"], ["updated_at", "2021-09-07 16:12:02.521322"], ["id", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update'
+Completed 201 Created in 20ms (Views: 0.5ms | ActiveRecord: 3.3ms | Allocations: 8734)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Ariclene&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:12:13 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Ariclene", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 9ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 4321)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Bongue&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:12:31 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Bongue", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Bongue"], ["updated_at", "2021-09-07 16:12:31.337052"], ["id", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update'
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update'
+Completed 201 Created in 21ms (Views: 0.6ms | ActiveRecord: 4.2ms | Allocations: 8685)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Bongue&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:12:35 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Bongue", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.4ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+Completed 201 Created in 11ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 4343)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Bongues&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:14:49 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Bongues", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Bongues"], ["updated_at", "2021-09-07 16:14:49.163082"], ["id", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+Completed 201 Created in 55ms (Views: 0.8ms | ActiveRecord: 5.0ms | Allocations: 25195)
+
+
+Started PUT "/api/v1/donors/1?user[name]=Bongue&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 17:14:56 +0100
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Bongue", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Bongue"], ["updated_at", "2021-09-07 16:14:56.296522"], ["id", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:52:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+Completed 201 Created in 28ms (Views: 1.0ms | ActiveRecord: 3.7ms | Allocations: 10769)
+
+
