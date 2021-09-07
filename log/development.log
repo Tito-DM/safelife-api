@@ -7459,3 +7459,55 @@ Processing by Api::V1::DonorsController#update as JSON
 Completed 201 Created in 60ms (Views: 1.8ms | ActiveRecord: 1.3ms | Allocations: 22871)
 
 
+Started GET "/" for ::1 at 2021-09-07 18:56:51 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.2ms | Allocations: 421)
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 1831)
+
+
+Started GET "/as" for ::1 at 2021-09-07 18:58:39 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/as"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rails/info/routes?path=donor" for ::1 at 2021-09-07 18:58:41 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"donor"}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 2926)
+
+
+Started PUT "/api/v1/donors/2?user[name]=Bongue&user[email]=ariclinis1@gmail.com&donor[province]=Namibe&donor[birthdate]=12-12-1999&donor[weight]=80&donor[blood]=A+&donor[gender]=femenino&user[phone]=934641875" for ::1 at 2021-09-07 19:24:10 +0100
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::DonorsController#update as JSON
+  Parameters: {"user"=>{"name"=>"Bongue", "email"=>"ariclinis1@gmail.com", "phone"=>"934641875"}, "donor"=>{"province"=>"Namibe", "birthdate"=>"12-12-1999", "weight"=>"80", "blood"=>"A ", "gender"=>"femenino"}, "id"=>"2"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:51:in `set_api_v1_donor'
+Filter chain halted as :set_api_v1_donor rendered or redirected
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 5044)
+
+
