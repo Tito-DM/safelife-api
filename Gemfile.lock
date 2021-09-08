@@ -161,6 +161,9 @@ GEM
     rexml (3.2.5)
     ruby-graphviz (1.2.5)
       rexml
+    ruby_http_client (3.5.2)
+    sendgrid-ruby (6.5.0)
+      ruby_http_client (~> 3.4)
     simple_token_authentication (1.17.0)
       actionmailer (>= 3.2.6, < 7)
       actionpack (>= 3.2.6, < 7)
@@ -205,6 +208,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 6.0.3, >= 6.0.3.4)
   rails-erd
+  sendgrid-ruby
   simple_token_authentication
   spring
   spring-watcher-listen (~> 2.0.0)
