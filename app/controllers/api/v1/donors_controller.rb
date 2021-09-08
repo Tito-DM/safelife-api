@@ -35,6 +35,10 @@ class Api::V1::DonorsController < DashboardController
   def update
     json_response("Dados Atualizados com sucesso",true,{},@api_v1_donor,model_name, :created)
   end
+
+  def upari
+    json_response("Dados Atualizados com sucesso",true,{},@api_v1_donor,model_name, :created)
+  end
   # DELETE /api/v1/donors/1
   def destroy
     @api_v1_donor.destroy

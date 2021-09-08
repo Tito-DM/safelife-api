@@ -22,7 +22,8 @@ Rails.application.routes.draw do
         put "user/:id", to: "users#update"
       end
       resources :donors
-      put "donor_update/:id", to: "donors#update"
+      put "donor_update/:id", to: "donors#upari"
+      put "donor_update", to: "donors#upari"
       get "donors_all", to: "public#index_donors"
       get "current_u",to:"public#current_u"
     end
