@@ -21,11 +21,15 @@ class Api::V1::PasswordResetsController < DashboardController
     def update_pass
         # updates user's password
         token_decripted = Devise.token_generator.digest(User,:reset_password_token, params[:token])
-        @user = User.find_by!(reset_password_token: token_decripted)
-        if @user.update(password_params)
-            json_response("Palavra-passe alterada com sucesso.",true,{},@user,"Utilizador", :ok)
+        @user = User.find_by(reset_password_token: token_decripted)
+        if @user.present?
+          if @user.update(password_params)
+              json_response("Palavra-passe alterada com sucesso.",true,{},@user,"Utilizador", :ok)
+          else
+            json_response("Ocorreu um erro ao atualizar a Palavra-passe",true,{},@user,"Utilizador", :ok)
+          end
         else
-          json_response("Ocorreu um erro ao atualizar a Palavra-passe",true,{},@user,"Utilizador", :ok)
+          json_response("Utilizador não exite.",false,{},@user,"Utilizador", :created)
         end
     end
     private

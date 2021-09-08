@@ -8894,3 +8894,67 @@ Processing by Devise::PasswordsController#edit as HTML
 Completed 204 No Content in 10ms (ActiveRecord: 0.0ms | Allocations: 6526)
 
 
+Started PUT "/api/v1/user/password/forget/edit?user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&token=yq9ahZEhwo-YF_kAqmx1" for ::1 at 2021-09-08 14:45:40 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::PasswordResetsController#update_pass as JSON
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "token"=>"yq9ahZEhwo-YF_kAqmx1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? LIMIT ?[0m  [["reset_password_token", "84c0dec14c571ff17679e8491ee6f2f998851b87883e6323958534cb7c64a552"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:24:in `update_pass'
+Completed 404 Not Found in 121ms (ActiveRecord: 0.5ms | Allocations: 1830)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User):
+  
+app/controllers/api/v1/PasswordResetsController.rb:24:in `update_pass'
+Started PUT "/api/v1/user/password/forget/edit?user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&token=yq9ahZEhwo-YF_kAqmx1" for ::1 at 2021-09-08 14:47:20 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PasswordResetsController#update_pass as JSON
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "token"=>"yq9ahZEhwo-YF_kAqmx1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? LIMIT ?[0m  [["reset_password_token", "84c0dec14c571ff17679e8491ee6f2f998851b87883e6323958534cb7c64a552"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:24:in `update_pass'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.6ms | Allocations: 1583)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User):
+  
+app/controllers/api/v1/PasswordResetsController.rb:24:in `update_pass'
+Started PUT "/api/v1/user/password/forget/edit?user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&token=yq9ahZEhwo-YF_kAqmx1" for ::1 at 2021-09-08 14:47:45 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PasswordResetsController#update_pass as JSON
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "token"=>"yq9ahZEhwo-YF_kAqmx1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? LIMIT ?[0m  [["reset_password_token", "84c0dec14c571ff17679e8491ee6f2f998851b87883e6323958534cb7c64a552"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:24:in `update_pass'
+Completed 500 Internal Server Error in 134ms (ActiveRecord: 0.6ms | Allocations: 83316)
+
+
+  
+NameError (undefined local variable or method `user' for #<Api::V1::PasswordResetsController:0x00007f96c441db58>
+Did you mean?  @user):
+  
+app/controllers/api/v1/PasswordResetsController.rb:25:in `update_pass'
+Started PUT "/api/v1/user/password/forget/edit?user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&token=yq9ahZEhwo-YF_kAqmx1" for ::1 at 2021-09-08 14:48:01 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PasswordResetsController#update_pass as JSON
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "token"=>"yq9ahZEhwo-YF_kAqmx1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? LIMIT ?[0m  [["reset_password_token", "84c0dec14c571ff17679e8491ee6f2f998851b87883e6323958534cb7c64a552"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:24:in `update_pass'
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 0.6ms | Allocations: 83341)
+
+
+  
+NameError (undefined local variable or method `user' for #<Api::V1::PasswordResetsController:0x0000562ad3296c98>
+Did you mean?  @user):
+  
+app/controllers/api/v1/PasswordResetsController.rb:32:in `update_pass'
+Started PUT "/api/v1/user/password/forget/edit?user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&token=yq9ahZEhwo-YF_kAqmx1" for ::1 at 2021-09-08 14:48:16 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PasswordResetsController#update_pass as JSON
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "token"=>"yq9ahZEhwo-YF_kAqmx1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? LIMIT ?[0m  [["reset_password_token", "84c0dec14c571ff17679e8491ee6f2f998851b87883e6323958534cb7c64a552"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:24:in `update_pass'
+Completed 201 Created in 6ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 1648)
+
+
