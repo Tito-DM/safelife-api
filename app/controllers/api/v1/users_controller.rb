@@ -16,6 +16,12 @@ class Api::V1::UsersController < DashboardController
         end
     end
     
+    def forget_password
+        user = User.find_by_email(params[:email])
+        if user.present?
+            user.send_reset_password_instructions
+        end
+    end
     private
     def set_api_v1_user
         if User.exists?(params[:id])

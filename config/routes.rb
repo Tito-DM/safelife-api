@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         post "sign_in", to: "sessions#create"
         get "user/:id", to: "users#show"
         put "user/:id", to: "users#update"
+        post "user/reset_passoword/:email", to: "users#forgetpassword"
       end
       resources :donors
       put "donor_update/:id", to: "donors#update_donor"
