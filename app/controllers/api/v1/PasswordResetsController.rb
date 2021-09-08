@@ -4,7 +4,6 @@ class Api::V1::PasswordResetsController < DashboardController
       # finds user with a valid token
       token_decripted = Devise.token_generator.digest(User,:reset_password_token, params[:token])
       @user = User.find_by!(reset_password_token: token_decripted)
-      @user = User.find_signed!(params[:token], purpose: 'password_reset')
       rescue ActiveSupport::MessageVerifier::InvalidSignature
         json_response("O token está expirado, tente novamente.",false,{},@user,"Utilizador", :ok)
     end
@@ -26,7 +25,7 @@ class Api::V1::PasswordResetsController < DashboardController
         if @user.update(password_params)
             json_response("Palavra-passe alterada com sucesso.",true,{},@user,"Utilizador", :ok)
         else
-            render :edit
+          json_response("Ocorreu um erro ao atualizar a Palavra-passe",true,{},@user,"Utilizador", :ok)
         end
     end
     private
