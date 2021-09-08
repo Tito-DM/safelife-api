@@ -1,6 +1,6 @@
 class Api::V1::PasswordResetsController < DashboardController
     def new; end
-    def edit
+    def edit_pass
       # finds user with a valid token
       token_decripted = Devise.token_generator.digest(User,:reset_password_token, params[:token])
       @user = User.find_by!(reset_password_token: token_decripted)
@@ -19,7 +19,7 @@ class Api::V1::PasswordResetsController < DashboardController
       end
     end
 
-    def update
+    def update_pass
         # updates user's password
         token_decripted = Devise.token_generator.digest(User,:reset_password_token, params[:token])
         @user = User.find_by!(reset_password_token: token_decripted)
