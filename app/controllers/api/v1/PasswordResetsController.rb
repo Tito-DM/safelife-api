@@ -29,7 +29,7 @@ class Api::V1::PasswordResetsController < DashboardController
             json_response("Ocorreu um erro ao atualizar a Palavra-passe",true,{},@user,"Utilizador", :ok)
           end
         else
-          json_response("Utilizador não exite.",false,{},@user,"Utilizador", :created)
+          json_response("Token Inválido.",false,{},@user,"Utilizador", :created)
         end
     end
     private

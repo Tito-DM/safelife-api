@@ -8958,3 +8958,11 @@ Processing by Api::V1::PasswordResetsController#update_pass as JSON
 Completed 201 Created in 6ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 1648)
 
 
+Started PUT "/api/v1/user/password/forget/edit?user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&token=yq9ahZEhwo-YF_kAqmx1" for ::1 at 2021-09-08 14:49:22 +0100
+Processing by Api::V1::PasswordResetsController#update_pass as JSON
+  Parameters: {"user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "token"=>"yq9ahZEhwo-YF_kAqmx1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? LIMIT ?[0m  [["reset_password_token", "84c0dec14c571ff17679e8491ee6f2f998851b87883e6323958534cb7c64a552"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:24:in `update_pass'
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 678)
+
+
