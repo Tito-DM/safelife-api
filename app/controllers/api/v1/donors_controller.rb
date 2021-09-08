@@ -1,7 +1,7 @@
 class Api::V1::DonorsController < DashboardController
   include Paginable
 
-  before_action :set_api_v1_donor, only: [:show, :update, :destroy]
+  before_action :set_api_v1_donor, only: [:show, :update_donor, :destroy]
 
   # GET /api/v1/donors
   def index
@@ -50,7 +50,7 @@ class Api::V1::DonorsController < DashboardController
       donors = Donor.select('donors.*,users.id, users.name, users.email, users.phone, users.type_user').joins(:user)
       if donors.exists?(params[:id])
         @api_v1_donor = donors.find(params[:id])
-        @api_v1_user = User.find(1)
+        @api_v1_user = User.find_by(id: @api_v1_donor.user_id)
       else
         json_response("Doador não existe",false,{},{},model_name, :ok)
       end
