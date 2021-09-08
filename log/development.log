@@ -7970,3 +7970,406 @@ ken=3DsXA1xaDf1F5ywzZj6s7p">Repor a minha palavra-passe</a></p>=0D
 <p>A sua palavra-passe s=C3=B3 ser=C3=A1 alterada quando aceder ao link a=
 baixo para a alterar.</p>=0D
 
+Started PUT "/api/v1/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 04:49:46 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/user/reset_passoword/ariclinis1@gmail.com"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 04:49:52 +0100
+  
+AbstractController::ActionNotFound (The action 'forgetpassword' could not be found for Api::V1::UsersController):
+  
+actionpack (6.0.4) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.4) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (6.0.4) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/api/v1/user/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 04:50:02 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/user/user/reset_passoword/ariclinis1@gmail.com"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 04:50:16 +0100
+  
+AbstractController::ActionNotFound (The action 'forgetpassword' could not be found for Api::V1::UsersController):
+  
+actionpack (6.0.4) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.4) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (6.0.4) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 04:51:36 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"email"=>"ariclinis1@gmail"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 204 No Content in 4ms (ActiveRecord: 0.6ms | Allocations: 1624)
+
+
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 04:51:41 +0100
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"email"=>"ariclinis1@gmail"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 204 No Content in 2ms (ActiveRecord: 0.1ms | Allocations: 564)
+
+
+Started GET "/articles/" for ::1 at 2021-09-08 04:51:54 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/articles"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rails/info/routes?path=rese" for ::1 at 2021-09-08 04:51:58 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"rese"}
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 2951)
+
+
+Started GET "/rails/info/routes?path=reset" for ::1 at 2021-09-08 04:51:59 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"reset"}
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 931)
+
+
+Started GET "/rails/info/routes?path=reset" for ::1 at 2021-09-08 04:51:59 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"reset"}
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 929)
+
+
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 04:52:37 +0100
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"email"=>"ariclinis1@gmail"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 204 No Content in 2ms (ActiveRecord: 0.2ms | Allocations: 563)
+
+
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 04:53:50 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"email"=>"ariclinis1@gmail"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 204 No Content in 4ms (ActiveRecord: 0.7ms | Allocations: 1554)
+
+
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 04:54:11 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"email"=>"ariclinis1@gmail"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1680)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com?email" for ::1 at 2021-09-08 05:00:08 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"email"=>"ariclinis1@gmail"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 706)
+
+
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com?email=ariclinis1@gmail.com" for ::1 at 2021-09-08 05:00:21 +0100
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"email"=>"ariclinis1@gmail"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 677)
+
+
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 05:01:04 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"email"=>"ariclinis1@gmail"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1678)
+
+
+Started POST "/api/v1/user/reset_passoword/%22ariclinis1@gmail.com%22" for ::1 at 2021-09-08 05:01:53 +0100
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"email"=>"\"ariclinis1@gmail"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "\"ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 201 Created in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 678)
+
+
+Started POST "/api/v1/user/reset_passoword/%22ariclinis1@gmail-com%22" for ::1 at 2021-09-08 05:02:12 +0100
+Processing by Api::V1::UsersController#forget_password as JSON
+  Parameters: {"email"=>"\"ariclinis1@gmail-com\""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "\"ariclinis1@gmail-com\""], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 201 Created in 3ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 678)
+
+
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail-com" for ::1 at 2021-09-08 05:02:27 +0100
+Processing by Api::V1::UsersController#forget_password as JSON
+  Parameters: {"email"=>"ariclinis1@gmail-com"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail-com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 201 Created in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 678)
+
+
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com" for ::1 at 2021-09-08 05:02:44 +0100
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"email"=>"ariclinis1@gmail"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 201 Created in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 678)
+
+
+Started POST "/api/v1/user/reset_passoword/ariclinis1@gmail.com?emaile=ariclinis1@gmail.com" for ::1 at 2021-09-08 05:03:12 +0100
+Processing by Api::V1::UsersController#forget_password as 
+  Parameters: {"emaile"=>"ariclinis1@gmail.com", "email"=>"ariclinis1@gmail"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+Completed 201 Created in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 679)
+
+
+Started POST "/api/v1/user/reset_passoword?email=ariclinis1@gmail.com" for ::1 at 2021-09-08 05:04:41 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#forget_password as JSON
+  Parameters: {"email"=>"ariclinis1@gmail.com"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "e6c87ac2af8c30fc7a34ec8c3f6f7b3aeec14931fd39d1b8a1672686b1bee3d4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `forget_password'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `forget_password'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = ?, "reset_password_sent_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["reset_password_token", "e6c87ac2af8c30fc7a34ec8c3f6f7b3aeec14931fd39d1b8a1672686b1bee3d4"], ["reset_password_sent_at", "2021-09-08 04:04:41.932392"], ["updated_at", "2021-09-08 04:04:41.932953"], ["id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `forget_password'
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `forget_password'
+  Rendering vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.0/app/views/devise/mailer/reset_password_instructions.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.0/app/views/devise/mailer/reset_password_instructions.html.erb (Duration: 1.7ms | Allocations: 719)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 37.1ms
+Delivered mail 6138365a7730_690234e48463e@cuidado.mail (3.8ms)
+Date: Wed, 08 Sep 2021 05:04:42 +0100
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ariclinis1@gmail.com
+Message-ID: <6138365a7730_690234e48463e@cuidado.mail>
+Subject: =?UTF-8?Q?Instru=C3=A7=C3=B5es_de_recupera=C3=A7=C3=A3o_de_palavr?=
+ =?UTF-8?Q?a-passe?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p>Ol=C3=A1 ariclinis1@gmail.com!</p>=0D
+=0D
+<p>Foi efetuado um pedido para repor a sua palavra-passe. Para prosseguir=
+ clique no link abaixo.</p>=0D
+=0D
+<p><a href=3D"http://localhost:3000/users/password/edit?reset_password_to=
+ken=3D4Ryxz1ST4FrPDspvQe9x">Repor a minha palavra-passe</a></p>=0D
+=0D
+<p>Se n=C3=A3o fez este pedido, por favor ignore este e-mail.</p>=0D
+<p>A sua palavra-passe s=C3=B3 ser=C3=A1 alterada quando aceder ao link a=
+baixo para a alterar.</p>=0D
+
+Completed 201 Created in 237ms (Views: 0.7ms | ActiveRecord: 3.6ms | Allocations: 51314)
+
+
+Started POST "/api/v1/user/reset_passoword?email=ariclinis1@gmail.com" for ::1 at 2021-09-08 05:08:15 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#forget_password as JSON
+  Parameters: {"email"=>"ariclinis1@gmail.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `forget_password'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "dce427ec3175af9bf81218f9c6e9b74336617cbf3a9e7977f964c2af71c31a9b"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `forget_password'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `forget_password'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = ?, "reset_password_sent_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["reset_password_token", "dce427ec3175af9bf81218f9c6e9b74336617cbf3a9e7977f964c2af71c31a9b"], ["reset_password_sent_at", "2021-09-08 04:08:16.084280"], ["updated_at", "2021-09-08 04:08:16.084749"], ["id", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `forget_password'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:22:in `forget_password'
+  Rendering vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.0/app/views/devise/mailer/reset_password_instructions.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/devise-i18n-1.10.0/app/views/devise/mailer/reset_password_instructions.html.erb (Duration: 1.7ms | Allocations: 719)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 35.1ms
+Delivered mail 613837302bede_6b2634e4-4f2@cuidado.mail (3.8ms)
+Date: Wed, 08 Sep 2021 05:08:16 +0100
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ariclinis1@gmail.com
+Message-ID: <613837302bede_6b2634e4-4f2@cuidado.mail>
+Subject: =?UTF-8?Q?Instru=C3=A7=C3=B5es_de_recupera=C3=A7=C3=A3o_de_palavr?=
+ =?UTF-8?Q?a-passe?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p>Ol=C3=A1 ariclinis1@gmail.com!</p>=0D
+=0D
+<p>Foi efetuado um pedido para repor a sua palavra-passe. Para prosseguir=
+ clique no link abaixo.</p>=0D
+=0D
+<p><a href=3D"http://localhost:3000/users/password/edit?reset_password_to=
+ken=3Doy8rBqRv7aAumyPmqWML">Repor a minha palavra-passe</a></p>=0D
+=0D
+<p>Se n=C3=A3o fez este pedido, por favor ignore este e-mail.</p>=0D
+<p>A sua palavra-passe s=C3=B3 ser=C3=A1 alterada quando aceder ao link a=
+baixo para a alterar.</p>=0D
+
+Completed 201 Created in 239ms (Views: 0.8ms | ActiveRecord: 3.9ms | Allocations: 51315)
+
+

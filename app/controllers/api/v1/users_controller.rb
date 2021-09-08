@@ -20,6 +20,9 @@ class Api::V1::UsersController < DashboardController
         user = User.find_by_email(params[:email])
         if user.present?
             user.send_reset_password_instructions
+            json_response("Foi enviado um email de recuperação para #{params[:email]}",true,{},user,model_name, :created)
+        else
+            json_response("O email #{params[:email]} não exite.",false,{},user,model_name, :created)
         end
     end
     private
