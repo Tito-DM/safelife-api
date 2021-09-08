@@ -20,8 +20,14 @@ Rails.application.routes.draw do
         post "sign_in", to: "sessions#create"
         get "user/:id", to: "users#show"
         put "user/:id", to: "users#update"
-        post "user/reset_passoword", to: "users#forget_password"
       end
+      get 'user/password/reset', to: 'password_resets#new'
+
+      get 'user/password/forgot_password', to: 'password_resets#forgot_password' #param[email]
+      #post 'user/password/reset', to: 'password_resets#create'
+      get 'user/password/reset/edit', to: 'password_resets#edit' #need param[reset_password_token]
+      put 'user/password/reset/edit', to: 'password_resets#update' #param[password] and param[password_confirmation]
+
       resources :donors
       put "donor_update/:id", to: "donors#update_donor"
       get "donors_all", to: "public#index_donors"

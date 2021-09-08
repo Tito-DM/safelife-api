@@ -72,6 +72,10 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.10.0)
       devise (>= 4.8.0)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     enumerize (2.4.0)
       activesupport (>= 3.2)
     erubi (1.10.0)
@@ -200,6 +204,7 @@ DEPENDENCIES
   byebug
   devise
   devise-i18n
+  dotenv-rails
   enumerize
   kaminari
   listen (~> 3.2)
