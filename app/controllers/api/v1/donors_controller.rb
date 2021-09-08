@@ -30,15 +30,11 @@ class Api::V1::DonorsController < DashboardController
   end
 
   # PATCH/PUT /api/v1/donors/1
-  def update
-    if @api_v1_donor.update(api_v1_donor_params) && @api_v1_user.update(user_params)
-          set_api_v1_donor
-          json_response("Dados Atualizados com sucesso",true,{},@api_v1_donor,model_name, :created)
-    else
-        json_response("Ocorreu algum problema",false,@api_v1_donor.errors,{},model_name, :ok)
-    end
-  end
 
+
+  def update
+    json_response("Dados Atualizados com sucesso",true,{},@api_v1_donor,model_name, :created)
+  end
   # DELETE /api/v1/donors/1
   def destroy
     @api_v1_donor.destroy
