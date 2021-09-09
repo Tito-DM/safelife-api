@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       end
       get 'user/password/reset', to: 'password_resets#new'
 
-      get 'user/password/forgot_password', to: 'password_resets#forgot_password' #param[email]
+      post 'user/password/forgot_password', to: 'password_resets#forgot_password' #param[email]
       #post 'user/password/reset', to: 'password_resets#create'
       get 'user/password/forget/edit', to: 'password_resets#edit_pass' #need param[reset_password_token]
       put 'user/password/forget/edit', to: 'password_resets#update_pass' #param[password] and param[password_confirmation]
