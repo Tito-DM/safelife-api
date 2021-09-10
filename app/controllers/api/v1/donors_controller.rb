@@ -31,7 +31,7 @@ class Api::V1::DonorsController < DashboardController
 
   # PATCH/PUT /api/v1/donors/1
   def update_donor
-    if @api_v1_donor.update(api_v1_donor_params) && @api_v1_user.update(user_params)
+    if (@api_v1_donor.update(api_v1_donor_params) && @api_v1_user.update(user_params))
           set_api_v1_donor
           json_response("Dados Atualizados com sucesso",true,{},@api_v1_donor,model_name, :created)
     else
