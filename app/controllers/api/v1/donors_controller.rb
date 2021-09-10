@@ -31,7 +31,7 @@ class Api::V1::DonorsController < DashboardController
 
   # PATCH/PUT /api/v1/donors/1
   def update_donor
-    donor = @api_v1_donor.update(api_v1_donor_params)
+    donor=@donor.update(api_v1_donor_params)
     user= @api_v1_user.update(user_params)
     if ( donor && user )
           set_api_v1_donor
@@ -52,6 +52,7 @@ class Api::V1::DonorsController < DashboardController
       donors = Donor.select('donors.*,users.id, users.name, users.email, users.phone, users.type_user').joins(:user)
       if donors.exists?(params[:id])
         @api_v1_donor = donors.find(params[:id])
+        @donor = Donor.find_by(id: params[:id])
         @api_v1_user = User.find_by(id: @api_v1_donor.user_id)
       else
         json_response("Doador não existe",false,{},{},model_name, :ok)
