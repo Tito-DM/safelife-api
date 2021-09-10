@@ -21,9 +21,12 @@ class Api::V1::AnswersRequestsController < ApplicationController
   # POST /api/v1/answers_requests
   def create
     @api_v1_answers_request = AnswersRequest.new(api_v1_answers_request_params)
-
     if @api_v1_answers_request.save
       json_response("Sua resposta foi registada",true,{},@api_v1_answers_request,model_name, :created)
+      donor= @api_v1_answers_request.donor_id
+      user =  @api_v1_answers_request.donor.user_id
+      request = @api_v1_answers_request.request_id
+      RequestMailer.with(user: user, request: request).to_user_interesting.deliver_now
     else
       json_response("Ocorreu algum problema",false,@api_v1_answers_request.errors,{},model_name, :unprocessable_entity)
     end

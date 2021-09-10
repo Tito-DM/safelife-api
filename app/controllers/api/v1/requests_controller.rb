@@ -21,8 +21,12 @@ class Api::V1::RequestsController < ApplicationController
     type_r = params['type_request']
     type_r = type_r.to_i
     @api_v1_request.type_request = type_r
+
     if @api_v1_request.save
       json_response("Pedido efetuado",true,{},@api_v1_request,model_name, :created)
+      d = @api_v1_request.description
+      u = @api_v1_request.user_id
+      AlertDonorWorker.perform_async(u, @api_v1_request.id, d)
     else
       json_response("Ocorreu algum problema",false,@api_v1_request.errors,{},model_name, :unprocessable_entity)
     end
@@ -53,6 +57,13 @@ class Api::V1::RequestsController < ApplicationController
     def api_v1_request_params
       params.require(:request).permit(:user_id, :description, :date_limit, :province)
     end
+
+    # Only allow a trusted parameter "white list" through.
+    def api_v1_notification_params
+      params.require(:notification_donor_to_request).permit(:donor_id, :request_id)
+    end
+
+
 
     def model_name
       "Request"

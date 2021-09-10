@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_191309) do
+ActiveRecord::Schema.define(version: 2021_09_09_105437) do
 
   create_table "answers_requests", force: :cascade do |t|
     t.integer "request_id", null: false
@@ -37,6 +37,26 @@ ActiveRecord::Schema.define(version: 2021_07_15_191309) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_donors_on_user_id"
+  end
+
+  create_table "notification_donor_to_requests", force: :cascade do |t|
+    t.integer "request_id", null: false
+    t.integer "donor_id", null: false
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["donor_id"], name: "index_notification_donor_to_requests_on_donor_id"
+    t.index ["request_id"], name: "index_notification_donor_to_requests_on_request_id"
+  end
+
+  create_table "notification_resquest_to_donors", force: :cascade do |t|
+    t.integer "request_id", null: false
+    t.integer "donor_id", null: false
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["donor_id"], name: "index_notification_resquest_to_donors_on_donor_id"
+    t.index ["request_id"], name: "index_notification_resquest_to_donors_on_request_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -70,5 +90,9 @@ ActiveRecord::Schema.define(version: 2021_07_15_191309) do
   add_foreign_key "answers_requests", "donors"
   add_foreign_key "answers_requests", "requests"
   add_foreign_key "donors", "users"
+  add_foreign_key "notification_donor_to_requests", "donors"
+  add_foreign_key "notification_donor_to_requests", "requests"
+  add_foreign_key "notification_resquest_to_donors", "donors"
+  add_foreign_key "notification_resquest_to_donors", "requests"
   add_foreign_key "requests", "users"
 end

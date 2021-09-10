@@ -26,7 +26,7 @@ class Api::V1::SessionsController < Devise::SessionsController
           render json: {
             message: "Ocorreu algum problema",
             is_success: false,
-            error_messages: {password: "Palavra-passe errada"} ,
+            error_messages: {password: "Credênciais erradas"} ,
             data: {User: {}}
           }, status: :unauthorized
         end
@@ -34,7 +34,7 @@ class Api::V1::SessionsController < Devise::SessionsController
         render json: {
           messages: "Ocorreu algum problema",
           is_success: false,
-          error_messages: {notfound:"Utilizador não encontrado"},
+          error_messages: {notfound:"Credênciais erradas"},
           data: {User: {}}
         }, status: :unauthorized
       end

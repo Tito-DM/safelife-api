@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Caro Doador, <%= @user.name %></h1>
+    <p>
+      Existe um Pedido de doação de Sangue do tipo <%= @request.description%>
+    </p>
+    <p>
+      Segundo nossas informações é um tipo de sangue compativel com o seu tipo <%= @donor.blood%>
+    </p>
+    <p>
+      Clica no clink para ver os dados do Pedido <%= @url %>.
+    </p>
+    <p>Obrigado por querer salvar mais uma vida,</p>
+    <p>Savelife</p>
+  </body>
+</html>
