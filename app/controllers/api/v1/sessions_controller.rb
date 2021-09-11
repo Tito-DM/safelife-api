@@ -24,7 +24,7 @@ class Api::V1::SessionsController < Devise::SessionsController
           end
         else
           render json: {
-            message: "Ocorreu algum problema",
+            messages: "Ocorreu algum problema",
             is_success: false,
             error_messages: {password: "Credênciais erradas"} ,
             data: {User: {}}

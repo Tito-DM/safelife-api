@@ -10,7 +10,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
         render json: {
           message: "Sign Up Successfully",
           is_success: true,
-          data: {user: user},
+          data: {User: user},
           error_message: {}
         }, status: :ok
       else
@@ -18,7 +18,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
         render json: {
           message: "Sign Up Failded",
           is_success: false,
-          data: {user: user},
+          data: {User: user},
           error_message: user.errors.messages,
         }, status: :ok
       end
@@ -32,15 +32,15 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
             donor.user_id = user.id
             if(donor.save)        
                 render json: {
-                    message: "Sign Up Successfully Donor",
+                    messages: "Sign Up Successfully Donor",
                     is_success: true,
                     error_message: {},
-                    data: {user: user, donor: donor}
+                    data: {User: user, Donor: donor}
                 }, status: :ok
             else
                 user.destroy
                 render json: {
-                    message: "Sign Up Failded",
+                    messages: "Sign Up Failded",
                     is_success: false,
                     error_message: donor.errors.messages,
                     data: {}
@@ -48,7 +48,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
             end
         else
           render json: {
-            message: "Sign Up Failded",
+            messages: "Sign Up Failded",
             is_success: false,
             error_message: user.errors.messages,
             data: {}
@@ -67,7 +67,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     def ensure_params_exist
       return if params[:user].present?
       render json: {
-          message: "Missing Params",
+          messages: "Missing Params",
           is_success: false,
           data: {}
         }, status: :bad_request
@@ -76,7 +76,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     def ensure_params_exist_donor
         return if params[:user].present? && params[:donor].present?
         render json: {
-            message: "Missing Params",
+            messages: "Missing Params",
             is_success: false,
             data: {}
           }, status: :bad_request
