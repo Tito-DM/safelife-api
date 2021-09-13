@@ -33,7 +33,7 @@ class Api::V1::AnswersRequestsController < ApplicationController
       request = @api_v1_answers_request.request_id
       RequestMailer.with(user: user, request: request).to_user_interesting.deliver_now
     else
-      json_response("Ocorreu algum problema",false,@api_v1_answers_request.errors,{},model_name, :unprocessable_entity)
+      json_response("Ocorreu algum problema",false,@api_v1_answers_request.errors.messages.values.flatten,{},model_name, :unprocessable_entity)
     end
   end
 
@@ -42,7 +42,7 @@ class Api::V1::AnswersRequestsController < ApplicationController
     if @api_v1_answers_request.update(api_v1_answers_request_params)
       json_response("Resposta Atualizada",true,{},@api_v1_answers_request,model_name, :created)
     else
-      json_response("Ocorreu algum problema",false,@api_v1_answers_request.errors,{},model_name, :unprocessable_entity)
+      json_response("Ocorreu algum problema",false,@api_v1_answers_request.errors.messages.values.flatten,{},model_name, :unprocessable_entity)
     end
   end
 

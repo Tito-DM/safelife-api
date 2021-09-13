@@ -21813,3 +21813,149 @@ Processing by Api::V1::RequestsController#show as */*
 Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 2894)
 
 
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=1&request[province]=Namibe&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:30:58 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"1", "province"=>"Namibe", "date_limit"=>"20-01-2021"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+Completed 422 Unprocessable Entity in 86ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 39419)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=1&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:31:09 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"1", "province"=>"", "date_limit"=>"20-01-2021"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 3611)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:31:30 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 5ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1875)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:33:27 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.0ms | Allocations: 28492)
+
+
+  
+I18n::InvalidLocaleData (can not load translations from /home/cuidado/Documentos/projects/unitel_challenge/safelife-api/config/locales/pt.yml: #<Psych::SyntaxError: (<unknown>): mapping values are not allowed in this context at line 4 column 3>):
+  
+app/controllers/api/v1/requests_controller.rb:34:in `create'
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:33:36 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 27ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 30209)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:33:54 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 29ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 30047)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:34:27 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 30ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 29972)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:35:05 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 26ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 30104)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:35:32 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.9ms | Allocations: 28540)
+
+
+  
+I18n::InvalidLocaleData (can not load translations from /home/cuidado/Documentos/projects/unitel_challenge/safelife-api/config/locales/pt.yml: #<Psych::SyntaxError: (<unknown>): did not find expected key while parsing a block mapping at line 17 column 13>):
+  
+app/controllers/api/v1/requests_controller.rb:34:in `create'
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:36:13 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 28ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 30111)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:37:32 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 27ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 30045)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:42:58 +0100
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 73ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 32113)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:47:05 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 13ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 7065)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:47:25 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 18ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 7513)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:49:42 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 22ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 7029)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:49:55 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 17ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 7009)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:50:04 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 13ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 7000)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=&request[user_id]=&request[province]=&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 21:50:34 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"", "user_id"=>"", "province"=>"", "date_limit"=>"20-01-2021"}}
+Completed 422 Unprocessable Entity in 30ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 29783)
+
+

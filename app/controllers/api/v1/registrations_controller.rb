@@ -19,7 +19,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
         message: "Sign Up Failded",
         is_success: false,
         data: {User: user},
-        error_message: user.errors.messages,
+        error_message: user.errors.messages.values.flatten,
       }, status: :ok
       end
     end
@@ -42,7 +42,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
                 render json: {
                     messages: "Sign Up Failded",
                     is_success: false,
-                    error_message: donor.errors.messages,
+                    error_message: donor.errors.messages.values.flatten,
                     data: {}
                 }, status: :ok
             end
@@ -50,7 +50,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
           render json: {
             messages: "Sign Up Failded",
             is_success: false,
-            error_message: user.errors.messages,
+            error_message: user.errors.messages.values.flatten,
             data: {}
           }, status: :ok
         end

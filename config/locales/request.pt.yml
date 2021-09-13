@@ -1,0 +1,8 @@
+pt:
+  require: pedido
+  requires: pedido
+
+  # attributes
+  titule: titulo
+  description: descrição
+  province: "provincia"

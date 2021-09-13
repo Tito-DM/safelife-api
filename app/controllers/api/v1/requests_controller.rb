@@ -37,7 +37,7 @@ class Api::V1::RequestsController < ApplicationController
       u = @api_v1_request.user_id
       AlertDonorWorker.perform_async(u, @api_v1_request.id, d)
     else
-      json_response("Ocorreu algum problema",false,@api_v1_request.errors,{},model_name, :unprocessable_entity)
+      json_response("Ocorreu algum problema",false,@api_v1_request.errors.messages.values.flatten,{},model_name, :unprocessable_entity)
     end
   end
 
@@ -46,7 +46,7 @@ class Api::V1::RequestsController < ApplicationController
     if @api_v1_request.update(api_v1_request_params)
       json_response("Pedido Atualizador",true,{},@api_v1_request,model_name, :created)
     else
-      json_response("Ocorreu algum problema",false,@api_v1_request.errors,{},model_name, :unprocessable_entity)
+      json_response("Ocorreu algum problema",false,@api_v1_request.errors.messages.values.flatten,{},model_name, :unprocessable_entity)
     end
   end
 

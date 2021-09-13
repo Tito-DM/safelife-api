@@ -4,14 +4,12 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :answers_requests
       get '/answers/:request_id', to: 'answers_requests#answers_request'
-
     end
   end
   namespace :api do
     namespace :v1 do
       resources :requests
       get '/requests/user_requests/:user_id', to: 'requests#requests_user'
-      
     end
   end
   devise_for :users

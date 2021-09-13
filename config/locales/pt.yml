@@ -16,12 +16,14 @@ pt:
           attributes:
             description:
               blank: "É necessário uma descrição"
-            user_id:
-              blank: "Tentativa de quebra de segurança"
             province:
               blank: "É necessário uma provincia"
             type_request:
               blank: "É necessário o tipo de pedido( Sangue, Orgão)"
+            user:
+              required: "Tentativa de quebra de segurança"
+            user_id:
+              blank: "Tentativa de quebra de segurança"
         user:
           attributes:
             password_confirmation:

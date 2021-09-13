@@ -25,7 +25,7 @@ class Api::V1::DonorsController < DashboardController
     if @api_v1_donor.save
       render json: @api_v1_donor, status: :created
     else
-      render json: @api_v1_donor.errors, status: :unprocessable_entity
+      render json: @api_v1_donor.errors.messages.values.flatten, status: :unprocessable_entity
     end
   end
 
@@ -37,7 +37,7 @@ class Api::V1::DonorsController < DashboardController
           set_api_v1_donor
           json_response("Dados Atualizados com sucesso",true,{},@api_v1_donor,model_name, :created)
     else
-        json_response("Ocorreu algum problema",false,@api_v1_donor.errors,{},model_name, :ok)
+        json_response("Ocorreu algum problema",false,@api_v1_donor.errors.messages.values.flatten,{},model_name, :ok)
     end
   end
 

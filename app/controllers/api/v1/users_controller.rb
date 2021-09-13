@@ -12,7 +12,7 @@ class Api::V1::UsersController < DashboardController
         if @api_v1_user.update(user_params)
             json_response("Dados Atualizados com sucesso",true,{},@api_v1_user,model_name, :created)
         else
-            json_response("Ocorreu algum problema",false,@api_v1_user.errors,{},model_name, :ok)
+            json_response("Ocorreu algum problema",false,@api_v1_user.errors.messages.values.flatten,{},model_name, :ok)
         end
     end
 
