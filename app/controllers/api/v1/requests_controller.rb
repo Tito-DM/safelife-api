@@ -35,7 +35,7 @@ class Api::V1::RequestsController < ApplicationController
       json_response("Pedido efetuado",true,{},@api_v1_request,model_name, :created)
       d = @api_v1_request.description
       u = @api_v1_request.user_id
-      AlertDonorWorker.perform_async(u, @api_v1_request.id, d)
+      #AlertDonorWorker.perform_async(u, @api_v1_request.id, d)
     else
       json_response("Ocorreu algum problema",false,@api_v1_request.errors.messages.values.flatten,{},model_name, :unprocessable_entity)
     end

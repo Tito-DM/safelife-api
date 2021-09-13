@@ -4,7 +4,7 @@ class Api::V1::UsersController < DashboardController
     before_action :set_api_v1_user, only: [:show, :update, :destroy]
 
     def show
-        json_response("Pedido efetuado",true,{},@api_v1_user,model_name, :ok)
+        json_response("Utilizador",true,{},@api_v1_user,model_name, :ok)
     end
 
     def update

@@ -22051,3 +22051,20 @@ Processing by Api::V1::RequestsController#create as */*
 Completed 201 Created in 41ms (Views: 0.7ms | ActiveRecord: 3.2ms | Allocations: 12714)
 
 
+Started POST "/api/v1/sign_up?user[email]=a@g.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=ariclene&user[phone]=93453434" for ::1 at 2021-09-13 22:33:18 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"a@g.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"ariclene", "phone"=>"93453434"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@g.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "Wxic4g8kyxGDUzzoxdJk"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "a@g.com"], ["encrypted_password", "$2a$12$Ct6D2FDb.E0xRJH9kNejie9U1prmpPUID7/ZtL1l4giXCqkHgWykO"], ["created_at", "2021-09-13 21:33:18.722475"], ["updated_at", "2021-09-13 21:33:18.722475"], ["authentication_token", "Wxic4g8kyxGDUzzoxdJk"], ["phone", "93453434"], ["name", "ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 200 OK in 287ms (Views: 0.5ms | ActiveRecord: 2.9ms | Allocations: 14039)
+
+
