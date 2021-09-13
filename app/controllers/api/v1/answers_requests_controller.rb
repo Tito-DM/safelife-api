@@ -4,13 +4,18 @@ class Api::V1::AnswersRequestsController < ApplicationController
 
   # GET /api/v1/answers_requests
   def index
-
     p = params[:page]
     page = (p)?(p):1
     @api_v1_answers_requests = Donor.page(page).per(20)
-
     render json: { answers_requests: @api_v1_answers_requests,page: page , per_page: 20, answer_request_count: @api_v1_answers_requests.count, success: true}, status: :ok
+  end
 
+  # GET /api/v1/answers_requests/:request_id
+  def answers_request
+    p = params[:page]
+    page = (p)?(p):1
+    @api_v1_answers_request = ActiveRecord::Base.connection.execute("SELECT donors.*, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id WHERE requests.id = #{params['request_id']}")
+    render json: { answers_requests: @api_v1_answers_request,page: page , per_page: 10, request_count: @api_v1_answers_request.count, success: true, message: "Listado com sucesso"}, status: :ok
   end
 
   # GET /api/v1/answers_requests/1

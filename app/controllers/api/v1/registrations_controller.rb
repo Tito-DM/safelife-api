@@ -15,12 +15,12 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
         }, status: :ok
       else
 
-        render json: {
-          message: "Sign Up Failded",
-          is_success: false,
-          data: {User: user},
-          error_message: user.errors.messages,
-        }, status: :ok
+      render json: {
+        message: "Sign Up Failded",
+        is_success: false,
+        data: {User: user},
+        error_message: user.errors.messages,
+      }, status: :ok
       end
     end
   

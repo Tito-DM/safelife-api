@@ -10,6 +10,14 @@ class Api::V1::RequestsController < ApplicationController
 
   end
 
+  # GET /api/v1/requests/:user_id
+  def requests_user
+    p = params[:page]
+    page = (p)?(p):1
+    @api_v1_requests = Request.page(page).per(10).where(["user_id = ?", params[:user_id]])
+    render json: { requests: @api_v1_requests,page: page , per_page: 10, request_count: @api_v1_requests.count, success: true, message: "Listado com sucesso"}, status: :ok
+  end
+
   # GET /api/v1/requests/1
   def show
     render json: @api_v1_request
