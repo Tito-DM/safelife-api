@@ -22023,3 +22023,31 @@ Processing by Api::V1::RegistrationsController#create as JSON
 Completed 200 OK in 259ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 3419)
 
 
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=5&request[province]=Namibe&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 22:21:00 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"5", "province"=>"Namibe", "date_limit"=>"20-01-2021"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+Completed 422 Unprocessable Entity in 92ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 35177)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=1&request[province]=Namibe&request[date_limit]=20-01-2021" for ::1 at 2021-09-13 22:21:08 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"1", "province"=>"Namibe", "date_limit"=>"20-01-2021"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+  [1m[36mRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-13 21:21:08.456199"], ["updated_at", "2021-09-13 21:21:08.456199"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:34:in `create'
+Completed 201 Created in 41ms (Views: 0.7ms | ActiveRecord: 3.2ms | Allocations: 12714)
+
+
