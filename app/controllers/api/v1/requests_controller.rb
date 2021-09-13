@@ -20,7 +20,8 @@ class Api::V1::RequestsController < ApplicationController
 
   # GET /api/v1/requests/1
   def show
-    render json: @api_v1_request
+    request = ActiveRecord::Base.connection.execute("SELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = #{params[:id]}")
+    render json: { request: request, success: true}, status: :ok
   end
 
   # POST /api/v1/requests

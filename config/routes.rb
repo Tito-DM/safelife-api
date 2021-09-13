@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :requests
-      get '/user_requests/:user_id', to: 'requests#requests_user'
+      get '/requests/user_requests/:user_id', to: 'requests#requests_user'
       
     end
   end
