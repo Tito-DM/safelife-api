@@ -21959,3 +21959,67 @@ Processing by Api::V1::RequestsController#create as */*
 Completed 422 Unprocessable Entity in 30ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 29783)
 
 
+Started POST "/api/v1/sign_up?user[email]=ari@g.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=&user[phone]=93453434" for ::1 at 2021-09-13 21:56:36 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"ari@g.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"", "phone"=>"93453434"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ari@g.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 200 OK in 287ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 11224)
+
+
+Started POST "/api/v1/sign_up?user[email]=ari@g.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=&user[phone]=" for ::1 at 2021-09-13 21:56:50 +0100
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"ari@g.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"", "phone"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ari@g.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 200 OK in 280ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 3392)
+
+
+Started POST "/api/v1/sign_up?user[email]=&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=&user[phone]=" for ::1 at 2021-09-13 21:57:00 +0100
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"", "phone"=>""}}
+Completed 200 OK in 326ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1427)
+
+
+Started POST "/api/v1/sign_up?user[email]=&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=&user[phone]=" for ::1 at 2021-09-13 21:57:54 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"", "phone"=>""}}
+Completed 200 OK in 277ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 30997)
+
+
+Started POST "/api/v1/sign_up?user[email]=&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=&user[phone]=" for ::1 at 2021-09-13 21:58:19 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"", "phone"=>""}}
+Completed 200 OK in 270ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 30985)
+
+
+Started POST "/api/v1/sign_up?user[email]=&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=&user[phone]=" for ::1 at 2021-09-13 21:58:27 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"", "phone"=>""}}
+Completed 200 OK in 283ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 30931)
+
+
+Started POST "/api/v1/sign_up?user[email]=a@g.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=&user[phone]=93453434" for ::1 at 2021-09-13 21:59:16 +0100
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"a@g.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"", "phone"=>"93453434"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@g.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 200 OK in 259ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 3419)
+
+

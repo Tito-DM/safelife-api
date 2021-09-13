@@ -31,6 +31,7 @@ pt:
             email:
               taken: "Este email já foi registado"
               invalid: "O email é inválido"
+              blank: "É necessário o Email"
             name:
               blank: "É necessário o Nome"
             password:

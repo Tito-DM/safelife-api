@@ -11,7 +11,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
           message: "Sign Up Successfully",
           is_success: true,
           data: {User: user},
-          error_message: {}
+          error_message: []
         }, status: :ok
       else
 
