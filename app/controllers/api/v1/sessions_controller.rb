@@ -28,7 +28,7 @@ class Api::V1::SessionsController < Devise::SessionsController
             is_success: false,
             error_messages: ["Credênciais erradas"],
             data: {User: {}}
-          }, status: :unauthorized
+          }, status: :ok
         end
       else
         render json: {
@@ -36,7 +36,7 @@ class Api::V1::SessionsController < Devise::SessionsController
           is_success: false,
           error_messages: ["Credênciais erradas"],
           data: {User: {}}
-        }, status: :unauthorized
+        }, status: :ok
       end
     end
   

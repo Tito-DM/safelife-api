@@ -22068,3 +22068,71 @@ Processing by Api::V1::RegistrationsController#create as JSON
 Completed 200 OK in 287ms (Views: 0.5ms | ActiveRecord: 2.9ms | Allocations: 14039)
 
 
+Started POST "/api/v1/answers_requests?answers_request[donor_id]=1&answers_request[request_id]=1" for ::1 at 2021-09-13 22:45:42 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"donor_id"=>"1", "request_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:29:in `create'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:29:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:29:in `create'
+  [1m[36mAnswersRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 1], ["donor_id", 1], ["created_at", "2021-09-13 21:45:43.106678"], ["updated_at", "2021-09-13 21:45:43.106678"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:29:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:29:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 1.1ms | Allocations: 269)
+RequestMailer#to_user_interesting: processed outbound mail in 22.6ms
+Delivered mail 613fc6872817a_1c8fda190-4ba@cuidado.mail (1982.7ms)
+Date: Mon, 13 Sep 2021 22:45:43 +0100
+From: savelife.ao@gmail.com
+To: ariclinis1@gmail.com
+Message-ID: <613fc6872817a_1c8fda190-4ba@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Maria Domingos</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo San=
+gue=0D
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 2080ms (Views: 0.4ms | ActiveRecord: 4.3ms | Allocations: 44874)
+
+
