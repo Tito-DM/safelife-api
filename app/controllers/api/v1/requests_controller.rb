@@ -1,13 +1,15 @@
-class Api::V1::RequestsController < ApplicationController
+class Api::V1::RequestsController < DashboardController
   before_action :set_api_v1_request, only: [:show, :update, :destroy]
   before_action :model_name
+  before_action :check_token, only:[:requests_user]
+  before_action :verification_token, only:[:create, :update, :destroy]
+  
   # GET /api/v1/requests
   def index
     p = params[:page]
     page = (p)?(p):1
     @api_v1_requests = Request.page(page).per(20)
     render json: { requests: @api_v1_requests,page: page , per_page: 20, request_count: @api_v1_requests.count, success: true, message: "Listado com sucesso"}, status: :ok
-
   end
 
   # GET /api/v1/requests/:user_id
@@ -61,7 +63,14 @@ class Api::V1::RequestsController < ApplicationController
     def set_api_v1_request
       @api_v1_request = Request.find(params[:id])
     end
-
+    
+    def check_token
+      if(User.exists?(id: params[:user_id]))
+        if(User.find_by(id: params[:user_id]).authentication_token != params[:token] || !(SessionUser.exists?(token: params[:token])))
+            json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
+        end
+      end
+    end
     # Only allow a trusted parameter "white list" through.
     def api_v1_request_params
       params.require(:request).permit(:user_id, :description, :date_limit, :province)
