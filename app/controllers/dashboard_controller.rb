@@ -1,11 +1,8 @@
 class DashboardController < ApplicationController
     #acts_as_token_authentication_handler_for User
     include Paginable
+    
     public 
-
-    def token_check
-     
-    end
     def verification_token
         token = params[:token]
         if(SessionUser.find_by(token: token)==nil)

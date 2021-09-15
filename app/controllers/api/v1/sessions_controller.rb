@@ -6,7 +6,7 @@ class Api::V1::SessionsController < DashboardController
       if(@user)
         if @user.valid_password?(sign_in_params[:password])
           #sign_in "user", @user
-          if !SessionUser.exist?(token: @user.authentication_token)
+          if !SessionUser.exists?(token: @user.authentication_token)
             SessionUser.create(token: @user.authentication_token)
           end
           if Donor.exists?(user_id: @user.id)
@@ -38,6 +38,27 @@ class Api::V1::SessionsController < DashboardController
           messages: "Ocorreu algum problema",
           is_success: false,
           error_messages: ["Credênciais erradas"],
+          data: {User: {}}
+        }, status: :ok
+      end
+    end
+
+    def destroy
+      if SessionUser.exists?(token: params[:token])
+        s = SessionUser.find_by(token: params[:token])
+        if s.destroy
+          render json: {
+            messages: "Sessão terminada",
+            is_success: true,
+            error_messages: [""],
+            data: {User: {}}
+          }, status: :ok
+        end
+      else
+        render json: {
+          messages: "Tentativa de quebra de segurança",
+          is_success: false,
+          error_messages: [""],
           data: {User: {}}
         }, status: :ok
       end

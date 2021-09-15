@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         post "sign_up", to: "registrations#create"
         post "sign_up_donor", to: "registrations#create_donor"
         post "sign_in", to: "sessions#create"
+        delete "log_out", to: "sessions#destroy"
         get "user/:id", to: "users#show"
         put "user/:id", to: "users#update"
       end
