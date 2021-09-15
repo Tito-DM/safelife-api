@@ -1,7 +1,7 @@
 class Api::V1::DonorsController < DashboardController
-  include Paginable
 
   before_action :set_api_v1_donor, only: [:show, :update_donor, :destroy]
+  before_action :verification_token, only:[:create, :update, :destroy]
 
   # GET /api/v1/donors
   def index

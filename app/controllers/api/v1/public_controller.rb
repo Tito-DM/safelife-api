@@ -1,5 +1,4 @@
 class Api::V1::PublicController < ApplicationController
-  include Paginable
 
     def index_donors
         province = (params[:province])
