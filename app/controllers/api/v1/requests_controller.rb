@@ -8,8 +8,8 @@ class Api::V1::RequestsController < DashboardController
   def index
     p = params[:page]
     page = (p)?(p):1
-    @api_v1_requests = Request.page(page).per(20)
-    render json: { requests: @api_v1_requests,page: page , per_page: 20, request_count: @api_v1_requests.count, success: true, message: "Listado com sucesso"}, status: :ok
+    @api_v1_requests = Request.page(page).per(10)
+    render json: { requests: @api_v1_requests,page: page , per_page: 10, request_count: @api_v1_requests.count, success: true, message: "Listado com sucesso"}, status: :ok
   end
 
   # GET /api/v1/requests/:user_id
@@ -65,6 +65,7 @@ class Api::V1::RequestsController < DashboardController
     end
     
     def check_token
+      print "CHECK TOKEN: #{params["token"]}"
       if(User.exists?(id: params[:user_id]))
         if(User.find_by(id: params[:user_id]).authentication_token != params["token"] || !(SessionUser.exists?(token: params["token"])))
             json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)

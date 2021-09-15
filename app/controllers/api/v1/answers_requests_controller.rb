@@ -7,8 +7,8 @@ class Api::V1::AnswersRequestsController < DashboardController
   def index
     p = params[:page]
     page = (p)?(p):1
-    @api_v1_answers_requests = Donor.page(page).per(20)
-    render json: { answers_requests: @api_v1_answers_requests,page: page , per_page: 20, answer_request_count: @api_v1_answers_requests.count, success: true}, status: :ok
+    @api_v1_answers_requests = Donor.page(page).per(10)
+    render json: { answers_requests: @api_v1_answers_requests,page: page , per_page: 10, answer_request_count: @api_v1_answers_requests.count, success: true}, status: :ok
   end
 
   # GET /api/v1/answers_requests/:request_id

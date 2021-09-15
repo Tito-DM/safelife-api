@@ -8,9 +8,9 @@ class Api::V1::DonorsController < DashboardController
     p = params[:page]
     page = (p)?(p):1
     #@api_v1_donors = User.find_by_sql("SELECT donors.*, users.name, users.email, users.phone, users.type_user FROM donors INNER JOIN users ON users.id = donors.user_id").page(page).per(20)
-    @api_v1_donors= User.select('donors.*, users.name, users.email, users.phone, users.type_user').joins(:donor).page(p).per(20)
+    @api_v1_donors= User.select('donors.*, users.name, users.email, users.phone, users.type_user').joins(:donor).page(p).per(10)
 
-    render json: { donors: @api_v1_donors,page: page , per_page: 20, user_count: @api_v1_donors.count, success: true}, status: :ok
+    render json: { donors: @api_v1_donors,page: page , per_page: 10, user_count: @api_v1_donors.count, success: true}, status: :ok
   end
 
   # GET /api/v1/donors/1

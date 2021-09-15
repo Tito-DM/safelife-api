@@ -23736,3 +23736,425 @@ Processing by Api::V1::RequestsController#requests_user as */*
 Completed 200 OK in 19ms (Views: 3.3ms | ActiveRecord: 1.4ms | Allocations: 4270)
 
 
+Started GET "/" for ::1 at 2021-09-15 23:40:35 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 12.2ms | Allocations: 298)
+Completed 200 OK in 18ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 2315)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-15 23:55:19 +0100
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"mariadomingos@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"mariadomingos@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mariadomingos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:74:in `load_user'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 2063)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-15 23:55:29 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"mariadomingos@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"mariadomingos@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mariadomingos@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:74:in `load_user'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 803)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-15 23:55:44 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:74:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:75:in `load_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mDonor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+  [1m[36mDonor Load (0.4ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:13:in `create'
+Completed 200 OK in 351ms (Views: 3.2ms | ActiveRecord: 3.7ms | Allocations: 18225)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-15 23:55:49 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1605)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-15 23:58:29 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 1347)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-15 23:58:34 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1348)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-15 23:59:47 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1346)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-15 23:59:53 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1348)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:00:06 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 1346)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:00:09 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 3.0ms | Allocations: 1363)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:00:33 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 30ms (Views: 0.5ms | ActiveRecord: 1.6ms | Allocations: 9014)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:00:36 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1364)
+
+
+Started GET "/api/v1/donors_all?page=1" for 127.0.0.1 at 2021-09-16 00:01:22 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 42ms (Views: 15.2ms | ActiveRecord: 1.1ms | Allocations: 5671)
+
+
+Started GET "/api/v1/donors_all?page=2" for 127.0.0.1 at 2021-09-16 00:01:22 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"2"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 20]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 20]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 16ms (Views: 7.5ms | ActiveRecord: 0.7ms | Allocations: 1919)
+
+
+Started GET "/api/v1/donors_all?page=3" for 127.0.0.1 at 2021-09-16 00:01:22 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"3"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 40]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 40]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 19ms (Views: 12.3ms | ActiveRecord: 0.7ms | Allocations: 1901)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:01:25 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 9ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 1347)
+
+
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for 127.0.0.1 at 2021-09-16 00:02:29 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 79ms (Views: 21.6ms | ActiveRecord: 3.1ms | Allocations: 12713)
+
+
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for 127.0.0.1 at 2021-09-16 00:02:37 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 27ms (Views: 7.5ms | ActiveRecord: 2.1ms | Allocations: 5141)
+
+
+Started GET "/api/v1/answers/1" for 127.0.0.1 at 2021-09-16 00:02:50 +0100
+Processing by Api::V1::AnswersRequestsController#answers_request as HTML
+  Parameters: {"request_id"=>"1"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:64:in `check_token'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:65:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:66:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 2097)
+
+
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for 127.0.0.1 at 2021-09-16 00:03:10 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 19ms (Views: 6.9ms | ActiveRecord: 1.3ms | Allocations: 5139)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:07:27 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 1347)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:07:35 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1346)
+
+
+Started GET "/api/v1/requests/user_requests/8" for 127.0.0.1 at 2021-09-16 00:08:52 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '8') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '8') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.7ms | Allocations: 2329)
+
+
+Started GET "/api/v1/requests/user_requests/8" for 127.0.0.1 at 2021-09-16 00:08:56 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '8') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '8') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 11ms (Views: 3.4ms | ActiveRecord: 3.4ms | Allocations: 2331)
+
+
+Started GET "/api/v1/requests/user_requests/8" for 127.0.0.1 at 2021-09-16 00:11:58 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '8') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '8') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 14ms (Views: 5.5ms | ActiveRecord: 1.0ms | Allocations: 2329)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:12:30 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1346)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:12:40 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 1346)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:12:46 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1346)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:13:50 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1348)
+
+
+Started GET "/api/v1/requests/user_requests/1" for 127.0.0.1 at 2021-09-16 00:13:56 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1346)
+
+
+Started GET "/api/v1/requests/user_requests/1?&token=KKXEc8xtdKzpr3XuUj8y" for 127.0.0.1 at 2021-09-16 00:15:27 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 19ms (Views: 6.6ms | ActiveRecord: 1.3ms | Allocations: 5140)
+
+
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for 127.0.0.1 at 2021-09-16 00:15:53 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 25ms (Views: 6.3ms | ActiveRecord: 1.2ms | Allocations: 5138)
+
+
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for 127.0.0.1 at 2021-09-16 00:16:33 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 18ms (Views: 5.0ms | ActiveRecord: 1.3ms | Allocations: 5139)
+
+
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for 127.0.0.1 at 2021-09-16 00:16:36 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 27ms (Views: 6.8ms | ActiveRecord: 1.6ms | Allocations: 5138)
+
+
