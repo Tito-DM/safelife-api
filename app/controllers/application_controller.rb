@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
     #acts_as_token_authentication_handler_for User
+    include DeviseTokenAuth::Concerns::SetUserByToken
+    include Paginable
 
     protected
     def json_response(msg,success, error_message, data, model,status)

@@ -1,6 +1,7 @@
-class Api::V1::AnswersRequestsController < ApplicationController
+class Api::V1::AnswersRequestsController < DashboardController
   before_action :set_api_v1_answers_request, only: [:show, :update, :destroy]
   before_action :model_name
+  before_action :check_token, only:[:answers_request]
 
   # GET /api/v1/answers_requests
   def index
@@ -14,7 +15,7 @@ class Api::V1::AnswersRequestsController < ApplicationController
   def answers_request
     p = params[:page]
     page = (p)?(p):1
-    @api_v1_answers_request = ActiveRecord::Base.connection.execute("SELECT donors.*, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id WHERE requests.id = #{params['request_id']}")
+    @api_v1_answers_request = ActiveRecord::Base.connection.execute("SELECT donors.*, users.name, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id inner join users on donors.user_id = users.id WHERE requests.id = #{params['request_id']}")
     render json: { answers_requests: @api_v1_answers_request,page: page , per_page: 10, request_count: @api_v1_answers_request.count, success: true, message: "Listado com sucesso"}, status: :ok
   end
 
@@ -57,6 +58,15 @@ class Api::V1::AnswersRequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_api_v1_answers_request
       @api_v1_answers_request = AnswersRequest.find(params[:id])
+    end
+
+    def check_token
+      if(Request.exists?(id: params[:request_id]))
+        user_id = Request.find_by(id: params[:request_id]).user_id
+        if(User.find_by(id: user_id).authentication_token != params[:token] || !(SessionUser.exists?(token: params[:token])))
+            json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
+        end
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
