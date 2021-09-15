@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         get "user/:id", to: "users#show"
         put "user/:id", to: "users#update"
       end
+      mount_devise_token_auth_for 'User', at: 'auth'
       get 'user/password/reset', to: 'password_resets#new'
 
       post 'user/password/forgot_password', to: 'password_resets#forgot_password' #param[email]

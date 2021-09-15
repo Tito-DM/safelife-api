@@ -1,11 +1,14 @@
-class Api::V1::SessionsController < Devise::SessionsController
+class Api::V1::SessionsController < DashboardController
     before_action :sign_in_params, only: :create
     before_action :load_user, only: :create
     # sign in
     def create
       if(@user)
         if @user.valid_password?(sign_in_params[:password])
-          sign_in "user", @user
+          #sign_in "user", @user
+          if !SessionUser.exist?(token: @user.authentication_token)
+            SessionUser.create(token: @user.authentication_token)
+          end
           if Donor.exists?(user_id: @user.id)
             donor= Donor.find_by(user_id: @user.id)
             render json: {
