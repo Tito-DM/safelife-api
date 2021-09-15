@@ -22136,3 +22136,1532 @@ pp.com/donor/profile.=0D
 Completed 201 Created in 2080ms (Views: 0.4ms | ActiveRecord: 4.3ms | Allocations: 44874)
 
 
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 13:40:30 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ArgumentError (After process_action callback :update_auth_header has not been defined):
+  
+app/controllers/api/v1/sessions_controller.rb:4:in `<class:SessionsController>'
+app/controllers/api/v1/sessions_controller.rb:1:in `<main>'
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 13:51:47 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 545)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-09-14 13:51:47 +0100
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 7756)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 13:52:02 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 94)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-09-14 13:52:02 +0100
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 280)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 13:52:30 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:50:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+Completed 200 OK in 311ms (Views: 1.0ms | ActiveRecord: 1.5ms | Allocations: 11464)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 13:52:34 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 94)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-09-14 13:52:34 +0100
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 268)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 13:52:49 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 47ms (Views: 39.9ms | ActiveRecord: 1.8ms | Allocations: 10852)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 13:58:57 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 19ms (Views: 12.7ms | ActiveRecord: 0.4ms | Allocations: 10386)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 13:59:29 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 227)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/dashboard_controller.rb:8:in `+'
+app/controllers/dashboard_controller.rb:8:in `verification_token'
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 13:59:53 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 21ms (Views: 15.4ms | ActiveRecord: 1.0ms | Allocations: 10819)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:00:24 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:50:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+Completed 200 OK in 335ms (Views: 0.9ms | ActiveRecord: 3.1ms | Allocations: 16664)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:00:36 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.6ms | Allocations: 5005)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:01:17 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 28ms (Views: 19.2ms | ActiveRecord: 1.6ms | Allocations: 10914)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:01:21 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 320ms (Views: 0.7ms | ActiveRecord: 4.2ms | Allocations: 16628)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:01:27 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 0.6ms | Allocations: 5005)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:02:43 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 323ms (Views: 1.2ms | ActiveRecord: 2.5ms | Allocations: 16947)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:02:47 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 34ms (Views: 22.2ms | ActiveRecord: 1.5ms | Allocations: 10473)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:03:44 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 333ms (Views: 0.7ms | ActiveRecord: 3.1ms | Allocations: 17049)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:03:48 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 96ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 32161)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:06:40 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 342ms (Views: 1.5ms | ActiveRecord: 2.3ms | Allocations: 18547)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:06:45 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (1.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 47ms (Views: 29.4ms | ActiveRecord: 4.8ms | Allocations: 10651)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:15:28 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 309ms (Views: 0.8ms | ActiveRecord: 0.9ms | Allocations: 16076)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:16:00 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 338ms (Views: 1.5ms | ActiveRecord: 4.3ms | Allocations: 18547)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:16:58 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (1.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 38ms (Views: 24.0ms | ActiveRecord: 1.8ms | Allocations: 10651)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:18:57 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+TypeError (wrong argument type String (expected Module)):
+  
+app/controllers/dashboard_controller.rb:4:in `include'
+app/controllers/dashboard_controller.rb:4:in `<class:DashboardController>'
+app/controllers/dashboard_controller.rb:2:in `<main>'
+app/controllers/api/v1/requests_controller.rb:1:in `<main>'
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:30:23 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 344ms (Views: 2.1ms | ActiveRecord: 2.5ms | Allocations: 18547)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:30:52 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 156)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-09-14 14:30:52 +0100
+Processing by Devise::SessionsController#new as */*
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 617)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:34:08 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 349ms (Views: 1.7ms | ActiveRecord: 2.4ms | Allocations: 18547)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:34:13 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 156)
+
+
+Started GET "/api/v1/auth/sign_in" for ::1 at 2021-09-14 14:34:13 +0100
+Processing by DeviseTokenAuth::SessionsController#new as JSON
+Completed 405 Method Not Allowed in 24ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 25470)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:34:46 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 285ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 3247)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:34:56 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 94)
+
+
+Started GET "/api/v1/auth/sign_in" for ::1 at 2021-09-14 14:34:56 +0100
+Processing by DeviseTokenAuth::SessionsController#new as JSON
+Completed 405 Method Not Allowed in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 140)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:36:55 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 94)
+
+
+Started GET "/api/v1/auth/sign_in" for ::1 at 2021-09-14 14:36:55 +0100
+Processing by DeviseTokenAuth::SessionsController#new as JSON
+Completed 405 Method Not Allowed in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 142)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:38:01 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.0ms | Allocations: 48604)
+
+
+  
+NoMethodError (undefined method `authenticate_api_v_user!' for #<Api::V1::RequestsController:0x00007f0a247c8578>
+Did you mean?  authenticate_api_v1_user!
+               authenticate_user!):
+  
+activesupport (6.0.4) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.4) lib/active_support/callbacks.rb:200:in `block (2 levels) in halting'
+actionpack (6.0.4) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.4) lib/active_support/callbacks.rb:201:in `block in halting'
+activesupport (6.0.4) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.4) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.4) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.4) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.4) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.4) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.4) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.4) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.4) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.4) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.4) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:38:36 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 1273)
+
+
+Started GET "/api/v1/auth/sign_in" for ::1 at 2021-09-14 14:38:36 +0100
+Processing by DeviseTokenAuth::SessionsController#new as JSON
+Completed 405 Method Not Allowed in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 259)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:38:49 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 1257)
+
+
+Started GET "/api/v1/auth/sign_in" for ::1 at 2021-09-14 14:38:49 +0100
+Processing by DeviseTokenAuth::SessionsController#new as JSON
+Completed 405 Method Not Allowed in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 259)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:38:55 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 328ms (Views: 1.2ms | ActiveRecord: 4.7ms | Allocations: 16993)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:38:58 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 94)
+
+
+Started GET "/api/v1/auth/sign_in" for ::1 at 2021-09-14 14:38:58 +0100
+Processing by DeviseTokenAuth::SessionsController#new as JSON
+Completed 405 Method Not Allowed in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 142)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:43:57 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 321ms (Views: 1.6ms | ActiveRecord: 1.3ms | Allocations: 3224)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:44:11 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 94)
+
+
+Started GET "/api/v1/auth/sign_in" for ::1 at 2021-09-14 14:44:11 +0100
+Processing by DeviseTokenAuth::SessionsController#new as JSON
+Completed 405 Method Not Allowed in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 140)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:50:04 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+Completed 500 Internal Server Error in 361ms (ActiveRecord: 1.5ms | Allocations: 9586)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/sessions_controller.rb:9:in `create'
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 14:52:14 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:50:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+Completed 200 OK in 372ms (Views: 1.1ms | ActiveRecord: 2.9ms | Allocations: 17641)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:52:20 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms | Allocations: 156)
+
+
+Started GET "/api/v1/auth/sign_in" for ::1 at 2021-09-14 14:52:20 +0100
+Processing by DeviseTokenAuth::SessionsController#new as JSON
+Completed 405 Method Not Allowed in 28ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 25468)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 14:52:53 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 1324)
+
+
+Started GET "/api/v1/auth/sign_in" for ::1 at 2021-09-14 14:52:53 +0100
+Processing by DeviseTokenAuth::SessionsController#new as JSON
+Completed 405 Method Not Allowed in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 261)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 15:03:14 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 291ms (Views: 1.0ms | ActiveRecord: 2.2ms | Allocations: 16997)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 15:03:19 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 168)
+
+
+Started GET "/api/v1/auth/sign_in" for ::1 at 2021-09-14 15:03:19 +0100
+Processing by DeviseTokenAuth::SessionsController#new as JSON
+Completed 405 Method Not Allowed in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 235)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 15:03:46 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 22ms (Views: 15.4ms | ActiveRecord: 1.0ms | Allocations: 10876)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 15:06:31 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 46ms (Views: 34.1ms | ActiveRecord: 1.3ms | Allocations: 11504)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SessionStore::Session Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" ORDER BY "sessions"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+Started GET "/" for ::1 at 2021-09-14 15:41:03 +0100
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 16.7ms | Allocations: 298)
+Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 1542)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-14 15:42:05 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.4ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 402ms (Views: 3.1ms | ActiveRecord: 5.0ms | Allocations: 18569)
+
+
+Started GET "/api/v1/requests?page=1" for 127.0.0.1 at 2021-09-14 15:43:02 +0100
+Processing by Api::V1::RequestsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 35ms (Views: 16.4ms | ActiveRecord: 1.3ms | Allocations: 10621)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-14 15:49:21 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 340ms (Views: 0.8ms | ActiveRecord: 0.9ms | Allocations: 16119)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-14 16:01:59 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 365ms (Views: 3.3ms | ActiveRecord: 2.3ms | Allocations: 18557)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SessionStore::Session Load (0.4ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" ORDER BY "sessions"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSessionsTable (20210914150830)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar NOT NULL, "data" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210914150830"]]
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 16:18:23 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 364ms (Views: 1.4ms | ActiveRecord: 2.7ms | Allocations: 18551)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 16:18:39 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (1.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 59ms (Views: 37.6ms | ActiveRecord: 3.8ms | Allocations: 10638)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 16:22:44 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 1.1ms | Allocations: 10770)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 16:22:49 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 371ms (Views: 1.1ms | ActiveRecord: 3.0ms | Allocations: 16662)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 16:23:20 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 375ms (Views: 1.3ms | ActiveRecord: 4.0ms | Allocations: 18558)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 16:24:55 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 355ms (Views: 0.8ms | ActiveRecord: 3.0ms | Allocations: 17001)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 16:27:19 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 372ms (Views: 1.1ms | ActiveRecord: 2.8ms | Allocations: 16959)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 16:31:01 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 352ms (Views: 0.8ms | ActiveRecord: 2.8ms | Allocations: 16985)
+
+
+Started GET "/api/v1/requests?page=1" for 127.0.0.1 at 2021-09-14 16:32:21 +0100
+Processing by Api::V1::RequestsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 22ms (Views: 14.1ms | ActiveRecord: 1.1ms | Allocations: 10614)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-14 16:32:42 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 316ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 3245)
+
+
+Started GET "/api/v1/requests?page=1" for 127.0.0.1 at 2021-09-14 16:33:11 +0100
+Processing by Api::V1::RequestsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 11ms (Views: 5.7ms | ActiveRecord: 0.7ms | Allocations: 4936)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-14 16:33:39 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 352ms (Views: 1.0ms | ActiveRecord: 2.8ms | Allocations: 18564)
+
+
+Started GET "/api/v1/requests?page=1" for 127.0.0.1 at 2021-09-14 16:33:52 +0100
+Processing by Api::V1::RequestsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (1.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 57ms (Views: 39.4ms | ActiveRecord: 2.0ms | Allocations: 10635)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 17:00:15 +0100
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 391ms (Views: 0.9ms | ActiveRecord: 3.2ms | Allocations: 18399)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 17:00:22 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (1.9ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 62ms (Views: 41.8ms | ActiveRecord: 3.2ms | Allocations: 10625)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 17:07:49 +0100
+  [1m[35m (12.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 404ms (Views: 1.3ms | ActiveRecord: 3.3ms | Allocations: 18403)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 17:07:55 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (1.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 56ms (Views: 39.4ms | ActiveRecord: 2.6ms | Allocations: 10625)
+
+
+Started GET "/api/v1/requests?page=1" for 127.0.0.1 at 2021-09-14 17:09:38 +0100
+Processing by Api::V1::RequestsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 26ms (Views: 20.3ms | ActiveRecord: 0.6ms | Allocations: 4953)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-14 17:09:45 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 375ms (Views: 0.9ms | ActiveRecord: 0.7ms | Allocations: 3186)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-14 17:10:21 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 368ms (Views: 4.2ms | ActiveRecord: 2.5ms | Allocations: 18409)
+
+
+Started GET "/api/v1/requests?page=1" for 127.0.0.1 at 2021-09-14 17:10:30 +0100
+Processing by Api::V1::RequestsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 53ms (Views: 36.5ms | ActiveRecord: 2.0ms | Allocations: 10622)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-14 17:15:06 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 380ms (Views: 3.0ms | ActiveRecord: 2.9ms | Allocations: 18401)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-14 17:15:10 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (1.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 50ms (Views: 31.8ms | ActiveRecord: 2.8ms | Allocations: 10624)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-14 17:15:28 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 361ms (Views: 0.9ms | ActiveRecord: 3.2ms | Allocations: 18413)
+
+
+Started GET "/api/v1/requests?page=1" for 127.0.0.1 at 2021-09-14 17:15:51 +0100
+Processing by Api::V1::RequestsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (1.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 58ms (Views: 40.1ms | ActiveRecord: 2.5ms | Allocations: 10623)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-14 23:31:37 +0100
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mDonor Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Load (0.4ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+Completed 200 OK in 338ms (Views: 1.3ms | ActiveRecord: 3.4ms | Allocations: 18408)
+
+
+Started GET "/api/v1/requests?page=1" for 127.0.0.1 at 2021-09-14 23:31:41 +0100
+Processing by Api::V1::RequestsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 63ms (Views: 44.7ms | ActiveRecord: 1.9ms | Allocations: 10623)
+
+
+Started GET "/api/v1/requests?page=1" for 127.0.0.1 at 2021-09-14 23:31:51 +0100
+Processing by Api::V1::RequestsController#index as HTML
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:10:in `index'
+Completed 200 OK in 17ms (Views: 11.6ms | ActiveRecord: 0.5ms | Allocations: 4953)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSessionUsers (20210914223643)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "session_users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "token" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210914223643"]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/api/v1/donors_all" for ::1 at 2021-09-15 00:13:55 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::PublicController#index_donors as JSON
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 31ms (Views: 19.6ms | ActiveRecord: 1.3ms | Allocations: 12811)
+
+
+Started PUT "/api/v1/user/4?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=jhjjh" for ::1 at 2021-09-15 12:29:45 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"jhjjh", "id"=>"4"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Completed 500 Internal Server Error in 19ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 8032)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/api/v1/users_controller.rb:29:in `exit'
+app/controllers/api/v1/users_controller.rb:29:in `check_token'
+Started PUT "/api/v1/user/4?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=jhjjh" for ::1 at 2021-09-15 12:30:11 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"jhjjh", "id"=>"4"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 23ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 8280)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+Started PUT "/api/v1/user/4?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-15 12:32:43 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"4"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 1357)
+
+
+Started PUT "/api/v1/user/4?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-15 12:32:53 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"4"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1341)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ti@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-15 12:34:15 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mSessionUser Create (0.4ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["token", "x9WdhV56cDZVZMZgqzEu"], ["created_at", "2021-09-15 11:34:16.292224"], ["updated_at", "2021-09-15 11:34:16.292224"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 306ms (Views: 0.6ms | ActiveRecord: 4.4ms | Allocations: 11484)
+
+
+Started PUT "/api/v1/user/4?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-15 12:34:32 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"4"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1342)
+
+
+  [1m[36mSessionUser Load (0.1ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" ORDER BY "session_users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/api/v1/sign_in?sign_in[email]=ti@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-15 12:38:30 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mSessionUser Create (0.3ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["token", "x9WdhV56cDZVZMZgqzEu"], ["created_at", "2021-09-15 11:38:31.259708"], ["updated_at", "2021-09-15 11:38:31.259708"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+Completed 200 OK in 318ms (Views: 0.6ms | ActiveRecord: 4.8ms | Allocations: 17911)
+
+
+Started PUT "/api/v1/user/4?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-15 12:38:37 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"4"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1557)
+
+
+Started PUT "/api/v1/user/4?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-15 12:39:42 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"4"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1343)
+
+
+Started PUT "/api/v1/user/4?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-15 12:40:12 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"4"}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 8311)
+
+
+Started PUT "/api/v1/user/4?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-15 12:41:55 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"4"}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 8346)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+Started PUT "/api/v1/user/2?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-15 12:43:04 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"2"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "x9WdhV56cDZVZMZgqzEu"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:28:in `check_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$12$94yMaZ5TvtbFy97t1PaY2eoWbbpzaL.scTAye3TdNzyVYCWq4u1Iy"], ["updated_at", "2021-09-15 11:43:04.361872"], ["id", 2]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `update'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `update'
+Completed 201 Created in 319ms (Views: 0.7ms | ActiveRecord: 3.5ms | Allocations: 9392)
+
+
+Started GET "/api/v1/answers/10?token" for ::1 at 2021-09-15 13:16:51 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>nil, "request_id"=>"10"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 4962)
+
+
+  
+NoMethodError (undefined method `exist?' for #<Class:0x00007ff34414c3e8>
+Did you mean?  exists?):
+  
+app/controllers/api/v1/answers_requests_controller.rb:64:in `check_token'
+Started GET "/api/v1/answers/10?token" for ::1 at 2021-09-15 13:18:38 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>nil, "request_id"=>"10"}
+  [1m[36mRequest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:64:in `check_token'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:65:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:66:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 29ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 14573)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021" for ::1 at 2021-09-15 13:23:41 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:41:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:41:in `create'
+  [1m[36mRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-15 12:23:41.447425"], ["updated_at", "2021-09-15 12:23:41.447425"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:41:in `create'
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:41:in `create'
+Completed 201 Created in 24ms (Views: 0.6ms | ActiveRecord: 5.4ms | Allocations: 7494)
+
+
+Started GET "/api/v1/answers/47?token" for ::1 at 2021-09-15 13:24:11 +0100
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>nil, "request_id"=>"47"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:64:in `check_token'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:65:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:66:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1859)
+
+
+Started GET "/api/v1/answers/47?token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-15 13:24:38 +0100
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>"x9WdhV56cDZVZMZgqzEu", "request_id"=>"47"}
+  [1m[36mRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:64:in `check_token'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:65:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:66:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "x9WdhV56cDZVZMZgqzEu"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:66:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT donors.*, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id WHERE requests.id = 47[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:18:in `answers_request'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 4701)
+
+
+Started GET "/api/v1/answers/47?token=x9WdhV56cDZVZMZgqzE" for ::1 at 2021-09-15 13:26:05 +0100
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>"x9WdhV56cDZVZMZgqzE", "request_id"=>"47"}
+  [1m[36mRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:64:in `check_token'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:65:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:66:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1858)
+
+
+Started GET "/api/v1/answers/47?token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-15 13:26:27 +0100
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>"x9WdhV56cDZVZMZgqzEu", "request_id"=>"47"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:64:in `check_token'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:65:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:66:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "x9WdhV56cDZVZMZgqzEu"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:66:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT donors.*, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id WHERE requests.id = 47[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:18:in `answers_request'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 2815)
+
+
+Started GET "/api/v1/requests/user_requests/1?token" for ::1 at 2021-09-15 13:49:12 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>nil, "user_id"=>"1"}
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:11:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1344)
+
+
+Started GET "/api/v1/requests/user_requests/2?token" for ::1 at 2021-09-15 13:49:20 +0100
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>nil, "user_id"=>"2"}
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:11:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 836)
+
+
+Started GET "/api/v1/requests/user_requests/1000?token" for ::1 at 2021-09-15 13:49:29 +0100
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>nil, "user_id"=>"1000"}
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:11:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 836)
+
+
+Started GET "/api/v1/requests/user_requests/1000?token" for ::1 at 2021-09-15 13:50:12 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>nil, "user_id"=>"1000"}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `check_token'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '1000') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '1000') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 9ms (Views: 1.4ms | ActiveRecord: 0.9ms | Allocations: 4803)
+
+
+Started GET "/api/v1/requests/user_requests/10?token" for ::1 at 2021-09-15 13:50:30 +0100
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>nil, "user_id"=>"10"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '10') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '10') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 0.8ms | Allocations: 2325)
+
+
+Started GET "/api/v1/requests/user_requests/2?token" for ::1 at 2021-09-15 13:50:33 +0100
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>nil, "user_id"=>"2"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `check_token'
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 0.2ms | Allocations: 95795)
+
+
+  
+NameError (undefined local variable or method `user_id' for #<Api::V1::RequestsController:0x00007ff33c00d408>
+Did you mean?  user_session):
+  
+app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+Started GET "/api/v1/requests/user_requests/2?token" for ::1 at 2021-09-15 13:51:41 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>nil, "user_id"=>"2"}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 8359)
+
+
+Started GET "/api/v1/donors_all" for ::1 at 2021-09-15 14:21:31 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::PublicController#index_donors as JSON
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 0.6ms | Allocations: 10276)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-15 14:35:41 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:54:in `load_user'
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 0.5ms | Allocations: 5368)
+
+
+  
+NoMethodError (undefined method `exist?' for #<Class:0x00007ff3640eb6b8>
+Did you mean?  exists?):
+  
+app/controllers/api/v1/sessions_controller.rb:9:in `create'
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-15 14:36:10 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:54:in `load_user'
+Completed 500 Internal Server Error in 256ms (ActiveRecord: 0.3ms | Allocations: 4542)
+
+
+  
+NoMethodError (undefined method `exist?' for #<Class:0x00007ff3640eb6b8>
+Did you mean?  exists?):
+  
+app/controllers/api/v1/sessions_controller.rb:9:in `create'
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-15 14:37:27 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:54:in `load_user'
+Completed 200 OK in 314ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 9505)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-15 14:37:28 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:54:in `load_user'
+Completed 200 OK in 272ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1668)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-15 14:37:28 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:54:in `load_user'
+Completed 200 OK in 249ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1663)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-15 14:37:28 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:54:in `load_user'
+Completed 200 OK in 250ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1709)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-15 14:37:39 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ti@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:53:in `load_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ti@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:54:in `load_user'
+Completed 200 OK in 260ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1655)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT donors.*, users.name, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id inner join users on donors.user_id = users.id[0m
