@@ -44,8 +44,8 @@ class Api::V1::SessionsController < DashboardController
     end
 
     def destroy
-      if SessionUser.exists?(token: params[:token])
-        s = SessionUser.find_by(token: params[:token])
+      if SessionUser.exists?(token: params["token"])
+        s = SessionUser.find_by(token: params["token"])
         if s.destroy
           render json: {
             messages: "Sessão terminada",

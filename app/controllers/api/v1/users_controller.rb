@@ -24,7 +24,7 @@ class Api::V1::UsersController < DashboardController
     end
 
     def check_token
-        if (@api_v1_user.authentication_token != params[:token] || !(SessionUser.exists?(token: params[:token])))
+        if (@api_v1_user.authentication_token != params["token"] || !(SessionUser.exists?(token: params["token"])))
             json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
         end
     end

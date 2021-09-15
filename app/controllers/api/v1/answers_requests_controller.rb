@@ -63,7 +63,7 @@ class Api::V1::AnswersRequestsController < DashboardController
     def check_token
       if(Request.exists?(id: params[:request_id]))
         user_id = Request.find_by(id: params[:request_id]).user_id
-        if(User.find_by(id: user_id).authentication_token != params[:token] || !(SessionUser.exists?(token: params[:token])))
+        if(User.find_by(id: user_id).authentication_token != params["token"] || !(SessionUser.exists?(token: params["token"])))
             json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
         end
       end
