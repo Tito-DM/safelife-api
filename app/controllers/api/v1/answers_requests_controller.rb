@@ -15,7 +15,7 @@ class Api::V1::AnswersRequestsController < DashboardController
   def answers_request
     p = params[:page]
     page = (p)?(p):1
-    @api_v1_answers_request = ActiveRecord::Base.connection.execute("SELECT donors.*, users.name, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id inner join users on donors.user_id = users.id WHERE requests.id = #{params['request_id']}")
+    @api_v1_answers_request = ActiveRecord::Base.connection.execute("SELECT donors.*, users.name, users.email,  users.phone, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id inner join users on donors.user_id = users.id WHERE requests.id = #{params['request_id']}")
     render json: { answers_requests: @api_v1_answers_request,page: page , per_page: 10, request_count: @api_v1_answers_request.count, success: true, message: "Listado com sucesso"}, status: :ok
   end
 
