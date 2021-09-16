@@ -4,8 +4,7 @@ class DashboardController < ApplicationController
 
     public 
     def verification_token
-        token = params["token"]
-        print "verification_token: #{token}"
+        token = Base64.decode64(params["token"])
         if(SessionUser.find_by(token: token)==nil)
             render json: {
                 message: "Tentativa de quebra de Segurança",

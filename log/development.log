@@ -25001,3 +25001,20 @@ Processing by Api::V1::RequestsController#destroy as */*
 Completed 200 OK in 32ms (Views: 0.7ms | ActiveRecord: 5.6ms | Allocations: 11474)
 
 
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-16 14:31:06 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:75:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:76:in `load_user'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:13:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:14:in `create'
+Completed 200 OK in 272ms (Views: 0.7ms | ActiveRecord: 0.9ms | Allocations: 17012)
+
+

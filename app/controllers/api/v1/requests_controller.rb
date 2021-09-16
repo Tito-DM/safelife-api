@@ -73,15 +73,18 @@ class Api::V1::RequestsController < DashboardController
     end
     
     def check_token
+      token = Base64.decode64(params[:token])
       if(User.exists?(id: params[:user_id]))
-        if(User.find_by(id: params[:user_id]).authentication_token != params["token"] || !(SessionUser.exists?(token: params["token"])))
+        if(User.find_by(id: params[:user_id]).authentication_token !=token || !(SessionUser.exists?(token: token)))
             json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
         end
       end
     end
 
     def check_token_delete_request
-      u = User.find_by(authentication_token: params[:token])
+      token = Base64.decode64(params[:token])
+
+      u = User.find_by(authentication_token: token)
       if(@api_v1_request != nil)
         if(u.id != @api_v1_request.user_id)
           json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)

@@ -7,6 +7,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
     def create
       user = User.new user_params
       if user.save
+        user.authentication_token = Base64.encode64(user.authentication_token)
         render json: {
           message: "Sign Up Successfully",
           is_success: true,
@@ -30,7 +31,8 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
             donor = Donor.new donor_params
             donor.status = 0
             donor.user_id = user.id
-            if(donor.save)        
+            if(donor.save)   
+                user.authentication_token = Base64.encode64(user.authentication_token)     
                 render json: {
                     messages: "Sign Up Successfully Donor",
                     is_success: true,

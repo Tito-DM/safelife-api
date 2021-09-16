@@ -61,9 +61,10 @@ class Api::V1::AnswersRequestsController < DashboardController
     end
 
     def check_token
+      token = Base64.decode64(params[:token])
       if(Request.exists?(id: params[:request_id]))
         user_id = Request.find_by(id: params[:request_id]).user_id
-        if(User.find_by(id: user_id).authentication_token != params["token"] || !(SessionUser.exists?(token: params["token"])))
+        if(User.find_by(id: user_id).authentication_token != token || !(SessionUser.exists?(token: token)))
             json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
         end
       end

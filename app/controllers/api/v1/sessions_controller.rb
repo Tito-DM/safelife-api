@@ -9,6 +9,7 @@ class Api::V1::SessionsController < DashboardController
           if !SessionUser.exists?(token: @user.authentication_token)
             SessionUser.create(token: @user.authentication_token)
           end
+          @user.authentication_token = Base64.encode64(@user.authentication_token)
           if Donor.exists?(user_id: @user.id)
             donor= Donor.find_by(user_id: @user.id)
             render json: {
@@ -44,8 +45,9 @@ class Api::V1::SessionsController < DashboardController
     end
 
     def destroy
-      if SessionUser.exists?(token: params["token"])
-        s = SessionUser.find_by(token: params["token"])
+      token = Base64.decode64(params["token"])
+      if SessionUser.exists?(token: token)
+        s = SessionUser.find_by(token: token)
         if s.destroy
           render json: {
             messages: "Sessão terminada",
