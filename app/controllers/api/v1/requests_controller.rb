@@ -3,7 +3,7 @@ class Api::V1::RequestsController < DashboardController
   before_action :model_name
   before_action :check_token, only:[:requests_user]
   before_action :verification_token, only:[:create, :update, :destroy]
-  
+  before_action :check_token_delete_request, only:[:destroy, :update]
   # GET /api/v1/requests
   def index
     p = params[:page]
@@ -54,21 +54,37 @@ class Api::V1::RequestsController < DashboardController
 
   # DELETE /api/v1/requests/1
   def destroy
-    @api_v1_request.destroy
-    json_response("Pedido Apagado",true,{},@api_v1_request,model_name, :deleted)
+    if @api_v1_request != nil
+      @api_v1_request.destroy
+      json_response("Pedido Apagado",true,{},@api_v1_request,model_name, :ok)
+    else
+      json_response("Erro",false,["Falha na tentativa de apagar."],@api_v1_request,model_name, :ok)
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_api_v1_request
-      @api_v1_request = Request.find(params[:id])
+      if Request.exists?(id: params[:id])
+        @api_v1_request = Request.find(params[:id])
+      else
+        @api_v1_request = nil
+      end
     end
     
     def check_token
-      print "CHECK TOKEN: #{params["token"]}"
       if(User.exists?(id: params[:user_id]))
         if(User.find_by(id: params[:user_id]).authentication_token != params["token"] || !(SessionUser.exists?(token: params["token"])))
             json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
+        end
+      end
+    end
+
+    def check_token_delete_request
+      u = User.find_by(authentication_token: params[:token])
+      if(@api_v1_request != nil)
+        if(u.id != @api_v1_request.user_id)
+          json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
         end
       end
     end

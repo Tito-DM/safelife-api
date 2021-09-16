@@ -24158,3 +24158,846 @@ Processing by Api::V1::RequestsController#requests_user as HTML
 Completed 200 OK in 27ms (Views: 6.8ms | ActiveRecord: 1.6ms | Allocations: 5138)
 
 
+Started POST "/api/v1/sign_in?sign_in[password]=[FILTERED]&sign_in[email]=ariclinis1@gmail.com" for ::1 at 2021-09-16 13:11:15 +0100
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"password"=>"[FILTERED]", "email"=>"ariclinis1@gmail.com"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:74:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:75:in `load_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[36mDonor Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+  [1m[36mDonor Load (0.5ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:13:in `create'
+Completed 200 OK in 299ms (Views: 2.7ms | ActiveRecord: 3.6ms | Allocations: 19466)
+
+
+Started GET "/" for ::1 at 2021-09-16 13:11:44 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 15.1ms | Allocations: 298)
+Completed 200 OK in 23ms (Views: 19.3ms | ActiveRecord: 0.0ms | Allocations: 1537)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-09-16 13:11:44 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/lks" for ::1 at 2021-09-16 13:11:49 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/lks"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rails/info/routes?path=log" for ::1 at 2021-09-16 13:11:51 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"log"}
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 3996)
+
+
+Started GET "/rails/info/routes?path=log_" for ::1 at 2021-09-16 13:11:52 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"log_"}
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1218)
+
+
+Started GET "/rails/info/routes?path=log_ou" for ::1 at 2021-09-16 13:11:53 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"log_ou"}
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1217)
+
+
+Started GET "/articles/" for ::1 at 2021-09-16 13:11:59 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/articles"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started DELETE "/api/v1/log_out?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:12:25 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y"}
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:47:in `destroy'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:48:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:49:in `destroy'
+  [1m[36mSessionUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "session_users" WHERE "session_users"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:49:in `destroy'
+  [1m[35m (16.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:49:in `destroy'
+Completed 200 OK in 32ms (Views: 0.2ms | ActiveRecord: 18.0ms | Allocations: 7524)
+
+
+Started DELETE "/api/v1/log_out?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:13:03 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y"}
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:47:in `destroy'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 817)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-16 13:15:02 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:74:in `load_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:75:in `load_user'
+  [1m[36mSessionUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mSessionUser Create (0.4ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["created_at", "2021-09-16 12:15:02.772998"], ["updated_at", "2021-09-16 12:15:02.772998"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:13:in `create'
+Completed 200 OK in 268ms (Views: 0.7ms | ActiveRecord: 3.3ms | Allocations: 8280)
+
+
+Started DELETE "/api/v1/log_out?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:15:17 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y"}
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:47:in `destroy'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:48:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:49:in `destroy'
+  [1m[36mSessionUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "session_users" WHERE "session_users"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:49:in `destroy'
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:49:in `destroy'
+Completed 200 OK in 24ms (Views: 0.3ms | ActiveRecord: 4.5ms | Allocations: 5307)
+
+
+Started GET "/rails/info/routes?path=dest" for ::1 at 2021-09-16 13:17:05 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"dest"}
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1199)
+
+
+Started GET "/rails/info/routes?path=destr" for ::1 at 2021-09-16 13:17:06 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"destr"}
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1200)
+
+
+Started GET "/rails/info/routes?path=request" for ::1 at 2021-09-16 13:17:08 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"request"}
+Completed 200 OK in 8ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 1486)
+
+
+Started GET "/rails/info/routes?path=request" for ::1 at 2021-09-16 13:17:15 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"request"}
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1484)
+
+
+Started GET "/rails/info/routes?path=request" for ::1 at 2021-09-16 13:17:18 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"request"}
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 1484)
+
+
+Started DELETE "/api/v1/requests/1" for ::1 at 2021-09-16 13:18:26 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:64:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 7184)
+
+
+Started DELETE "/api/v1/requests/2" for ::1 at 2021-09-16 13:18:34 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:64:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.1ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1362)
+
+
+Started DELETE "/api/v1/requests/40" for ::1 at 2021-09-16 13:18:38 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"id"=>"40"}
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:64:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1362)
+
+
+Started DELETE "/api/v1/requests/30" for ::1 at 2021-09-16 13:18:42 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"id"=>"30"}
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:64:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.1ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 14ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1362)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-16 13:19:00 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:74:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:75:in `load_user'
+  [1m[36mSessionUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mSessionUser Create (0.3ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["created_at", "2021-09-16 12:19:00.965556"], ["updated_at", "2021-09-16 12:19:00.965556"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:12:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:13:in `create'
+Completed 200 OK in 272ms (Views: 1.2ms | ActiveRecord: 3.4ms | Allocations: 8113)
+
+
+Started DELETE "/api/v1/requests/30" for ::1 at 2021-09-16 13:19:07 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"id"=>"30"}
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:64:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1362)
+
+
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:19:40 +0100
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 16ms (Views: 3.7ms | ActiveRecord: 1.2ms | Allocations: 5383)
+
+
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:20:40 +0100
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:70:in `check_token'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '1') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 11ms (Views: 4.6ms | ActiveRecord: 1.1ms | Allocations: 5142)
+
+
+Started DELETE "/api/v1/requests/1?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:21:04 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"1"}
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:64:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.1ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:57:in `destroy'
+  [1m[36mRequest Destroy (0.7ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:57:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:57:in `destroy'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.1ms | Allocations: 3095)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/requests_controller.rb:57:in `destroy'
+Started DELETE "/api/v1/requests/2?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:23:04 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"2"}
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:64:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:57:in `destroy'
+  [1m[36mRequest Destroy (0.4ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/requests_controller.rb:57:in `destroy'
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:57:in `destroy'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 3.8ms | Allocations: 5170)
+
+
+  
+ArgumentError (Unrecognized status code :deleted):
+  
+app/controllers/application_controller.rb:8:in `json_response'
+app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+Started DELETE "/api/v1/requests/2?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:24:04 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"2"}
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:64:in `set_api_v1_request'
+Completed 404 Not Found in 7ms (ActiveRecord: 0.8ms | Allocations: 2727)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request with 'id'=2):
+  
+app/controllers/api/v1/requests_controller.rb:64:in `set_api_v1_request'
+Started DELETE "/api/v1/requests/3?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:24:18 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"3"}
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:64:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.3ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:57:in `destroy'
+  [1m[36mRequest Destroy (0.4ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/requests_controller.rb:57:in `destroy'
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:57:in `destroy'
+Completed 200 OK in 38ms (Views: 0.5ms | ActiveRecord: 4.8ms | Allocations: 11621)
+
+
+Started DELETE "/api/v1/requests/3?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:26:12 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"3"}
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:67:in `set_api_v1_request'
+Completed 404 Not Found in 7ms (ActiveRecord: 1.0ms | Allocations: 2723)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Request with 'id'=3):
+  
+app/controllers/api/v1/requests_controller.rb:67:in `set_api_v1_request'
+Started DELETE "/api/v1/requests/3?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:27:27 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"3"}
+  [1m[36mRequest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.1ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 5764)
+
+
+Started DELETE "/api/v1/requests/3?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:29:08 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"3"}
+  [1m[36mRequest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 1.6ms | Allocations: 5725)
+
+
+Started DELETE "/api/v1/requests/3?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:35:44 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"3"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? LIMIT ?[0m  [["authentication_token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:84:in `check_token_delete_request'
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 12325)
+
+
+Started DELETE "/api/v1/requests/40?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:35:56 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"40"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `set_api_v1_request'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? LIMIT ?[0m  [["authentication_token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:84:in `check_token_delete_request'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[36mRequest Destroy (1.9ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 3.5ms | Allocations: 9626)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+Started DELETE "/api/v1/requests/40?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:36:47 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"40"}
+  [1m[36mRequest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `set_api_v1_request'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? LIMIT ?[0m  [["authentication_token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:84:in `check_token_delete_request'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 3.7ms | Allocations: 20718)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (2.1ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (1.2ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRequest Destroy (1.3ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+Started DELETE "/api/v1/requests/40?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:39:40 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"40"}
+  [1m[36mRequest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `set_api_v1_request'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.1ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? LIMIT ?[0m  [["authentication_token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:84:in `check_token_delete_request'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[36mAnswersRequest Destroy (0.1ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 3.6ms | Allocations: 25586)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.1ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Load (0.1ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Load (0.3ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (1.6ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Load (0.4ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (1.9ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Load (0.3ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (1.8ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Load (0.3ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 4]]
+  [1m[36mRequest Destroy (1.0ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 4]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Load (0.1ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.6ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Update All (0.1ms)[0m  [1m[33mUPDATE "answers_requests" SET "request_id" = ? WHERE "answers_requests"."request_id" = ?[0m  [["request_id", nil], ["request_id", 40]]
+  [1m[36mRequest Destroy (0.6ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Update All (0.1ms)[0m  [1m[33mUPDATE "answers_requests" SET "request_id" = ? WHERE "answers_requests"."request_id" = ?[0m  [["request_id", nil], ["request_id", 40]]
+  [1m[36mRequest Destroy (0.6ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.1ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.6ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.1ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.6ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.1ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.1ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.4ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.1ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 40], ["LIMIT", 1]]
+  [1m[36mRequest Destroy (0.7ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 40], ["LIMIT", 1]]
+  [1m[36mRequest Destroy (1.7ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 40], ["LIMIT", 1]]
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 40], ["LIMIT", 1]]
+  [1m[36mRequest Destroy (1.9ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Load (0.1ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.4ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.1ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.1ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.6ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.1ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 40]]
+  [1m[36mRequest Destroy (0.5ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 40]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mAnswersRequest Load (0.5ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 5], ["LIMIT", 11]]
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mAnswersRequest Load (0.3ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 6], ["LIMIT", 11]]
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mAnswersRequest Load (0.3ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 30], ["LIMIT", 11]]
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mAnswersRequest Load (0.3ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 40], ["LIMIT", 11]]
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mAnswersRequest Load (0.3ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 30], ["LIMIT", 11]]
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.6ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 30]]
+  [1m[36mRequest Destroy (1.0ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 30]]
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mRequest Load (7.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mAnswersRequest Load (0.3ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 31], ["LIMIT", 11]]
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+Started POST "/api/v1/answers_requests?answers_request[request_id]=26&answers_request[donor_id]=1&token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:58:16 +0100
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"26", "donor_id"=>"1"}, "token"=>"KKXEc8xtdKzpr3XuUj8y"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mAnswersRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 26], ["donor_id", 1], ["created_at", "2021-09-16 12:58:16.666186"], ["updated_at", "2021-09-16 12:58:16.666186"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 1.1ms | Allocations: 269)
+RequestMailer#to_user_interesting: processed outbound mail in 19.6ms
+Delivered mail 61433f68b01af_429d3c505256f@cuidado.mail (1834.3ms)
+Date: Thu, 16 Sep 2021 13:58:16 +0100
+From: savelife.ao@gmail.com
+To: ariclinis1@gmail.com
+Message-ID: <61433f68b01af_429d3c505256f@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Maria Domingos</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A-=0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1928ms (Views: 0.4ms | ActiveRecord: 5.2ms | Allocations: 48513)
+
+
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mAnswersRequest Load (0.4ms)[0m  [1m[34mSELECT "answers_requests".* FROM "answers_requests" WHERE "answers_requests"."request_id" = ? LIMIT ?[0m  [["request_id", 26], ["LIMIT", 11]]
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAnswersRequest Destroy (0.9ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 26]]
+  [1m[36mRequest Destroy (0.7ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 26]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+Started POST "/api/v1/answers_requests?answers_request[request_id]=33&answers_request[donor_id]=1&token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:59:31 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"33", "donor_id"=>"1"}, "token"=>"KKXEc8xtdKzpr3XuUj8y"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (6.0ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mAnswersRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 33], ["donor_id", 1], ["created_at", "2021-09-16 12:59:32.001253"], ["updated_at", "2021-09-16 12:59:32.001253"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 14)
+RequestMailer#to_user_interesting: processed outbound mail in 16.4ms
+Delivered mail 61433fb47824_429d8138526be@cuidado.mail (1070.6ms)
+Date: Thu, 16 Sep 2021 13:59:32 +0100
+From: savelife.ao@gmail.com
+To: ariclinis1@gmail.com
+Message-ID: <61433fb47824_429d8138526be@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Maria Domingos</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A-=0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1143ms (Views: 0.3ms | ActiveRecord: 10.9ms | Allocations: 35463)
+
+
+Started DELETE "/api/v1/requests/33?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-16 13:59:44 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"33"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `set_api_v1_request'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `set_api_v1_request'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = ? LIMIT ?[0m  [["authentication_token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:84:in `check_token_delete_request'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[36mAnswersRequest Destroy (0.4ms)[0m  [1m[31mDELETE FROM "answers_requests" WHERE "answers_requests"."request_id" = ?[0m  [["request_id", 33]]
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[36mRequest Destroy (1.3ms)[0m  [1m[31mDELETE FROM "requests" WHERE "requests"."id" = ?[0m  [["id", 33]]
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:58:in `destroy'
+Completed 200 OK in 32ms (Views: 0.7ms | ActiveRecord: 5.6ms | Allocations: 11474)
+
+
