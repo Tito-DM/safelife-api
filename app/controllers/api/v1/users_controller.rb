@@ -24,11 +24,15 @@ class Api::V1::UsersController < DashboardController
     end
 
     def check_token
-        token = Base64.decode64(params[:token])
-
-        if (@api_v1_user.authentication_token != token || !(SessionUser.exists?(token: token)))
-            json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
+        begin
+            token = Base64.decode64(params[:token])
+            if (@api_v1_user.authentication_token != token || !(SessionUser.exists?(token: token)))
+                breack_security
+            end
+        rescue => exception
+            breack_security
         end
+        
     end
 
     # Only allow a trusted parameter "white list" through.

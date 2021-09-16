@@ -2,11 +2,16 @@ class Api::V1::PasswordResetsController < DashboardController
     def new; end
     def edit_pass
       # finds user with a valid token
-      token = Base64.decode64(params[:token])
-      token_decripted = Devise.token_generator.digest(User,:reset_password_token, token)
-      @user = User.find_by!(reset_password_token: token_decripted)
-      rescue ActiveSupport::MessageVerifier::InvalidSignature
-        json_response("O token está expirado, tente novamente.",false,{},@user,"Utilizador", :ok)
+      begin
+        token = Base64.decode64(params[:token])
+        token_decripted = Devise.token_generator.digest(User,:reset_password_token, token)
+        @user = User.find_by!(reset_password_token: token_decripted)
+        rescue ActiveSupport::MessageVerifier::InvalidSignature
+          json_response("O token está expirado, tente novamente.",false,{},@user,"Utilizador", :ok)
+      rescue => exception
+        breack_security
+      end
+      
     end
         
     def forgot_password
@@ -21,19 +26,23 @@ class Api::V1::PasswordResetsController < DashboardController
 
     def update_pass
         # updates user's password
-        token = Base64.decode64(params[:token])
-
-        token_decripted = Devise.token_generator.digest(User,:reset_password_token, token)
-        @user = User.find_by(reset_password_token: token_decripted)
-        if @user.present?
-          if @user.update(password_params)
-              json_response("Palavra-passe alterada com sucesso.",true,{},@user,"Utilizador", :ok)
+        begin
+          token = Base64.decode64(params[:token])
+          token_decripted = Devise.token_generator.digest(User,:reset_password_token, token)
+          @user = User.find_by(reset_password_token: token_decripted)
+          if @user.present?
+            if @user.update(password_params)
+                json_response("Palavra-passe alterada com sucesso.",true,{},@user,"Utilizador", :ok)
+            else
+              json_response("Ocorreu um erro ao atualizar a Palavra-passe",false,{},@user,"Utilizador", :ok)
+            end
           else
-            json_response("Ocorreu um erro ao atualizar a Palavra-passe",true,{},@user,"Utilizador", :ok)
+            json_response("Token Inválido.",false,{},@user,"Utilizador", :ok)
           end
-        else
-          json_response("Token Inválido.",false,{},@user,"Utilizador", :created)
+        rescue => exception
+          breack_security
         end
+        
     end
     private
     def password_params

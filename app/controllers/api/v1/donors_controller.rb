@@ -1,8 +1,8 @@
 class Api::V1::DonorsController < DashboardController
 
   before_action :set_api_v1_donor, only: [:show, :update_donor, :destroy]
-  before_action :verification_token, only:[:create, :update, :destroy]
-
+  before_action :verification_token, only:[:create, :update_donor, :destroy]
+  before_action :check_token, only: [:update_donor, :destroy]
   # GET /api/v1/donors
   def index
     p = params[:page]
@@ -15,7 +15,7 @@ class Api::V1::DonorsController < DashboardController
 
   # GET /api/v1/donors/1
   def show
-    json_response("Pedido efetuado",true,{},@api_v1_donor,model_name, :ok)
+    json_response("Dador",true,{},@api_v1_donor,model_name, :ok)
   end
 
   # POST /api/v1/donors
@@ -55,7 +55,7 @@ class Api::V1::DonorsController < DashboardController
         @donor = Donor.find_by(id: params[:id])
         @api_v1_user = User.find_by(id: @api_v1_donor.user_id)
       else
-        json_response("Doador não existe",false,{},{},model_name, :ok)
+        json_response("Dador não existe",false,{},{},model_name, :ok)
       end
     end
 
@@ -67,6 +67,17 @@ class Api::V1::DonorsController < DashboardController
       params.require(:user).permit(:email, :password, :password_confirmation,:name, :phone, :type_user)
     end
 
+    def check_token
+      token = Base64.decode64(params[:token])
+      user_id = @api_v1_user.id
+      if(User.exists?(id: user_id))
+        if(User.find_by(id: user_id).authentication_token !=token || !(SessionUser.exists?(token: token)))
+            breack_security
+        end
+      else
+        breack_security
+      end
+    end
 
     def model_name
       "Donor"

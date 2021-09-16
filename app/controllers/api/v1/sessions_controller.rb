@@ -1,6 +1,7 @@
 class Api::V1::SessionsController < DashboardController
     before_action :sign_in_params, only: :create
     before_action :load_user, only: :create
+    before_action :verification_token, only: :destroy
     # sign in
     def create
       if(@user)
@@ -57,12 +58,7 @@ class Api::V1::SessionsController < DashboardController
           }, status: :ok
         end
       else
-        render json: {
-          messages: "Tentativa de quebra de segurança",
-          is_success: false,
-          error_messages: [""],
-          data: {User: {}}
-        }, status: :ok
+        breack_security
       end
     end
   

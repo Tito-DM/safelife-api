@@ -1,7 +1,7 @@
 class Api::V1::RequestsController < DashboardController
   before_action :set_api_v1_request, only: [:show, :update, :destroy]
   before_action :model_name
-  before_action :check_token, only:[:requests_user]
+  before_action :check_token, only:[:requests_user, :create]
   before_action :verification_token, only:[:create, :update, :destroy]
   before_action :check_token_delete_request, only:[:destroy, :update]
   # GET /api/v1/requests
@@ -22,8 +22,12 @@ class Api::V1::RequestsController < DashboardController
 
   # GET /api/v1/requests/1
   def show
-    request = ActiveRecord::Base.connection.execute("SELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = #{params[:id]}")
-    render json: { request: request, success: true}, status: :ok
+    if Request.exists?(id: params[:id])
+      request = ActiveRecord::Base.connection.execute("SELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = #{params[:id]}")
+      json_response("Pedido",true,{},request,model_name, :ok)
+    else
+      json_response("Pedido Não encntrado",false,[],@api_v1_request,model_name, :created)
+    end
   end
 
   # POST /api/v1/requests
@@ -74,21 +78,27 @@ class Api::V1::RequestsController < DashboardController
     
     def check_token
       token = Base64.decode64(params[:token])
-      if(User.exists?(id: params[:user_id]))
-        if(User.find_by(id: params[:user_id]).authentication_token !=token || !(SessionUser.exists?(token: token)))
-            json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
+      user_id = params[:user_id]
+      if(User.exists?(id: user_id))
+        if(User.find_by(id: user_id).authentication_token !=token || !(SessionUser.exists?(token: token)))
+            breack_security
         end
+      else
+        breack_security
       end
     end
 
     def check_token_delete_request
-      token = Base64.decode64(params[:token])
-
-      u = User.find_by(authentication_token: token)
-      if(@api_v1_request != nil)
-        if(u.id != @api_v1_request.user_id)
-          json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
+      begin
+        token = Base64.decode64(params[:token])
+        u = User.find_by(authentication_token: token)
+        if(@api_v1_request != nil)
+          if(u.id != @api_v1_request.user_id)
+            breack_security
+          end
         end
+      rescue => exception
+        breack_security
       end
     end
     # Only allow a trusted parameter "white list" through.

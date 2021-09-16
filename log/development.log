@@ -25018,3 +25018,2411 @@ Processing by Api::V1::SessionsController#create as JSON
 Completed 200 OK in 272ms (Views: 0.7ms | ActiveRecord: 0.9ms | Allocations: 17012)
 
 
+Started POST "/api/v1/sign_up?user[email]=a@g.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=ariclene&user[phone]=93453434" for ::1 at 2021-09-16 20:57:30 +0100
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"a@g.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"ariclene", "phone"=>"93453434"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "a@g.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 200 OK in 367ms (Views: 0.6ms | ActiveRecord: 1.5ms | Allocations: 36874)
+
+
+Started POST "/api/v1/sign_up?user[email]=ari@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=ariclene&user[phone]=93453434" for ::1 at 2021-09-16 20:58:02 +0100
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"ari@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"ariclene", "phone"=>"93453434"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "7zhrcHyfHiAHF8NLwyje"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "ari@gmail.com"], ["encrypted_password", "$2a$12$i94Nl24DDak7RpOaQ68ZXeuC52BWiTRZ/8.wLnV5mTWVP6I464YE6"], ["created_at", "2021-09-16 19:58:02.974514"], ["updated_at", "2021-09-16 19:58:02.974514"], ["authentication_token", "7zhrcHyfHiAHF8NLwyje"], ["phone", "93453434"], ["name", "ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 200 OK in 272ms (Views: 0.4ms | ActiveRecord: 4.2ms | Allocations: 7413)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ari@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-16 20:58:36 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ari@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:76:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:77:in `load_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mSessionUser Create (0.3ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["created_at", "2021-09-16 19:58:36.561423"], ["updated_at", "2021-09-16 19:58:36.561423"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:13:in `create'
+Completed 200 OK in 277ms (Views: 0.7ms | ActiveRecord: 4.5ms | Allocations: 12345)
+
+
+Started GET "/api/v1/donors_all" for ::1 at 2021-09-16 20:58:53 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 27ms (Views: 5.6ms | ActiveRecord: 0.8ms | Allocations: 4032)
+
+
+Started GET "/api/v1/donors_all?page=2" for ::1 at 2021-09-16 20:59:10 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"2"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 10]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 10]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 0.6ms | Allocations: 1902)
+
+
+Started GET "/api/v1/donors_all?page=1" for ::1 at 2021-09-16 20:59:18 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 8ms (Views: 3.4ms | ActiveRecord: 0.7ms | Allocations: 2525)
+
+
+Started GET "/api/v1/requests?page=1" for ::1 at 2021-09-16 21:00:35 +0100
+Processing by Api::V1::RequestsController#index as */*
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:12:in `index'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:12:in `index'
+Completed 200 OK in 20ms (Views: 11.7ms | ActiveRecord: 1.2ms | Allocations: 9057)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021" for ::1 at 2021-09-16 21:01:39 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 627)
+
+
+  
+NoMethodError (undefined method `unpack1' for nil:NilClass):
+  
+app/controllers/dashboard_controller.rb:7:in `verification_token'
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021" for ::1 at 2021-09-16 21:02:47 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 702)
+
+
+  
+NoMethodError (undefined method `unpack1' for nil:NilClass):
+  
+app/controllers/dashboard_controller.rb:7:in `verification_token'
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=fdfd" for ::1 at 2021-09-16 21:03:04 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"fdfd"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms | Allocations: 878)
+
+
+  
+Encoding::UndefinedConversionError ("\xD7" from ASCII-8BIT to UTF-8):
+  
+app/controllers/dashboard_controller.rb:8:in `verification_token'
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=fdfdbnbnbnbnb" for ::1 at 2021-09-16 21:04:24 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"fdfdbnbnbnbnb"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 182)
+
+
+  
+Encoding::UndefinedConversionError ("\xD7" from ASCII-8BIT to UTF-8):
+  
+app/controllers/dashboard_controller.rb:8:in `verification_token'
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 21:04:34 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[36mSessionUser Load (0.3ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:8:in `verification_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-16 20:04:34.558692"], ["updated_at", "2021-09-16 20:04:34.558692"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+Completed 201 Created in 58ms (Views: 0.5ms | ActiveRecord: 4.4ms | Allocations: 22346)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=kj" for ::1 at 2021-09-16 21:04:49 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"kj"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 182)
+
+
+  
+Encoding::UndefinedConversionError ("\x92" from ASCII-8BIT to UTF-8):
+  
+app/controllers/dashboard_controller.rb:8:in `verification_token'
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=kj" for ::1 at 2021-09-16 21:10:15 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"kj"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms | Allocations: 949)
+
+
+  
+Encoding::UndefinedConversionError ("\x92" from ASCII-8BIT to UTF-8):
+  
+app/controllers/dashboard_controller.rb:8:in `verification_token'
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=kj" for ::1 at 2021-09-16 21:10:44 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"kj"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms | Allocations: 957)
+
+
+  
+Encoding::UndefinedConversionError ("\x92" from ASCII-8BIT to UTF-8):
+  
+app/controllers/dashboard_controller.rb:8:in `verification_token'
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=kj" for ::1 at 2021-09-16 21:24:13 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"kj"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mRequest Create (0.7ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-16 20:24:13.529031"], ["updated_at", "2021-09-16 20:24:13.529031"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+Completed 201 Created in 35ms (Views: 0.5ms | ActiveRecord: 4.1ms | Allocations: 19217)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=kjnmnm" for ::1 at 2021-09-16 21:24:23 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"kjnmnm"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-16 20:24:23.115313"], ["updated_at", "2021-09-16 20:24:23.115313"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+Completed 201 Created in 22ms (Views: 0.5ms | ActiveRecord: 2.7ms | Allocations: 6154)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=kjnmnm" for ::1 at 2021-09-16 21:25:56 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"kjnmnm"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-16 20:25:56.211880"], ["updated_at", "2021-09-16 20:25:56.211880"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[35m (22.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+Completed 201 Created in 56ms (Views: 0.4ms | ActiveRecord: 24.9ms | Allocations: 19480)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=kjnmnm" for ::1 at 2021-09-16 21:26:12 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"kjnmnm"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.4ms | Allocations: 962)
+
+
+  
+Encoding::UndefinedConversionError ("\x92" from ASCII-8BIT to UTF-8):
+  
+app/controllers/dashboard_controller.rb:8:in `verification_token'
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=kjnmnm" for ::1 at 2021-09-16 21:26:57 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"kjnmnm"}
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1014)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=kjnmnm" for ::1 at 2021-09-16 21:31:23 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"kjnmnm"}
+Completed 500 Internal Server Error in 163ms (ActiveRecord: 0.3ms | Allocations: 96191)
+
+
+  
+NameError (undefined local variable or method `token' for #<Api::V1::RequestsController:0x0000555eba8b6ff0>
+Did you mean?  @token):
+  
+app/controllers/dashboard_controller.rb:19:in `breack_security'
+app/controllers/dashboard_controller.rb:13:in `rescue in verification_token'
+app/controllers/dashboard_controller.rb:6:in `verification_token'
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=kjnmnm" for ::1 at 2021-09-16 21:31:56 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"kjnmnm"}
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1009)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 21:40:23 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-16 20:40:23.187831"], ["updated_at", "2021-09-16 20:40:23.187831"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+Completed 201 Created in 38ms (Views: 0.5ms | ActiveRecord: 3.6ms | Allocations: 19085)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 22:03:25 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-16 21:03:25.711829"], ["updated_at", "2021-09-16 21:03:25.711829"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+Completed 201 Created in 34ms (Views: 0.4ms | ActiveRecord: 3.1ms | Allocations: 18823)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 22:35:29 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 946)
+
+
+  
+NoMethodError (undefined method `user_id' for #<ActionController::Parameters:0x00007f6c68631470>):
+  
+app/controllers/api/v1/requests_controller.rb:77:in `check_token'
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 22:36:21 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 8268)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token==\n" for ::1 at 2021-09-16 22:39:55 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"=\\n"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 1348)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 22:50:53 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1380)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=5&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 23:01:08 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"5", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+  [1m[36mCACHE SessionUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 5], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-16 22:01:08.390436"], ["updated_at", "2021-09-16 22:01:08.390436"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+Completed 201 Created in 36ms (Views: 0.4ms | ActiveRecord: 4.0ms | Allocations: 15712)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=5&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3poc" for ::1 at 2021-09-16 23:01:19 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"5", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3poc"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1347)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=5&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 23:28:46 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"5", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+  [1m[36mCACHE SessionUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 5], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-16 22:28:46.828543"], ["updated_at", "2021-09-16 22:28:46.828543"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+Completed 201 Created in 43ms (Views: 0.4ms | ActiveRecord: 4.0ms | Allocations: 19689)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 23:28:53 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1348)
+
+
+Started PUT "/api/v1/donor_update/1?user[name]=Maria%20cat&user[email]=ariclinis@gmail.com&donor[province]=Luanda&donor[birthdate]=12-12-2000&donor[weight]=80&donor[blood]=A-&donor[gender]=femenino&user[phone]=934641870" for ::1 at 2021-09-16 23:29:38 +0100
+Processing by Api::V1::DonorsController#update_donor as JSON
+  Parameters: {"user"=>{"name"=>"Maria cat", "email"=>"ariclinis@gmail.com", "phone"=>"934641870"}, "donor"=>{"province"=>"Luanda", "birthdate"=>"12-12-2000", "weight"=>"80", "blood"=>"A-", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update_donor'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update_donor'
+  [1m[36mDonor Update (0.3ms)[0m  [1m[33mUPDATE "donors" SET "birthdate" = ?, "blood" = ?, "province" = ?, "updated_at" = ? WHERE "donors"."id" = ?[0m  [["birthdate", "2000-12-12"], ["blood", "A-"], ["province", "Luanda"], ["updated_at", "2021-09-16 22:29:38.876755"], ["id", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update_donor'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update_donor'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update_donor'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "ariclinis@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update_donor'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "name" = ?, "phone" = ?, "reset_password_token" = ?, "reset_password_sent_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "ariclinis@gmail.com"], ["name", "Maria cat"], ["phone", "934641870"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["updated_at", "2021-09-16 22:29:38.889278"], ["id", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update_donor'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update_donor'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+Completed 201 Created in 47ms (Views: 0.6ms | ActiveRecord: 7.2ms | Allocations: 25292)
+
+
+Started PUT "/api/v1/donor_update/1?user[name]=Maria%20cat&user[email]=ariclinis@gmail.com&donor[province]=Luanda&donor[birthdate]=12-12-2000&donor[weight]=80&donor[blood]=A-&donor[gender]=femenino&user[phone]=934641870" for ::1 at 2021-09-16 23:29:43 +0100
+Processing by Api::V1::DonorsController#update_donor as JSON
+  Parameters: {"user"=>{"name"=>"Maria cat", "email"=>"ariclinis@gmail.com", "phone"=>"934641870"}, "donor"=>{"province"=>"Luanda", "birthdate"=>"12-12-2000", "weight"=>"80", "blood"=>"A-", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update_donor'
+  [1m[36mCACHE Donor Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mCACHE Donor Load (0.0ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE Donor Load (0.0ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+Completed 201 Created in 19ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 7229)
+
+
+Started PUT "/api/v1/donor_update/1?user[name]=Maria%20cat&user[email]=ari@gmail.com&donor[province]=Luanda&donor[birthdate]=12-12-2000&donor[weight]=80&donor[blood]=A-&donor[gender]=femenino&user[phone]=934641870" for ::1 at 2021-09-16 23:30:04 +0100
+Processing by Api::V1::DonorsController#update_donor as JSON
+  Parameters: {"user"=>{"name"=>"Maria cat", "email"=>"ari@gmail.com", "phone"=>"934641870"}, "donor"=>{"province"=>"Luanda", "birthdate"=>"12-12-2000", "weight"=>"80", "blood"=>"A-", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update_donor'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update_donor'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "ari@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update_donor'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/donors_controller.rb:35:in `update_donor'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 7355)
+
+
+Started PUT "/api/v1/donor_update/1?user[name]=Maria%20cat&user[email]=ariclinis@gmail.com&donor[province]=Luanda&donor[birthdate]=12-12-2000&donor[weight]=80&donor[blood]=A-&donor[gender]=femenino&user[phone]=934641870" for ::1 at 2021-09-16 23:30:33 +0100
+Processing by Api::V1::DonorsController#update_donor as JSON
+  Parameters: {"user"=>{"name"=>"Maria cat", "email"=>"ariclinis@gmail.com", "phone"=>"934641870"}, "donor"=>{"province"=>"Luanda", "birthdate"=>"12-12-2000", "weight"=>"80", "blood"=>"A-", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update_donor'
+  [1m[36mCACHE Donor Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mCACHE Donor Load (0.0ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE Donor Load (0.0ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+Completed 201 Created in 21ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 7231)
+
+
+Started PUT "/api/v1/donor_update/1?user[name]=Maria%20cat&user[email]=ariclinis@gmail.com&donor[province]=Luanda&donor[birthdate]=12-12-2000&donor[weight]=80&donor[blood]=A-&donor[gender]=femenino&user[phone]=934641870" for ::1 at 2021-09-16 23:34:57 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update_donor as JSON
+  Parameters: {"user"=>{"name"=>"Maria cat", "email"=>"ariclinis@gmail.com", "phone"=>"934641870"}, "donor"=>{"province"=>"Luanda", "birthdate"=>"12-12-2000", "weight"=>"80", "blood"=>"A-", "gender"=>"femenino"}, "id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 16503)
+
+
+Started PUT "/api/v1/donor_update/1?user[name]=Maria%20cat&user[email]=ariclinis@gmail.com&donor[province]=Luanda&donor[birthdate]=12-12-2000&donor[weight]=80&donor[blood]=A-&donor[gender]=femenino&user[phone]=934641870&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 23:35:34 +0100
+Processing by Api::V1::DonorsController#update_donor as JSON
+  Parameters: {"user"=>{"name"=>"Maria cat", "email"=>"ariclinis@gmail.com", "phone"=>"934641870"}, "donor"=>{"province"=>"Luanda", "birthdate"=>"12-12-2000", "weight"=>"80", "blood"=>"A-", "gender"=>"femenino"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n", "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+  [1m[36mSessionUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update_donor'
+  [1m[36mCACHE Donor Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mCACHE Donor Load (0.0ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE Donor Load (0.0ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+Completed 201 Created in 27ms (Views: 0.7ms | ActiveRecord: 1.4ms | Allocations: 10580)
+
+
+Started PUT "/api/v1/donor_update/1?user[name]=Maria%20cat&user[email]=ariclinis@gmail.com&donor[province]=Luanda&donor[birthdate]=12-12-2000&donor[weight]=80&donor[blood]=A-&donor[gender]=femenino&user[phone]=934641870&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 23:57:24 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#update_donor as JSON
+  Parameters: {"user"=>{"name"=>"Maria cat", "email"=>"ariclinis@gmail.com", "phone"=>"934641870"}, "donor"=>{"province"=>"Luanda", "birthdate"=>"12-12-2000", "weight"=>"80", "blood"=>"A-", "gender"=>"femenino"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n", "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:73:in `check_token'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:74:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 34ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 17591)
+
+
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" ORDER BY "donors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mDonor Load (0.4ms)[0m  [1m[34mSELECT "donors".* FROM "donors" ORDER BY "donors"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-16 23:58:15 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:73:in `load_user'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:14:in `create'
+  [1m[36mDonor Load (0.3ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:15:in `create'
+Completed 200 OK in 266ms (Views: 0.8ms | ActiveRecord: 1.3ms | Allocations: 4204)
+
+
+Started PUT "/api/v1/donor_update/1?user[name]=Maria%20cat&user[email]=ariclinis@gmail.com&donor[province]=Luanda&donor[birthdate]=12-12-2000&donor[weight]=80&donor[blood]=A-&donor[gender]=femenino&user[phone]=934641870&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 23:58:28 +0100
+Processing by Api::V1::DonorsController#update_donor as JSON
+  Parameters: {"user"=>{"name"=>"Maria cat", "email"=>"ariclinis@gmail.com", "phone"=>"934641870"}, "donor"=>{"province"=>"Luanda", "birthdate"=>"12-12-2000", "weight"=>"80", "blood"=>"A-", "gender"=>"femenino"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n", "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:73:in `check_token'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:74:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 12ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 4518)
+
+
+Started PUT "/api/v1/donor_update/1?user[name]=Maria%20cat&user[email]=ariclinis@gmail.com&donor[province]=Luanda&donor[birthdate]=12-12-2000&donor[weight]=80&donor[blood]=A-&donor[gender]=femenino&user[phone]=934641870&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-16 23:58:30 +0100
+Processing by Api::V1::DonorsController#update_donor as JSON
+  Parameters: {"user"=>{"name"=>"Maria cat", "email"=>"ariclinis@gmail.com", "phone"=>"934641870"}, "donor"=>{"province"=>"Luanda", "birthdate"=>"12-12-2000", "weight"=>"80", "blood"=>"A-", "gender"=>"femenino"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n", "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:73:in `check_token'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:74:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 4519)
+
+
+Started PUT "/api/v1/donor_update/1?user[name]=Maria%20cat&user[email]=ariclinis@gmail.com&donor[province]=Luanda&donor[birthdate]=12-12-2000&donor[weight]=80&donor[blood]=A-&donor[gender]=femenino&user[phone]=934641870&token=S0tYRWM4eHRkS3pwcjNYdVVqOHk=\n" for ::1 at 2021-09-16 23:58:47 +0100
+Processing by Api::V1::DonorsController#update_donor as JSON
+  Parameters: {"user"=>{"name"=>"Maria cat", "email"=>"ariclinis@gmail.com", "phone"=>"934641870"}, "donor"=>{"province"=>"Luanda", "birthdate"=>"12-12-2000", "weight"=>"80", "blood"=>"A-", "gender"=>"femenino"}, "token"=>"S0tYRWM4eHRkS3pwcjNYdVVqOHk=\\n", "id"=>"1"}
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.4ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:73:in `check_token'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:74:in `check_token'
+  [1m[36mCACHE SessionUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "KKXEc8xtdKzpr3XuUj8y"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:74:in `check_token'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:34:in `update_donor'
+  [1m[36mCACHE Donor Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mCACHE Donor Load (0.0ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mCACHE Donor Load (0.0ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+Completed 201 Created in 28ms (Views: 0.9ms | ActiveRecord: 1.5ms | Allocations: 10356)
+
+
+Started GET "/api/v1/donors/1" for ::1 at 2021-09-17 00:01:33 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::DonorsController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:53:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT donors.*,users.id, users.name, users.email, users.phone, users.type_user FROM "donors" INNER JOIN "users" ON "users"."id" = "donors"."user_id" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:54:in `set_api_v1_donor'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:55:in `set_api_v1_donor'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/donors_controller.rb:56:in `set_api_v1_donor'
+Completed 200 OK in 39ms (Views: 0.7ms | ActiveRecord: 2.2ms | Allocations: 16929)
+
+
+Started GET "/api/v1/user/4" for ::1 at 2021-09-17 00:01:54 +0100
+Processing by Api::V1::UsersController#show as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 1710)
+
+
+Started PUT "/api/v1/user/2?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-17 00:02:02 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"2"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1330)
+
+
+Started PUT "/api/v1/user/5?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-17 00:02:49 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"5"}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1329)
+
+
+  [1m[36mSessionUser Load (0.3ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" ORDER BY "session_users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSessionUser Load (0.6ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" ORDER BY "session_users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mSessionUser Load (0.6ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" LIMIT ?[0m  [["LIMIT", 11]]
+Started PUT "/api/v1/user/5?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-17 00:03:39 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"x9WdhV56cDZVZMZgqzEu", "id"=>"5"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1329)
+
+
+Started PUT "/api/v1/user/5?user[name]=Tito&user[email]=ti@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-17 00:03:42 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ti@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"KKXEc8xtdKzpr3XuUj8y", "id"=>"5"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1329)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+Started PUT "/api/v1/user/5?user[name]=Tito&user[email]=ari@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=7zhrcHyfHiAHF8NLwyje" for ::1 at 2021-09-17 00:04:25 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ari@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"7zhrcHyfHiAHF8NLwyje", "id"=>"5"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1329)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ari@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-17 00:05:11 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ari@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:73:in `load_user'
+  [1m[36mSessionUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:14:in `create'
+Completed 200 OK in 268ms (Views: 0.6ms | ActiveRecord: 1.1ms | Allocations: 3793)
+
+
+Started PUT "/api/v1/user/5?user[name]=Tito&user[email]=ari@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=7zhrcHyfHiAHF8NLwyje" for ::1 at 2021-09-17 00:05:24 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ari@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"7zhrcHyfHiAHF8NLwyje", "id"=>"5"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1330)
+
+
+Started PUT "/api/v1/user/5?user[name]=Tito&user[email]=ari@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:06:36 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"ari@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n", "id"=>"5"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:19:in `set_api_v1_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:20:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:29:in `check_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "name" = ?, "phone" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$12$2dwqUL.YAtbAjWP7JIl4KOmQPaCD4E6soLXxinPj6YiteBeffvXfO"], ["name", "Tito"], ["phone", "934647392"], ["updated_at", "2021-09-16 23:06:36.855376"], ["id", 5]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `update'
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `update'
+Completed 201 Created in 268ms (Views: 0.5ms | ActiveRecord: 3.3ms | Allocations: 7383)
+
+
+Started GET "/api/v1/donors_all?=&gender=Masculino" for ::1 at 2021-09-17 00:06:58 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"gender"=>"Masculino"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (gender = 'Masculino') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (gender = 'Masculino') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 0.6ms | Allocations: 2621)
+
+
+Started POST "/api/v1/user/password/forgot_password?email=ariclinis1@gmail.com" for ::1 at 2021-09-17 00:07:39 +0100
+Processing by Api::V1::PasswordResetsController#forgot_password as JSON
+  Parameters: {"email"=>"ariclinis1@gmail.com"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:18:in `forgot_password'
+Completed 201 Created in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 748)
+
+
+Started POST "/api/v1/user/password/forgot_password?email=ariclinis@gmail.com" for ::1 at 2021-09-17 00:07:47 +0100
+Processing by Api::V1::PasswordResetsController#forgot_password as JSON
+  Parameters: {"email"=>"ariclinis@gmail.com"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:18:in `forgot_password'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "73edc46e19ec56401e2278aa3568be77f88f5b70c42b57118e82ac0b78d1d163"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:20:in `forgot_password'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:20:in `forgot_password'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = ?, "reset_password_sent_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["reset_password_token", "73edc46e19ec56401e2278aa3568be77f88f5b70c42b57118e82ac0b78d1d163"], ["reset_password_sent_at", "2021-09-16 23:07:47.440566"], ["updated_at", "2021-09-16 23:07:47.440842"], ["id", 1]]
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:20:in `forgot_password'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/PasswordResetsController.rb:20:in `forgot_password'
+  Rendering vendor/bundle/ruby/2.7.0/gems/devise_token_auth-1.2.0/app/views/devise/mailer/reset_password_instructions.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/devise_token_auth-1.2.0/app/views/devise/mailer/reset_password_instructions.html.erb (Duration: 2.4ms | Allocations: 738)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 8.2ms
+Delivered mail 6143ce4375d07_3d8780fc100c0@cuidado.mail (2363.8ms)
+Date: Fri, 17 Sep 2021 00:07:47 +0100
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: ariclinis@gmail.com
+Message-ID: <6143ce4375d07_3d8780fc100c0@cuidado.mail>
+Subject: =?UTF-8?Q?Instru=C3=A7=C3=B5es_para_redefinir_sua_senha?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p>Ol=C3=A1 ariclinis@gmail.com!</p>=0D
+=0D
+<p>Algu=C3=A9m pediu um link para mudar sua senha. Voc=C3=AA pode fazer i=
+sso atrav=C3=A9s do link abaixo </p>=0D
+=0D
+<p><a href=3D"http://localhost:3000/users/password/edit?config=3D&redirec=
+t_url=3D&reset_password_token=3DM9o8K2FUTnZnqr4RDSCr">Alterar a senha</a>=
+</p>=0D
+=0D
+<p>Se voc=C3=AA n=C3=A3o pediu isso, por favor, ignore este e-mail.</p>=0D=
+
+<p>Sua senha n=C3=A3o ser=C3=A1 alterada at=C3=A9 que voc=C3=AA acessar o=
+ link acima e criar um novo.</p>=
+
+Completed 201 Created in 2527ms (Views: 1.9ms | ActiveRecord: 2.8ms | Allocations: 22867)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=33&answers_request[donor_id]=1&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:08:13 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"33", "donor_id"=>"1"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 22ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 9977)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=2&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:08:51 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"2", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1437)
+
+
+Started POST "/api/v1/requests?type_request=0&request[description]=A+&request[user_id]=5&request[province]=Namibe&request[date_limit]=20-01-2021&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:09:00 +0100
+Processing by Api::V1::RequestsController#create as */*
+  Parameters: {"type_request"=>"0", "request"=>{"description"=>"A ", "user_id"=>"5", "province"=>"Namibe", "date_limit"=>"20-01-2021"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+  [1m[36mCACHE SessionUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[36mRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "type_request", "description", "province", "date_limit", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["user_id", 5], ["type_request", 0], ["description", "A "], ["province", "Namibe"], ["date_limit", "2021-01-20"], ["created_at", "2021-09-16 23:09:00.876545"], ["updated_at", "2021-09-16 23:09:00.876545"]]
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:36:in `create'
+Completed 201 Created in 52ms (Views: 2.0ms | ActiveRecord: 3.2ms | Allocations: 12575)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=1&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:09:19 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"1"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mAnswersRequest Create (0.5ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 1], ["created_at", "2021-09-16 23:09:19.021854"], ["updated_at", "2021-09-16 23:09:19.021854"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.7ms | Allocations: 154)
+RequestMailer#to_user_interesting: processed outbound mail in 9.4ms
+Delivered mail 6143ce9fd1e8_3d8780201013f@cuidado.mail (2438.5ms)
+Date: Fri, 17 Sep 2021 00:09:19 +0100
+From: savelife.ao@gmail.com
+To: ariclinis@gmail.com
+Message-ID: <6143ce9fd1e8_3d8780201013f@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Maria cat</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 2482ms (Views: 1.0ms | ActiveRecord: 3.2ms | Allocations: 13286)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:09:32 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mAnswersRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 2], ["created_at", "2021-09-16 23:09:32.828959"], ["updated_at", "2021-09-16 23:09:32.828959"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 12)
+RequestMailer#to_user_interesting: processed outbound mail in 3.2ms
+Delivered mail 6143ceaccd97e_3d877ecc102e5@cuidado.mail (1140.0ms)
+Date: Fri, 17 Sep 2021 00:09:32 +0100
+From: savelife.ao@gmail.com
+To: ariclinis2017@gmail.com
+Message-ID: <6143ceaccd97e_3d877ecc102e5@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Ariclene</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1160ms (Views: 0.3ms | ActiveRecord: 2.7ms | Allocations: 11346)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=1&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:09:42 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"1"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mAnswersRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 1], ["created_at", "2021-09-16 23:09:42.958665"], ["updated_at", "2021-09-16 23:09:42.958665"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 11)
+RequestMailer#to_user_interesting: processed outbound mail in 3.6ms
+Delivered mail 6143ceb6ed31f_3d8780fc103a5@cuidado.mail (1130.6ms)
+Date: Fri, 17 Sep 2021 00:09:42 +0100
+From: savelife.ao@gmail.com
+To: ariclinis@gmail.com
+Message-ID: <6143ceb6ed31f_3d8780fc103a5@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Maria cat</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1150ms (Views: 0.4ms | ActiveRecord: 3.5ms | Allocations: 11322)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=1&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:18:48 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"1"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mAnswersRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 1], ["created_at", "2021-09-16 23:18:48.603816"], ["updated_at", "2021-09-16 23:18:48.603816"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 13)
+RequestMailer#to_user_interesting: processed outbound mail in 16.9ms
+Delivered mail 6143d0d89b1d1_3d878020104e@cuidado.mail (1610.9ms)
+Date: Fri, 17 Sep 2021 00:18:48 +0100
+From: savelife.ao@gmail.com
+To: ariclinis@gmail.com
+Message-ID: <6143d0d89b1d1_3d878020104e@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Maria cat</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1676ms (Views: 0.6ms | ActiveRecord: 3.3ms | Allocations: 33756)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=4&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:19:00 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"4"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 11ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 4315)
+
+
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=40&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:21:04 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"40"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 40], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 7ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 4190)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=4&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:21:11 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"4"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 8ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 4190)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=1&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:21:17 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"1"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mAnswersRequest Create (0.6ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 1], ["created_at", "2021-09-16 23:21:17.024542"], ["updated_at", "2021-09-16 23:21:17.024542"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 11)
+RequestMailer#to_user_interesting: processed outbound mail in 5.0ms
+Delivered mail 6143d16d9ad2_3d877ecc10515@cuidado.mail (1262.1ms)
+Date: Fri, 17 Sep 2021 00:21:17 +0100
+From: savelife.ao@gmail.com
+To: ariclinis@gmail.com
+Message-ID: <6143d16d9ad2_3d877ecc10515@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Maria cat</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1283ms (Views: 0.4ms | ActiveRecord: 3.7ms | Allocations: 11332)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=90&answers_request[donor_id]=1&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:21:26 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"90", "donor_id"=>"1"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 90], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+Completed 422 Unprocessable Entity in 12ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 4191)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=1&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:21:34 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"1"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mAnswersRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 1], ["created_at", "2021-09-16 23:21:34.893655"], ["updated_at", "2021-09-16 23:21:34.893655"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 12)
+RequestMailer#to_user_interesting: processed outbound mail in 4.8ms
+Delivered mail 6143d17eddc52_3d873c50106a7@cuidado.mail (1314.9ms)
+Date: Fri, 17 Sep 2021 00:21:34 +0100
+From: savelife.ao@gmail.com
+To: ariclinis@gmail.com
+Message-ID: <6143d17eddc52_3d873c50106a7@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Maria cat</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1336ms (Views: 0.4ms | ActiveRecord: 3.5ms | Allocations: 11327)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=1&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\o" for ::1 at 2021-09-17 00:22:33 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"1"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\o"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mAnswersRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 1], ["created_at", "2021-09-16 23:22:33.744668"], ["updated_at", "2021-09-16 23:22:33.744668"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:30:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 11)
+RequestMailer#to_user_interesting: processed outbound mail in 3.1ms
+Delivered mail 6143d1b9b8db5_3d877ecc1075c@cuidado.mail (1143.7ms)
+Date: Fri, 17 Sep 2021 00:22:33 +0100
+From: savelife.ao@gmail.com
+To: ariclinis@gmail.com
+Message-ID: <6143d1b9b8db5_3d877ecc1075c@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Maria cat</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1164ms (Views: 0.3ms | ActiveRecord: 3.4ms | Allocations: 11322)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=1&token=N3pocmNIeWZIaUFIRjhOTHd5amU=\o" for ::1 at 2021-09-17 00:25:06 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"1"}, "token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\o"}
+  [1m[36mRequest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+Filter chain halted as :check_token_create rendered or redirected
+Completed 200 OK in 40ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 17771)
+
+
+  [1m[36mDonor Load (0.6ms)[0m  [1m[34mSELECT "donors".* FROM "donors" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis2017@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-17 00:26:05 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis2017@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ariclinis2017@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ariclinis2017@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:73:in `load_user'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mSessionUser Create (0.2ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["created_at", "2021-09-16 23:26:05.507482"], ["updated_at", "2021-09-16 23:26:05.507482"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:14:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:15:in `create'
+Completed 200 OK in 277ms (Views: 0.8ms | ActiveRecord: 3.7ms | Allocations: 10937)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=1&token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\n" for ::1 at 2021-09-17 00:26:54 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"1"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\n"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+Filter chain halted as :check_token_create rendered or redirected
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2499)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=3&token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\n" for ::1 at 2021-09-17 00:26:58 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"3"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\n"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+Completed 422 Unprocessable Entity in 43ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 14541)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\n" for ::1 at 2021-09-17 00:28:13 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\n"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mAnswersRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 2], ["created_at", "2021-09-16 23:28:13.926040"], ["updated_at", "2021-09-16 23:28:13.926040"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 13)
+RequestMailer#to_user_interesting: processed outbound mail in 4.1ms
+Delivered mail 6143d30de7c26_3d877f6c108df@cuidado.mail (1183.6ms)
+Date: Fri, 17 Sep 2021 00:28:13 +0100
+From: savelife.ao@gmail.com
+To: ariclinis2017@gmail.com
+Message-ID: <6143d30de7c26_3d877f6c108df@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Ariclene</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1220ms (Views: 0.4ms | ActiveRecord: 3.9ms | Allocations: 17187)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\" for ::1 at 2021-09-17 00:28:24 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mAnswersRequest Create (0.7ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 2], ["created_at", "2021-09-16 23:28:24.781121"], ["updated_at", "2021-09-16 23:28:24.781121"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 11)
+RequestMailer#to_user_interesting: processed outbound mail in 4.8ms
+Delivered mail 6143d318c262c_3d878020109ba@cuidado.mail (1126.6ms)
+Date: Fri, 17 Sep 2021 00:28:24 +0100
+From: savelife.ao@gmail.com
+To: ariclinis2017@gmail.com
+Message-ID: <6143d318c262c_3d878020109ba@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Ariclene</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1156ms (Views: 0.6ms | ActiveRecord: 4.7ms | Allocations: 14263)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ" for ::1 at 2021-09-17 00:28:31 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mAnswersRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 2], ["created_at", "2021-09-16 23:28:31.275793"], ["updated_at", "2021-09-16 23:28:31.275793"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 11)
+RequestMailer#to_user_interesting: processed outbound mail in 3.5ms
+Delivered mail 6143d31f46a0c_3d877ecc11079@cuidado.mail (1190.4ms)
+Date: Fri, 17 Sep 2021 00:28:31 +0100
+From: savelife.ao@gmail.com
+To: ariclinis2017@gmail.com
+Message-ID: <6143d31f46a0c_3d877ecc11079@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Ariclene</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1221ms (Views: 0.4ms | ActiveRecord: 4.6ms | Allocations: 14259)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1m" for ::1 at 2021-09-17 00:28:40 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1m"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.2ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+Filter chain halted as :check_token_create rendered or redirected
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 2496)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1mjk" for ::1 at 2021-09-17 00:28:50 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mjk"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+Filter chain halted as :check_token_create rendered or redirected
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 2497)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\n" for ::1 at 2021-09-17 00:28:54 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\n"}
+  [1m[36mRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mAnswersRequest Create (1.1ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 2], ["created_at", "2021-09-16 23:28:54.758062"], ["updated_at", "2021-09-16 23:28:54.758062"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 11)
+RequestMailer#to_user_interesting: processed outbound mail in 3.5ms
+Delivered mail 6143d336bdb77_3d877f6c111d2@cuidado.mail (1459.0ms)
+Date: Fri, 17 Sep 2021 00:28:54 +0100
+From: savelife.ao@gmail.com
+To: ariclinis2017@gmail.com
+Message-ID: <6143d336bdb77_3d877f6c111d2@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Ariclene</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1496ms (Views: 0.4ms | ActiveRecord: 5.2ms | Allocations: 14278)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=" for ::1 at 2021-09-17 00:29:00 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ="}
+  [1m[36mRequest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mAnswersRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 2], ["created_at", "2021-09-16 23:29:00.440561"], ["updated_at", "2021-09-16 23:29:00.440561"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 11)
+RequestMailer#to_user_interesting: processed outbound mail in 6.2ms
+Delivered mail 6143d33c6fd15_3d878020112a@cuidado.mail (1100.1ms)
+Date: Fri, 17 Sep 2021 00:29:00 +0100
+From: savelife.ao@gmail.com
+To: ariclinis2017@gmail.com
+Message-ID: <6143d33c6fd15_3d878020112a@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Ariclene</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1135ms (Views: 0.5ms | ActiveRecord: 6.1ms | Allocations: 14263)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ" for ::1 at 2021-09-17 00:29:06 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mAnswersRequest Create (0.3ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 2], ["created_at", "2021-09-16 23:29:06.198695"], ["updated_at", "2021-09-16 23:29:06.198695"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 11)
+RequestMailer#to_user_interesting: processed outbound mail in 3.7ms
+Delivered mail 6143d34233c16_3d877ecc1136f@cuidado.mail (1080.3ms)
+Date: Fri, 17 Sep 2021 00:29:06 +0100
+From: savelife.ao@gmail.com
+To: ariclinis2017@gmail.com
+Message-ID: <6143d34233c16_3d877ecc1136f@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Ariclene</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1106ms (Views: 0.4ms | ActiveRecord: 4.7ms | Allocations: 14263)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1mSz" for ::1 at 2021-09-17 00:29:12 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSz"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+Filter chain halted as :check_token_create rendered or redirected
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 2496)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ" for ::1 at 2021-09-17 00:29:17 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mAnswersRequest Create (0.9ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 2], ["created_at", "2021-09-16 23:29:17.310408"], ["updated_at", "2021-09-16 23:29:17.310408"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 11)
+RequestMailer#to_user_interesting: processed outbound mail in 5.1ms
+Delivered mail 6143d34d501af_3d873c501141f@cuidado.mail (1229.6ms)
+Date: Fri, 17 Sep 2021 00:29:17 +0100
+From: savelife.ao@gmail.com
+To: ariclinis2017@gmail.com
+Message-ID: <6143d34d501af_3d873c501141f@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Ariclene</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1266ms (Views: 0.5ms | ActiveRecord: 6.9ms | Allocations: 14271)
+
+
+Started POST "/api/v1/answers_requests?answers_request[request_id]=56&answers_request[donor_id]=2&token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\n" for ::1 at 2021-09-17 00:29:37 +0100
+Processing by Api::V1::AnswersRequestsController#create as */*
+  Parameters: {"answers_request"=>{"request_id"=>"56", "donor_id"=>"2"}, "token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\n"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:81:in `check_token_create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:82:in `check_token_create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:83:in `check_token_create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mDonor Load (0.1ms)[0m  [1m[34mSELECT "donors".* FROM "donors" WHERE "donors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mAnswersRequest Create (0.4ms)[0m  [1m[32mINSERT INTO "answers_requests" ("request_id", "donor_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["request_id", 56], ["donor_id", 2], ["created_at", "2021-09-16 23:29:37.501600"], ["updated_at", "2021-09-16 23:29:37.501600"]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:31:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:3:in `to_user_interesting'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/mailers/request_mailer.rb:4:in `to_user_interesting'
+  Rendering request_mailer/to_user_interesting.html.erb within layouts/mailer
+  Rendered request_mailer/to_user_interesting.html.erb within layouts/mailer (Duration: 0.1ms | Allocations: 11)
+RequestMailer#to_user_interesting: processed outbound mail in 3.9ms
+Delivered mail 6143d3617dea4_3d877f6c115b6@cuidado.mail (1321.7ms)
+Date: Fri, 17 Sep 2021 00:29:37 +0100
+From: savelife.ao@gmail.com
+To: ariclinis2017@gmail.com
+Message-ID: <6143d3617dea4_3d877f6c115b6@cuidado.mail>
+Subject: =?UTF-8?Q?Doador_dispon=C3=ADvel?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>=0D
+<html>=0D
+  <head>=0D
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />=0D
+    <style>=0D
+      /* Email styles need to be inline */=0D
+    </style>=0D
+  </head>=0D
+=0D
+  <body>=0D
+    <html>=0D
+  <head>=0D
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />=0D
+  </head>=0D
+  <body>=0D
+    <h1>Caro Utilizador, Ariclene</h1>=0D
+    <p>=0D
+      Existe um Doador disponivel para o seu pedido de Sangue do tipo A =0D=
+
+    </p>=0D
+    <p>=0D
+      Clica no clink para ver os dados do Doador http://savelifee.herokua=
+pp.com/donor/profile.=0D
+    </p>=0D
+    <p>Obrigado pela prefer=C3=AAncia,</p>=0D
+    <p>Savelife</p>=0D
+  </body>=0D
+</html>=0D
+  </body>=0D
+</html>=0D
+
+Completed 201 Created in 1350ms (Views: 0.4ms | ActiveRecord: 4.8ms | Allocations: 14260)
+
+
+Started GET "/api/v1/answers/47?token=x9WdhV56cDZVZMZgqzEu" for ::1 at 2021-09-17 00:31:05 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>"x9WdhV56cDZVZMZgqzEu", "request_id"=>"47"}
+  [1m[36mRequest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:67:in `check_token'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:68:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:69:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 14454)
+
+
+Started GET "/api/v1/answers/56?token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:31:46 +0100
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n", "request_id"=>"56"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:67:in `check_token'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:68:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:69:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:69:in `check_token'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id inner join users on donors.user_id = users.id WHERE requests.id = 56[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:19:in `answers_request'
+Completed 200 OK in 21ms (Views: 2.6ms | ActiveRecord: 2.2ms | Allocations: 7900)
+
+
+Started GET "/api/v1/answers/55?token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:31:57 +0100
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n", "request_id"=>"55"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:67:in `check_token'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:68:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:69:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:69:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id inner join users on donors.user_id = users.id WHERE requests.id = 55[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:19:in `answers_request'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 2821)
+
+
+Started GET "/api/v1/answers/55?token=N3pocmNIeWZIaUFIRjhOT" for ::1 at 2021-09-17 00:32:18 +0100
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>"N3pocmNIeWZIaUFIRjhOT", "request_id"=>"55"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:67:in `check_token'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 55], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:68:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:69:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 1846)
+
+
+Started GET "/api/v1/answers/56?token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:32:27 +0100
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n", "request_id"=>"56"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:67:in `check_token'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:68:in `check_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:69:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "7zhrcHyfHiAHF8NLwyje"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:69:in `check_token'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id inner join users on donors.user_id = users.id WHERE requests.id = 56[0m
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:19:in `answers_request'
+Completed 200 OK in 20ms (Views: 2.8ms | ActiveRecord: 1.9ms | Allocations: 5999)
+
+
+Started GET "/api/v1/answers/44?token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 00:32:31 +0100
+Processing by Api::V1::AnswersRequestsController#answers_request as */*
+  Parameters: {"token"=>"N3pocmNIeWZIaUFIRjhOTHd5amU=\\n", "request_id"=>"44"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:67:in `check_token'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:68:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/answers_requests_controller.rb:69:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 1848)
+
+
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-17 00:33:20 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 693)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/api/v1/requests_controller.rb:77:in `check_token'
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for ::1 at 2021-09-17 00:41:01 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 8263)
+
+
+Started GET "/api/v1/requests/user_requests/3?token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\n" for ::1 at 2021-09-17 00:42:06 +0100
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\n", "user_id"=>"3"}
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:78:in `check_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:79:in `check_token'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '3') LIMIT ? OFFSET ?) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '3') LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 21ms (Views: 1.2ms | ActiveRecord: 1.6ms | Allocations: 7005)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = ? LIMIT ?[0m  [["user_id", 3], ["LIMIT", 11]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = 26[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = 56[0m
+Started GET "/api/v1/requests/56" for ::1 at 2021-09-17 00:47:27 +0100
+Processing by Api::V1::RequestsController#show as */*
+  Parameters: {"id"=>"56"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `set_api_v1_request'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `set_api_v1_request'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = 56[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:25:in `show'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 5804)
+
+
+Started GET "/api/v1/requests/100" for ::1 at 2021-09-17 00:47:34 +0100
+Processing by Api::V1::RequestsController#show as */*
+  Parameters: {"id"=>"100"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `set_api_v1_request'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = 100[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:25:in `show'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1105)
+
+
+Started GET "/api/v1/requests/50" for ::1 at 2021-09-17 00:47:46 +0100
+Processing by Api::V1::RequestsController#show as */*
+  Parameters: {"id"=>"50"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:68:in `set_api_v1_request'
+  [1m[36mRequest Load (0.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:69:in `set_api_v1_request'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = 50[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:25:in `show'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 1792)
+
+
+Started GET "/api/v1/requests/100" for ::1 at 2021-09-17 00:50:46 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#show as */*
+  Parameters: {"id"=>"100"}
+  [1m[36mRequest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:72:in `set_api_v1_request'
+  [1m[36mCACHE Request Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:25:in `show'
+Completed 201 Created in 12ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 3400)
+
+
+Started GET "/api/v1/requests/100" for ::1 at 2021-09-17 00:52:42 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::RequestsController#show as */*
+  Parameters: {"id"=>"100"}
+  [1m[36mRequest Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:72:in `set_api_v1_request'
+  [1m[36mCACHE Request Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:25:in `show'
+Completed 201 Created in 7ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 3286)
+
+
+Started GET "/api/v1/requests/56" for ::1 at 2021-09-17 00:52:48 +0100
+Processing by Api::V1::RequestsController#show as */*
+  Parameters: {"id"=>"56"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:72:in `set_api_v1_request'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:73:in `set_api_v1_request'
+  [1m[36mCACHE Request Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:25:in `show'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = 56[0m
+  ↳ app/controllers/api/v1/requests_controller.rb:26:in `show'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 6482)
+
+
+Started DELETE "/api/v1/log_out?token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\n" for ::1 at 2021-09-17 00:55:48 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\n"}
+  [1m[36mSessionUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mCACHE SessionUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:50:in `destroy'
+  [1m[36mSessionUser Load (0.2ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+  [1m[36mSessionUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "session_users" WHERE "session_users"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 3.7ms | Allocations: 8163)
+
+
+Started DELETE "/api/v1/requests/56?token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\n" for ::1 at 2021-09-17 00:56:01 +0100
+Processing by Api::V1::RequestsController#destroy as */*
+  Parameters: {"token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\n", "id"=>"56"}
+  [1m[36mRequest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:72:in `set_api_v1_request'
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = ? LIMIT ?[0m  [["id", 56], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:73:in `set_api_v1_request'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = ? LIMIT ?[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 7679)
+
+

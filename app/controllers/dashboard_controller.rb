@@ -4,14 +4,23 @@ class DashboardController < ApplicationController
 
     public 
     def verification_token
-        token = Base64.decode64(params["token"])
-        if(SessionUser.find_by(token: token)==nil)
+        begin
+            token = Base64.decode64(params[:token])
+            if(!SessionUser.exists?(token: token))
+                breack_security
+            end
+        rescue => exception
+            breack_security
+        end
+        
+    end
+
+    def breack_security
             render json: {
                 message: "Tentativa de quebra de Segurança",
-                is_success: true,
+                is_success: false,
                 error_messages: {} ,
                 data: {}
-              }, status: :ok
-        end
+            }, status: :ok
     end
 end

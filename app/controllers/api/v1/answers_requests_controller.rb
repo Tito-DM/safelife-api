@@ -2,6 +2,7 @@ class Api::V1::AnswersRequestsController < DashboardController
   before_action :set_api_v1_answers_request, only: [:show, :update, :destroy]
   before_action :model_name
   before_action :check_token, only:[:answers_request]
+  before_action :check_token_create, only: :create
 
   # GET /api/v1/answers_requests
   def index
@@ -15,8 +16,8 @@ class Api::V1::AnswersRequestsController < DashboardController
   def answers_request
     p = params[:page]
     page = (p)?(p):1
-    @api_v1_answers_request = ActiveRecord::Base.connection.execute("SELECT donors.*, users.name, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id inner join users on donors.user_id = users.id WHERE requests.id = #{params['request_id']}")
-    render json: { answers_requests: @api_v1_answers_request,page: page , per_page: 10, request_count: @api_v1_answers_request.count, success: true, message: "Listado com sucesso"}, status: :ok
+    @api_v1_answers_request = ActiveRecord::Base.connection.execute("SELECT donors.*, users.name, users.email, users.phone, requests.* FROM answers_requests inner join donors on answers_requests.donor_id = donors.id inner join requests on answers_requests.request_id = requests.id inner join users on donors.user_id = users.id WHERE requests.id = #{params['request_id']}")
+    render json: { answers_requests: @api_v1_answers_request,page: page , per_page: 10, request_count: @api_v1_answers_request.count, success: true, message: "Listado"}, status: :ok
   end
 
   # GET /api/v1/answers_requests/1
@@ -61,14 +62,33 @@ class Api::V1::AnswersRequestsController < DashboardController
     end
 
     def check_token
-      token = Base64.decode64(params[:token])
-      if(Request.exists?(id: params[:request_id]))
-        user_id = Request.find_by(id: params[:request_id]).user_id
-        if(User.find_by(id: user_id).authentication_token != token || !(SessionUser.exists?(token: token)))
-            json_response("Tentativa de Quebra de Segurança",false,[],{},model_name, :ok)
+      begin
+        token = Base64.decode64(params[:token])
+        if(Request.exists?(id: params[:request_id]))
+          user_id = Request.find_by(id: params[:request_id]).user_id
+          if(User.find_by(id: user_id).authentication_token != token || !(SessionUser.exists?(token: token)))
+              breack_security
+          end
         end
+      rescue => exception
+        breack_security
       end
     end
+
+    def check_token_create
+      begin
+        token = Base64.decode64(params[:token])
+        if(Request.exists?(id: params[:answers_request][:request_id]) && Donor.exists?(id: params[:answers_request][:donor_id]) )
+          user_id = Donor.find_by(id: params[:answers_request][:donor_id]).user_id
+          if(User.find_by(id: user_id).authentication_token != token || !(SessionUser.exists?(token: token)))
+              breack_security
+          end
+        end
+      rescue => exception
+        breack_security
+      end
+    end
+
 
     # Only allow a trusted parameter "white list" through.
     def api_v1_answers_request_params
