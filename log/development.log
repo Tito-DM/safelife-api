@@ -28333,3 +28333,14 @@ Filter chain halted as :check_token rendered or redirected
 Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 814)
 
 
+Started GET "/api/v1/donors_all?page=1" for ::1 at 2021-09-17 16:16:58 +0100
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"1"}
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 73ms (Views: 47.1ms | ActiveRecord: 10.5ms | Allocations: 12566)
+
+
