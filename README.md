@@ -50,7 +50,6 @@ The project is focused in torn easy the people found other people or Institution
 We used the following data structure:
 <p align="center">
   <a href="#">
-    <img src="./db.png" alt="Logo" >
   </a>
 </p>
 
