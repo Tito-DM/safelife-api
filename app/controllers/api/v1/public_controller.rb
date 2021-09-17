@@ -7,7 +7,7 @@ class Api::V1::PublicController < ApplicationController
         p = params[:page]
         page = (p)?(p):1
         @api_v1_donors = User.select('donors.*, users.name, users.email, users.phone, users.type_user').joins(:donor)
-        if params[:province] 
+        if params[:province]
             @api_v1_donors = @api_v1_donors.where("province = ?",province )
         end 
         if params[:blood]
