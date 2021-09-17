@@ -27426,3 +27426,910 @@ Filter chain halted as :verification_token rendered or redirected
 Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 7679)
 
 
+  [1m[35m (554.4ms)[0m  [1m[35mCREATE DATABASE "savelife_development" ENCODING = 'unicode'[0m
+  [1m[35m (64.9ms)[0m  [1m[35mCREATE DATABASE "savelife_test" ENCODING = 'unicode'[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6472277798726841990)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20210625152856)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (41.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625152856"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAuthenticationTokenToUsers (20210625152913)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "authentication_token" character varying(30)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_authentication_token" ON "users"  ("authentication_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625152913"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPhoneToUsers (20210625161146)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "phone" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625161146"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTypeUserToUsers (20210625161704)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "type_user" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625161704"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDonors (20210625163608)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "donors" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "user_id" bigint NOT NULL, "birthdate" date, "weight" float, "blood" character varying, "status" integer, "province" character varying, "gender" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_1840adf13b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6472277798726841990)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6472277798726841990)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDonors (20210625163608)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "donors" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "user_id" uuid NOT NULL, "birthdate" date, "weight" float, "blood" character varying, "status" integer, "province" character varying, "gender" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_1840adf13b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_donors_on_user_id" ON "donors"  ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625163608"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRequests (20210625164332)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "user_id" uuid NOT NULL, "type_request" integer, "description" character varying, "province" character varying, "date_limit" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_8ead8b1e6b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_requests_on_user_id" ON "requests"  ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625164332"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswersRequests (20210625164447)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "answers_requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_74b4cd4d62"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_18ad986a3d"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_answers_requests_on_request_id" ON "answers_requests"  ("request_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_answers_requests_on_donor_id" ON "answers_requests"  ("donor_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625164447"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateApiV1AnswersRequests (20210626165616)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "api_v1_answers_requests" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210626165616"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToUsers (20210715191309)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210715191309"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotificationResquestToDonors (20210909105415)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "notification_resquest_to_donors" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_74902b18e8"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_ef13559736"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_notification_resquest_to_donors_on_request_id" ON "notification_resquest_to_donors"  ("request_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_notification_resquest_to_donors_on_donor_id" ON "notification_resquest_to_donors"  ("donor_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210909105415"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotificationDonorToRequests (20210909105437)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "notification_donor_to_requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_d3ebca90f9"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_aa1da9cb6e"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_notification_donor_to_requests_on_request_id" ON "notification_donor_to_requests"  ("request_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_notification_donor_to_requests_on_donor_id" ON "notification_donor_to_requests"  ("donor_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210909105437"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddSessionsTable (20210914150830)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210914150830"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSessionUsers (20210914223643)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "session_users" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "token" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210914223643"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-09-17 10:09:22.635737"], ["updated_at", "2021-09-17 10:09:22.635737"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6472277798726841990)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (16.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "savelife_development"[0m
+  [1m[35m (17.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "savelife_test"[0m
+  [1m[35m (85.1ms)[0m  [1m[35mCREATE DATABASE "savelife_development" ENCODING = 'unicode'[0m
+  [1m[35m (51.0ms)[0m  [1m[35mCREATE DATABASE "savelife_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (5.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "answers_requests" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "answers_requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_answers_requests_on_donor_id" ON "answers_requests"  ("donor_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_answers_requests_on_request_id" ON "answers_requests"  ("request_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "api_v1_answers_requests" CASCADE[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "api_v1_answers_requests" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "donors" CASCADE[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "donors" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "user_id" uuid NOT NULL, "birthdate" date, "weight" float, "blood" character varying, "status" integer, "province" character varying, "gender" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_donors_on_user_id" ON "donors"  ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "notification_donor_to_requests" CASCADE[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "notification_donor_to_requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_notification_donor_to_requests_on_donor_id" ON "notification_donor_to_requests"  ("donor_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_notification_donor_to_requests_on_request_id" ON "notification_donor_to_requests"  ("request_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "notification_resquest_to_donors" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "notification_resquest_to_donors" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_notification_resquest_to_donors_on_donor_id" ON "notification_resquest_to_donors"  ("donor_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_notification_resquest_to_donors_on_request_id" ON "notification_resquest_to_donors"  ("request_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "requests" CASCADE[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "user_id" uuid NOT NULL, "type_request" integer, "description" character varying, "province" character varying, "date_limit" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_requests_on_user_id" ON "requests"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "session_users" CASCADE[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "session_users" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "token" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "sessions" CASCADE[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "authentication_token" character varying(30), "phone" character varying, "type_user" integer, "name" character varying)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_authentication_token" ON "users"  ("authentication_token")[0m
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "answers_requests" ADD CONSTRAINT "fk_rails_18ad986a3d"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "answers_requests" ADD CONSTRAINT "fk_rails_74b4cd4d62"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mALTER TABLE "donors" ADD CONSTRAINT "fk_rails_1840adf13b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "notification_donor_to_requests" ADD CONSTRAINT "fk_rails_aa1da9cb6e"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "notification_donor_to_requests" ADD CONSTRAINT "fk_rails_d3ebca90f9"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER TABLE "notification_resquest_to_donors" ADD CONSTRAINT "fk_rails_ef13559736"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "notification_resquest_to_donors" ADD CONSTRAINT "fk_rails_74902b18e8"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "requests" ADD CONSTRAINT "fk_rails_8ead8b1e6b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210914223643)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210625152856),
+(20210625152913),
+(20210625161146),
+(20210625161704),
+(20210625163608),
+(20210625164332),
+(20210625164447),
+(20210626165616),
+(20210715191309),
+(20210909105415),
+(20210909105437),
+(20210914150830);
+
+[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-09-17 10:09:26.435209"], ["updated_at", "2021-09-17 10:09:26.435209"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "82b286d89648760fe7aaf2b4484578ee225748a0"], ["created_at", "2021-09-17 10:09:26.448173"], ["updated_at", "2021-09-17 10:09:26.448173"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (8.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "answers_requests" CASCADE[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "answers_requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_answers_requests_on_donor_id" ON "answers_requests"  ("donor_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_answers_requests_on_request_id" ON "answers_requests"  ("request_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "api_v1_answers_requests" CASCADE[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "api_v1_answers_requests" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "donors" CASCADE[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "donors" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "user_id" uuid NOT NULL, "birthdate" date, "weight" float, "blood" character varying, "status" integer, "province" character varying, "gender" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_donors_on_user_id" ON "donors"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "notification_donor_to_requests" CASCADE[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "notification_donor_to_requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_notification_donor_to_requests_on_donor_id" ON "notification_donor_to_requests"  ("donor_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_notification_donor_to_requests_on_request_id" ON "notification_donor_to_requests"  ("request_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "notification_resquest_to_donors" CASCADE[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "notification_resquest_to_donors" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE  INDEX  "index_notification_resquest_to_donors_on_donor_id" ON "notification_resquest_to_donors"  ("donor_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_notification_resquest_to_donors_on_request_id" ON "notification_resquest_to_donors"  ("request_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "requests" CASCADE[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "user_id" uuid NOT NULL, "type_request" integer, "description" character varying, "province" character varying, "date_limit" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_requests_on_user_id" ON "requests"  ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "session_users" CASCADE[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "session_users" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "token" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "sessions" CASCADE[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "authentication_token" character varying(30), "phone" character varying, "type_user" integer, "name" character varying)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_authentication_token" ON "users"  ("authentication_token")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "answers_requests" ADD CONSTRAINT "fk_rails_18ad986a3d"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "answers_requests" ADD CONSTRAINT "fk_rails_74b4cd4d62"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "donors" ADD CONSTRAINT "fk_rails_1840adf13b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "notification_donor_to_requests" ADD CONSTRAINT "fk_rails_aa1da9cb6e"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "notification_donor_to_requests" ADD CONSTRAINT "fk_rails_d3ebca90f9"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "notification_resquest_to_donors" ADD CONSTRAINT "fk_rails_ef13559736"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "notification_resquest_to_donors" ADD CONSTRAINT "fk_rails_74902b18e8"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "requests" ADD CONSTRAINT "fk_rails_8ead8b1e6b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210914223643)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210625152856),
+(20210625152913),
+(20210625161146),
+(20210625161704),
+(20210625163608),
+(20210625164332),
+(20210625164447),
+(20210626165616),
+(20210715191309),
+(20210909105415),
+(20210909105437),
+(20210914150830);
+
+[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-09-17 10:09:26.649157"], ["updated_at", "2021-09-17 10:09:26.649157"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2021-09-17 10:09:26.654984"], ["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "82b286d89648760fe7aaf2b4484578ee225748a0"], ["created_at", "2021-09-17 10:09:26.660385"], ["updated_at", "2021-09-17 10:09:26.660385"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6472277798726841990)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6472277798726841990)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (21.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "savelife_development"[0m
+  [1m[35m (17.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "savelife_test"[0m
+  [1m[35m (68.9ms)[0m  [1m[35mCREATE DATABASE "savelife_development" ENCODING = 'unicode'[0m
+  [1m[35m (51.1ms)[0m  [1m[35mCREATE DATABASE "savelife_test" ENCODING = 'unicode'[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6472277798726841990)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20210625152856)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "pgcrypto"[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625152856"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAuthenticationTokenToUsers (20210625152913)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "authentication_token" character varying(30)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_authentication_token" ON "users"  ("authentication_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625152913"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPhoneToUsers (20210625161146)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "phone" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625161146"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTypeUserToUsers (20210625161704)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "type_user" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625161704"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDonors (20210625163608)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "donors" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "user_id" uuid NOT NULL, "birthdate" date, "weight" float, "blood" character varying, "status" integer, "province" character varying, "gender" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_1840adf13b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_donors_on_user_id" ON "donors"  ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625163608"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRequests (20210625164332)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "user_id" uuid NOT NULL, "type_request" integer, "description" character varying, "province" character varying, "date_limit" date, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_8ead8b1e6b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_requests_on_user_id" ON "requests"  ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625164332"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAnswersRequests (20210625164447)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "answers_requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_74b4cd4d62"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_18ad986a3d"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_answers_requests_on_request_id" ON "answers_requests"  ("request_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_answers_requests_on_donor_id" ON "answers_requests"  ("donor_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210625164447"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateApiV1AnswersRequests (20210626165616)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "api_v1_answers_requests" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210626165616"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddNameToUsers (20210715191309)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "name" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210715191309"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotificationResquestToDonors (20210909105415)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "notification_resquest_to_donors" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_74902b18e8"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_ef13559736"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_notification_resquest_to_donors_on_request_id" ON "notification_resquest_to_donors"  ("request_id")[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_notification_resquest_to_donors_on_donor_id" ON "notification_resquest_to_donors"  ("donor_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210909105415"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotificationDonorToRequests (20210909105437)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "notification_donor_to_requests" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "request_id" uuid NOT NULL, "donor_id" uuid NOT NULL, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_d3ebca90f9"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_aa1da9cb6e"
+FOREIGN KEY ("donor_id")
+  REFERENCES "donors" ("id")
+)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_notification_donor_to_requests_on_request_id" ON "notification_donor_to_requests"  ("request_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_notification_donor_to_requests_on_donor_id" ON "notification_donor_to_requests"  ("donor_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210909105437"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddSessionsTable (20210914150830)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210914150830"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSessionUsers (20210914223643)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "session_users" ("id" uuid DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY, "token" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210914223643"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-09-17 10:09:44.337306"], ["updated_at", "2021-09-17 10:09:44.337306"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6472277798726841990)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/sign_up?user[email]=ari@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=ariclene&user[phone]=93453434" for ::1 at 2021-09-17 11:12:20 +0100
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"ari@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"ariclene", "phone"=>"93453434"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "FPY6QM7snUS2E7oeesxj"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "ari@gmail.com"], ["encrypted_password", "$2a$12$jsFERNmVCBtpu6V/UKA1beWc2Ok6QURDWUTyPhfYCs5guggfNBOze"], ["created_at", "2021-09-17 10:12:21.157502"], ["updated_at", "2021-09-17 10:12:21.157502"], ["authentication_token", "FPY6QM7snUS2E7oeesxj"], ["phone", "93453434"], ["name", "ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 200 OK in 307ms (Views: 1.7ms | ActiveRecord: 7.3ms | Allocations: 13345)
+
+
+Started GET "/api/v1/requests/user_requests/1?token=KKXEc8xtdKzpr3XuUj8y" for 127.0.0.1 at 2021-09-17 11:52:49 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"KKXEc8xtdKzpr3XuUj8y", "user_id"=>"1"}
+  [1m[36mUser Exists? (7.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:82:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 7.4ms | Allocations: 946)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-17 11:53:35 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1203)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-17 11:53:38 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ari1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ari1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ari1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 849)
+
+
+Started POST "/api/v1/sign_in" for 127.0.0.1 at 2021-09-17 11:53:43 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ari1@gmail.com", "password"=>"[FILTERED]"}, "session"=>{"sign_in"=>{"email"=>"ari1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ari1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 832)
+
+
+Started POST "/api/v1/sign_up" for 127.0.0.1 at 2021-09-17 11:54:01 +0100
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"jari.ji.ari@gmail.com", "phone"=>"964707340", "name"=>"Ariclene Chimbili", "type_user"=>1, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "registration"=>{"user"=>{"email"=>"jari.ji.ari@gmail.com", "phone"=>"964707340", "name"=>"Ariclene Chimbili", "type_user"=>1, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jari.ji.ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "mEYStGWFz_skKy-DU1qx"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "type_user", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "jari.ji.ari@gmail.com"], ["encrypted_password", "$2a$12$htg/BZfaoknsemKfeNY8lOjRdgLHZpy9eDMp9d4L7AbneW5shzi86"], ["created_at", "2021-09-17 10:54:01.970736"], ["updated_at", "2021-09-17 10:54:01.970736"], ["authentication_token", "mEYStGWFz_skKy-DU1qx"], ["phone", "964707340"], ["type_user", 1], ["name", "Ariclene Chimbili"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+Completed 200 OK in 254ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 5234)
+
+
+Started GET "/api/v1/requests/user_requests/01a4cb28-209f-4441-b4a5-3e6ee8acb2c0?token=bUVZU3RHV0Z6X3NrS3ktRFUxcXg%3D%0A" for 127.0.0.1 at 2021-09-17 11:54:05 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"bUVZU3RHV0Z6X3NrS3ktRFUxcXg=\n", "user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:82:in `check_token'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+  [1m[36mSessionUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "mEYStGWFz_skKy-DU1qx"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 27ms (Views: 0.3ms | ActiveRecord: 6.8ms | Allocations: 4046)
+
+
+Started GET "/api/v1/requests/user_requests/01a4cb28-209f-4441-b4a5-3e6ee8acb2c0?token=bUVZU3RHV0Z6X3NrS3ktRFUxcXg%3D%0A" for 127.0.0.1 at 2021-09-17 11:54:35 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"bUVZU3RHV0Z6X3NrS3ktRFUxcXg=\n", "user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:82:in `check_token'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "mEYStGWFz_skKy-DU1qx"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 2027)
+
+
+Started GET "/api/v1/requests/user_requests/01a4cb28-209f-4441-b4a5-3e6ee8acb2c0?token=bUVZU3RHV0Z6X3NrS3ktRFUxcXg%3D%0A" for 127.0.0.1 at 2021-09-17 11:54:43 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"bUVZU3RHV0Z6X3NrS3ktRFUxcXg=\n", "user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:82:in `check_token'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "mEYStGWFz_skKy-DU1qx"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 2024)
+
+
+Started GET "/api/v1/donors_all?page=1" for 127.0.0.1 at 2021-09-17 11:55:07 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"1"}
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 21ms (Views: 2.8ms | ActiveRecord: 2.3ms | Allocations: 4827)
+
+
+Started GET "/api/v1/requests/user_requests/01a4cb28-209f-4441-b4a5-3e6ee8acb2c0?token=bUVZU3RHV0Z6X3NrS3ktRFUxcXg%3D%0A" for 127.0.0.1 at 2021-09-17 11:55:49 +0100
+Processing by Api::V1::RequestsController#requests_user as HTML
+  Parameters: {"token"=>"bUVZU3RHV0Z6X3NrS3ktRFUxcXg=\n", "user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[36mUser Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:82:in `check_token'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "mEYStGWFz_skKy-DU1qx"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 4.0ms | Allocations: 2025)
+
+
+Started GET "/api/v1/donors_all?page=1" for 127.0.0.1 at 2021-09-17 11:55:52 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 9ms (Views: 3.8ms | ActiveRecord: 1.8ms | Allocations: 1933)
+
+
+Started GET "/api/v1/donors_all?province=Luanda&gender=Masculino" for ::1 at 2021-09-17 12:26:55 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"province"=>"Luanda", "gender"=>"Masculino"}
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') AND (gender = 'Masculino') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') AND (gender = 'Masculino') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 6ms (Views: 1.8ms | ActiveRecord: 2.2ms | Allocations: 2176)
+
+
+Started GET "/api/v1/donors_all?province=Luanda&gender=Masculino" for ::1 at 2021-09-17 12:29:08 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"province"=>"Luanda", "gender"=>"Masculino"}
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') AND (gender = 'Masculino') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') AND (gender = 'Masculino') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 9ms (Views: 4.2ms | ActiveRecord: 2.2ms | Allocations: 1999)
+
+
+Started GET "/api/v1/donors_all?page=1" for ::1 at 2021-09-17 12:29:21 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 1.6ms | Allocations: 1931)
+
+
+Started POST "/api/v1/sign_up_donor?user[email]=a@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[phone]=934641870&user[type_user]=1&donor[birthdate]=03-01-1998&donor[weight]=70&donor[blood]=A-&donor[province]=Namibe&donor[gender]=Masculino&user[name]=Ariclene" for ::1 at 2021-09-17 12:29:52 +0100
+Processing by Api::V1::RegistrationsController#create_donor as JSON
+  Parameters: {"user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"934641870", "type_user"=>"1", "name"=>"Ariclene"}, "donor"=>{"birthdate"=>"03-01-1998", "weight"=>"70", "blood"=>"A-", "province"=>"Namibe", "gender"=>"Masculino"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:30:in `create_donor'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:30:in `create_donor'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "xayf6GWDPQyA7tVzGswB"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:30:in `create_donor'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "type_user", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "a@gmail.com"], ["encrypted_password", "$2a$12$5VMN62W7z/cQquYGc1PT0ufXRQI3rF2JUegGkS9vau/zF14JLl0Ha"], ["created_at", "2021-09-17 11:29:53.189780"], ["updated_at", "2021-09-17 11:29:53.189780"], ["authentication_token", "xayf6GWDPQyA7tVzGswB"], ["phone", "934641870"], ["type_user", 1], ["name", "Ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:30:in `create_donor'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:30:in `create_donor'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:34:in `create_donor'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "5b535689-4002-460b-bd59-0fe4ee8ce300"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:34:in `create_donor'
+  [1m[36mDonor Create (0.8ms)[0m  [1m[32mINSERT INTO "donors" ("user_id", "birthdate", "weight", "blood", "status", "province", "gender", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["user_id", "5b535689-4002-460b-bd59-0fe4ee8ce300"], ["birthdate", "1998-01-03"], ["weight", 70.0], ["blood", "A-"], ["status", 0], ["province", "Namibe"], ["gender", "Masculino"], ["created_at", "2021-09-17 11:29:53.224853"], ["updated_at", "2021-09-17 11:29:53.224853"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:34:in `create_donor'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:34:in `create_donor'
+Completed 200 OK in 343ms (Views: 0.6ms | ActiveRecord: 10.2ms | Allocations: 17527)
+
+
+Started GET "/api/v1/donors_all?page=1" for ::1 at 2021-09-17 12:30:06 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"page"=>"1"}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 1.5ms | Allocations: 2480)
+
+
+Started GET "/api/v1/donors_all?province=Luanda&gender=Masculino" for ::1 at 2021-09-17 12:30:20 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"province"=>"Luanda", "gender"=>"Masculino"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') AND (gender = 'Masculino') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') AND (gender = 'Masculino') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 1.3ms | Allocations: 1999)
+
+
+Started GET "/api/v1/donors_all?province=Luanda&gender=" for ::1 at 2021-09-17 12:30:23 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"province"=>"Luanda", "gender"=>""}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') AND (gender = '') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') AND (gender = '') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 1.7ms | Allocations: 1999)
+
+
+Started GET "/api/v1/donors_all?province=Luanda" for ::1 at 2021-09-17 12:30:33 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"province"=>"Luanda"}
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 8ms (Views: 2.5ms | ActiveRecord: 2.3ms | Allocations: 1971)
+
+
+Started GET "/api/v1/donors_all?province=Luanda" for ::1 at 2021-09-17 12:30:54 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"province"=>"Luanda"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:22:in `index_donors'
+Completed 200 OK in 13ms (Views: 1.9ms | ActiveRecord: 4.7ms | Allocations: 4036)
+
+
+Started GET "/api/v1/donors_all?province=Luanda" for ::1 at 2021-09-17 12:31:25 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"province"=>"Luanda"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Luanda') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+Completed 200 OK in 11ms (Views: 1.4ms | ActiveRecord: 3.9ms | Allocations: 3991)
+
+
+Started GET "/api/v1/donors_all?province=Namibe" for ::1 at 2021-09-17 12:31:44 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"province"=>"Namibe"}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Namibe') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Namibe') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+Completed 200 OK in 24ms (Views: 20.4ms | ActiveRecord: 1.4ms | Allocations: 8199)
+
+
+Started GET "/api/v1/donors_all?province=Namibe&gender=Masculino" for ::1 at 2021-09-17 12:32:08 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"province"=>"Namibe", "gender"=>"Masculino"}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Namibe') AND (gender = 'Masculino') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Namibe') AND (gender = 'Masculino') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 1.7ms | Allocations: 2308)
+
+
+Started GET "/api/v1/donors_all?province=Namibe&blood=A-" for ::1 at 2021-09-17 12:32:26 +0100
+Processing by Api::V1::PublicController#index_donors as JSON
+  Parameters: {"province"=>"Namibe", "blood"=>"A-"}
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT donors.*, users.name, users.email, users.phone, users.type_user AS count_column FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Namibe') AND (blood = 'A-') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT donors.*, users.name, users.email, users.phone, users.type_user FROM "users" INNER JOIN "donors" ON "donors"."user_id" = "users"."id" WHERE (province = 'Namibe') AND (blood = 'A-') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/public_controller.rb:23:in `index_donors'
+Completed 200 OK in 7ms (Views: 2.9ms | ActiveRecord: 1.5ms | Allocations: 2308)
+
+
+Started DELETE "/api/v1/log_out?token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\n" for ::1 at 2021-09-17 15:35:10 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\n"}
+  [1m[36mSessionUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 16ms (Views: 1.6ms | ActiveRecord: 6.1ms | Allocations: 1398)
+
+
+Started DELETE "/api/v1/log_out?token=NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\n" for ::1 at 2021-09-17 15:35:31 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"NGN1LTJaS3lOeDh0QnMzdW1mSzQ=\\n"}
+  [1m[36mSessionUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "4cu-2ZKyNx8tBs3umfK4"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 816)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis2017@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-17 15:35:38 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis2017@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ariclinis2017@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 1475)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ariclinis1@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-17 15:35:50 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ariclinis1@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ariclinis1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 822)
+
+
+Started DELETE "/api/v1/log_out?token=RlBZNlFNN3NuVVMyRTdvZWVzeGo=\n" for ::1 at 2021-09-17 15:36:12 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"RlBZNlFNN3NuVVMyRTdvZWVzeGo=\\n"}
+  [1m[36mSessionUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "FPY6QM7snUS2E7oeesxj"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 815)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ari@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-17 15:36:56 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ari@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:73:in `load_user'
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "FPY6QM7snUS2E7oeesxj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mSessionUser Create (1.1ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["token", "FPY6QM7snUS2E7oeesxj"], ["created_at", "2021-09-17 14:36:57.041869"], ["updated_at", "2021-09-17 14:36:57.041869"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = $1 LIMIT $2[0m  [["user_id", "974bbcd9-f2e8-4f62-b7fa-96c6a3713269"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:14:in `create'
+Completed 200 OK in 493ms (Views: 0.8ms | ActiveRecord: 10.0ms | Allocations: 16264)
+
+
+Started DELETE "/api/v1/log_out?token=RlBZNlFNN3NuVVMyRTdvZWVzeGo=\n" for ::1 at 2021-09-17 15:37:03 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"RlBZNlFNN3NuVVMyRTdvZWVzeGo=\\n"}
+  [1m[36mSessionUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "FPY6QM7snUS2E7oeesxj"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mCACHE SessionUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "FPY6QM7snUS2E7oeesxj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:50:in `destroy'
+  [1m[36mSessionUser Load (0.5ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "FPY6QM7snUS2E7oeesxj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `destroy'
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+  [1m[36mSessionUser Destroy (1.0ms)[0m  [1m[31mDELETE FROM "session_users" WHERE "session_users"."id" = $1[0m  [["id", "5dc83945-f718-49e4-90c6-c83f40dd1bfe"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+Completed 200 OK in 67ms (Views: 0.5ms | ActiveRecord: 5.3ms | Allocations: 3948)
+
+
+Started GET "/api/v1/answers/RlBZNlFNN3NuVVMyRTdvZWVzeGo=/n?token=N3pocmNIeWZIaUFIRjhOTHd5amU=\n" for ::1 at 2021-09-17 15:56:17 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/answers/RlBZNlFNN3NuVVMyRTdvZWVzeGo=/n"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/requests/user_requests/974bbcd9-f2e8-4f62-b7fa-96c6a3713269?token=RlBZNlFNN3NuVVMyRTdvZWVzeGo=\n" for ::1 at 2021-09-17 15:56:34 +0100
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>"RlBZNlFNN3NuVVMyRTdvZWVzeGo=\\n", "user_id"=>"974bbcd9-f2e8-4f62-b7fa-96c6a3713269"}
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "974bbcd9-f2e8-4f62-b7fa-96c6a3713269"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:82:in `check_token'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "974bbcd9-f2e8-4f62-b7fa-96c6a3713269"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+  [1m[36mSessionUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "FPY6QM7snUS2E7oeesxj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 40ms (Views: 0.4ms | ActiveRecord: 3.5ms | Allocations: 8835)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=ari@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-17 15:57:30 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"ari@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "ari@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:73:in `load_user'
+  [1m[36mSessionUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "FPY6QM7snUS2E7oeesxj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mSessionUser Create (0.8ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["token", "FPY6QM7snUS2E7oeesxj"], ["created_at", "2021-09-17 14:57:31.340044"], ["updated_at", "2021-09-17 14:57:31.340044"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:11:in `create'
+  [1m[36mDonor Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = $1 LIMIT $2[0m  [["user_id", "974bbcd9-f2e8-4f62-b7fa-96c6a3713269"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:14:in `create'
+Completed 200 OK in 514ms (Views: 0.8ms | ActiveRecord: 4.1ms | Allocations: 9009)
+
+
+Started GET "/api/v1/requests/user_requests/974bbcd9-f2e8-4f62-b7fa-96c6a3713269?token=RlBZNlFNN3NuVVMyRTdvZWVzeGo=\n" for ::1 at 2021-09-17 15:58:10 +0100
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>"RlBZNlFNN3NuVVMyRTdvZWVzeGo=\\n", "user_id"=>"974bbcd9-f2e8-4f62-b7fa-96c6a3713269"}
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "974bbcd9-f2e8-4f62-b7fa-96c6a3713269"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:82:in `check_token'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "974bbcd9-f2e8-4f62-b7fa-96c6a3713269"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+  [1m[36mSessionUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "FPY6QM7snUS2E7oeesxj"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:83:in `check_token'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT 1 AS one FROM "requests" WHERE (user_id = '974bbcd9-f2e8-4f62-b7fa-96c6a3713269') LIMIT $1 OFFSET $2) subquery_for_count[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+  [1m[36mRequest Load (0.8ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE (user_id = '974bbcd9-f2e8-4f62-b7fa-96c6a3713269') LIMIT $1 OFFSET $2[0m  [["LIMIT", 10], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/requests_controller.rb:20:in `requests_user'
+Completed 200 OK in 46ms (Views: 3.0ms | ActiveRecord: 9.3ms | Allocations: 6692)
+
+
+Started GET "/api/v1/requests/user_requests/48?token=a0JYeWNldllRR2FWTmFId3FxU3Q=\n" for ::1 at 2021-09-17 16:00:48 +0100
+Processing by Api::V1::RequestsController#requests_user as */*
+  Parameters: {"token"=>"a0JYeWNldllRR2FWTmFId3FxU3Q=\\n", "user_id"=>"48"}
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/requests_controller.rb:82:in `check_token'
+Filter chain halted as :check_token rendered or redirected
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 814)
+
+

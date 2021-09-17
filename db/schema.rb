@@ -12,9 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2021_09_14_223643) do
 
-  create_table "answers_requests", force: :cascade do |t|
-    t.integer "request_id", null: false
-    t.integer "donor_id", null: false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
+  enable_extension "plpgsql"
+
+  create_table "answers_requests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "request_id", null: false
+    t.uuid "donor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["donor_id"], name: "index_answers_requests_on_donor_id"
@@ -26,8 +30,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_223643) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "donors", force: :cascade do |t|
-    t.integer "user_id", null: false
+  create_table "donors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
     t.date "birthdate"
     t.float "weight"
     t.string "blood"
@@ -39,9 +43,9 @@ ActiveRecord::Schema.define(version: 2021_09_14_223643) do
     t.index ["user_id"], name: "index_donors_on_user_id"
   end
 
-  create_table "notification_donor_to_requests", force: :cascade do |t|
-    t.integer "request_id", null: false
-    t.integer "donor_id", null: false
+  create_table "notification_donor_to_requests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "request_id", null: false
+    t.uuid "donor_id", null: false
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -49,9 +53,9 @@ ActiveRecord::Schema.define(version: 2021_09_14_223643) do
     t.index ["request_id"], name: "index_notification_donor_to_requests_on_request_id"
   end
 
-  create_table "notification_resquest_to_donors", force: :cascade do |t|
-    t.integer "request_id", null: false
-    t.integer "donor_id", null: false
+  create_table "notification_resquest_to_donors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "request_id", null: false
+    t.uuid "donor_id", null: false
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -59,8 +63,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_223643) do
     t.index ["request_id"], name: "index_notification_resquest_to_donors_on_request_id"
   end
 
-  create_table "requests", force: :cascade do |t|
-    t.integer "user_id", null: false
+  create_table "requests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
     t.integer "type_request"
     t.string "description"
     t.string "province"
@@ -70,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_223643) do
     t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
-  create_table "session_users", force: :cascade do |t|
+  create_table "session_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -85,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_223643) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
