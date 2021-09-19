@@ -16,7 +16,6 @@ class Api::V1::PublicController < ApplicationController
         if params[:gender]
             @api_v1_donors = @api_v1_donors.where("gender = ?",gender )
         end
-        
         count = Donor.count
         @api_v1_donors = @api_v1_donors.page(p).per(10)
         
