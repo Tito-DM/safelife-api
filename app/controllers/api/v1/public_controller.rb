@@ -16,10 +16,13 @@ class Api::V1::PublicController < ApplicationController
         if params[:gender]
             @api_v1_donors = @api_v1_donors.where("gender = ?",gender )
         end
-        count = Donor.count
+        c=0
+        @api_v1_donors.each do |e|
+           c=c+1
+        end
         @api_v1_donors = @api_v1_donors.page(p).per(10)
         
-        render json: { donors: @api_v1_donors,page: page , per_page: 10, count: count, success: true}, status: :ok
+        render json: { donors: @api_v1_donors,page: page , per_page: 10, count: c, success: true}, status: :ok
     end
 
     def current_u
