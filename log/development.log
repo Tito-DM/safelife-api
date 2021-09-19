@@ -28344,3 +28344,131 @@ Processing by Api::V1::PublicController#index_donors as JSON
 Completed 200 OK in 73ms (Views: 47.1ms | ActiveRecord: 10.5ms | Allocations: 12566)
 
 
+Started POST "/api/v1/sign_up?user[email]=ariclinis@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=ariclene&user[phone]=93453434" for ::1 at 2021-09-17 16:31:59 +0100
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"ariclinis@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"ariclene", "phone"=>"93453434"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ariclinis@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "yJQ9c96ASjpdb3CKy7o1"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "ariclinis@gmail.com"], ["encrypted_password", "$2a$12$UylHep3HFQVuBUrasTI9Nuh/Vf7sMUksqP7oLFHVM.JNQTaOYFB2S"], ["created_at", "2021-09-17 15:32:00.060834"], ["updated_at", "2021-09-17 15:32:00.060834"], ["authentication_token", "yJQ9c96ASjpdb3CKy7o1"], ["phone", "93453434"], ["name", "ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mSessionUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "yJQ9c96ASjpdb3CKy7o1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:10:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:11:in `create'
+  [1m[36mSessionUser Create (0.6ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["token", "yJQ9c96ASjpdb3CKy7o1"], ["created_at", "2021-09-17 15:32:00.082304"], ["updated_at", "2021-09-17 15:32:00.082304"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:11:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:11:in `create'
+Completed 200 OK in 373ms (Views: 0.9ms | ActiveRecord: 13.3ms | Allocations: 17610)
+
+
+Started DELETE "/api/v1/log_out?token=UjRtUml3WFE1ZWo1c1hqb1VUejE=\n" for ::1 at 2021-09-17 16:32:23 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"UjRtUml3WFE1ZWo1c1hqb1VUejE=\\n"}
+  [1m[36mSessionUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "R4mRiwXQ5ej5sXjoUTz1"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 906)
+
+
+  [1m[36mSessionUser Load (0.5ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "yJQ9c96ASjpdb3CKy7o1"], ["LIMIT", 1]]
+Started DELETE "/api/v1/log_out?token=UjRtUml3WFE1ZWo1c1hqb1VUejE=\n" for ::1 at 2021-09-17 16:34:41 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"UjRtUml3WFE1ZWo1c1hqb1VUejE=\\n"}
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "R4mRiwXQ5ej5sXjoUTz1"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 1315)
+
+
+Started DELETE "/api/v1/log_out?token=UjRtUml3WFE1ZWo1c1hqb1VUejE=\n" for ::1 at 2021-09-17 16:35:07 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"UjRtUml3WFE1ZWo1c1hqb1VUejE=\\n"}
+  [1m[36mSessionUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "R4mRiwXQ5ej5sXjoUTz1"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+Filter chain halted as :verification_token rendered or redirected
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 833)
+
+
+Started DELETE "/api/v1/log_out?token=UjRtUml3WFE1ZWo1c1hqb1VUejE=\n" for ::1 at 2021-09-17 16:36:27 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"UjRtUml3WFE1ZWo1c1hqb1VUejE=\\n"}
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "R4mRiwXQ5ej5sXjoUTz1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:49:in `destroy'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 1306)
+
+
+Started DELETE "/api/v1/log_out?token=UjRtUml3WFE1ZWo1c1hqb1VUejE=\n" for ::1 at 2021-09-17 16:36:31 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"UjRtUml3WFE1ZWo1c1hqb1VUejE=\\n"}
+  [1m[36mSessionUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "R4mRiwXQ5ej5sXjoUTz1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:49:in `destroy'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 807)
+
+
+Started DELETE "/api/v1/log_out?token=eUpROWM5NkFTanBkYjNDS3k3bzE=\n" for ::1 at 2021-09-17 16:37:08 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"eUpROWM5NkFTanBkYjNDS3k3bzE=\\n"}
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "yJQ9c96ASjpdb3CKy7o1"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mCACHE SessionUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "yJQ9c96ASjpdb3CKy7o1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:50:in `destroy'
+  [1m[36mSessionUser Load (0.4ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "yJQ9c96ASjpdb3CKy7o1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+  [1m[36mSessionUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "session_users" WHERE "session_users"."id" = $1[0m  [["id", "f24eae4b-3026-45cf-b403-461e1ab6278d"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+Completed 200 OK in 23ms (Views: 0.4ms | ActiveRecord: 7.1ms | Allocations: 6419)
+
+
+Started POST "/api/v1/sign_up?user[email]=chimbili@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=ariclene&user[phone]=93453434" for ::1 at 2021-09-17 16:38:04 +0100
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"chimbili@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"ariclene", "phone"=>"93453434"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chimbili@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "GtttqYvCAnr6s1ZQ3xHz"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "chimbili@gmail.com"], ["encrypted_password", "$2a$12$viJCqlw7db2Ue68B1kCfi.uPpZHomEPEq2Sk2eA.2q9dVq4Ix.E5."], ["created_at", "2021-09-17 15:38:05.028701"], ["updated_at", "2021-09-17 15:38:05.028701"], ["authentication_token", "GtttqYvCAnr6s1ZQ3xHz"], ["phone", "93453434"], ["name", "ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "GtttqYvCAnr6s1ZQ3xHz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:10:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:11:in `create'
+  [1m[36mSessionUser Create (0.5ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["token", "GtttqYvCAnr6s1ZQ3xHz"], ["created_at", "2021-09-17 15:38:05.036458"], ["updated_at", "2021-09-17 15:38:05.036458"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:11:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:11:in `create'
+Completed 200 OK in 379ms (Views: 0.6ms | ActiveRecord: 8.3ms | Allocations: 14814)
+
+
+Started DELETE "/api/v1/log_out?token=R3R0dHFZdkNBbnI2czFaUTN4SHo=\n" for ::1 at 2021-09-17 16:38:16 +0100
+Processing by Api::V1::SessionsController#destroy as JSON
+  Parameters: {"token"=>"R3R0dHFZdkNBbnI2czFaUTN4SHo=\\n"}
+  [1m[36mSessionUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "GtttqYvCAnr6s1ZQ3xHz"], ["LIMIT", 1]]
+  ↳ app/controllers/dashboard_controller.rb:9:in `verification_token'
+  [1m[36mCACHE SessionUser Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "GtttqYvCAnr6s1ZQ3xHz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:50:in `destroy'
+  [1m[36mSessionUser Load (2.1ms)[0m  [1m[34mSELECT "session_users".* FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "GtttqYvCAnr6s1ZQ3xHz"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:51:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+  [1m[36mSessionUser Destroy (0.7ms)[0m  [1m[31mDELETE FROM "session_users" WHERE "session_users"."id" = $1[0m  [["id", "85a4c459-6415-47b3-897c-70a7daf82dfd"]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:52:in `destroy'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 5.1ms | Allocations: 3791)
+
+

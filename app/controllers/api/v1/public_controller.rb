@@ -17,7 +17,7 @@ class Api::V1::PublicController < ApplicationController
             @api_v1_donors = @api_v1_donors.where("gender = ?",gender )
         end
         
-        count = @api_v1_donors.count
+        count = Donor.count
         @api_v1_donors = @api_v1_donors.page(p).per(10)
         
         render json: { donors: @api_v1_donors,page: page , per_page: 10, count: count, success: true}, status: :ok
