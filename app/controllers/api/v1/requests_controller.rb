@@ -38,7 +38,7 @@ class Api::V1::RequestsController < DashboardController
     @api_v1_request.type_request = type_r
 
     if @api_v1_request.save
-      json_response("Pedido efetuado",true,{},@api_v1_request,model_name, :created)
+      json_response("Pedido efetuado",true,{},@api_v1_request,model_name, :ok)
       d = @api_v1_request.description
       u = @api_v1_request.user_id
       #AlertDonorWorker.perform_async(u, @api_v1_request.id, d)
@@ -78,7 +78,12 @@ class Api::V1::RequestsController < DashboardController
     
     def check_token
       token = Base64.decode64(params[:token])
-      user_id = params[:user_id]
+      if(params[:user_id])
+        user_id = params[:user_id]
+      end
+      if(params[:request][:user_id])
+        user_id = params[:request][:user_id]
+      end
       if(User.exists?(id: user_id))
         if(User.find_by(id: user_id).authentication_token !=token || !(SessionUser.exists?(token: token)))
             breack_security
