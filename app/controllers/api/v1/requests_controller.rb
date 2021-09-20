@@ -78,11 +78,12 @@ class Api::V1::RequestsController < DashboardController
     
     def check_token
       token = Base64.decode64(params[:token])
+      user_id = nil
+      if(params[:request][:user_id])
+        user_id = params[:request][:user_id]
+      end
       if(params[:user_id])
         user_id = params[:user_id]
-      end
-      if(params[:request][:user_id] && !params[:user_id])
-        user_id = params[:request][:user_id]
       end
       if(User.exists?(id: user_id))
         if(User.find_by(id: user_id).authentication_token !=token || !(SessionUser.exists?(token: token)))
