@@ -81,7 +81,7 @@ class Api::V1::RequestsController < DashboardController
       if(params[:user_id])
         user_id = params[:user_id]
       end
-      if(params[:request][:user_id])
+      if(params[:request][:user_id] && !params[:user_id])
         user_id = params[:request][:user_id]
       end
       if(User.exists?(id: user_id))
