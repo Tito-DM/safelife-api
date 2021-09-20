@@ -1,7 +1,8 @@
 class Api::V1::RequestsController < DashboardController
   before_action :set_api_v1_request, only: [:show, :update, :destroy]
   before_action :model_name
-  before_action :check_token, only:[:requests_user, :create]
+  before_action :check_token, only:[ :create]
+  before_action :check_token2, only:[:requests_user]
   before_action :verification_token, only:[:create, :update, :destroy]
   before_action :check_token_delete_request, only:[:destroy, :update]
   # GET /api/v1/requests
@@ -78,13 +79,26 @@ class Api::V1::RequestsController < DashboardController
     
     def check_token
       token = Base64.decode64(params[:token])
-      user_id = nil
+
       if(params[:request][:user_id])
         user_id = params[:request][:user_id]
       end
+
+      if(User.exists?(id: user_id))
+        if(User.find_by(id: user_id).authentication_token !=token || !(SessionUser.exists?(token: token)))
+            breack_security
+        end
+      else
+        breack_security
+      end
+    end
+
+    def check_token2
+      token = Base64.decode64(params[:token])
       if(params[:user_id])
         user_id = params[:user_id]
       end
+
       if(User.exists?(id: user_id))
         if(User.find_by(id: user_id).authentication_token !=token || !(SessionUser.exists?(token: token)))
             breack_security
