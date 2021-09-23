@@ -7,10 +7,15 @@ class Api::V1::UsersController < DashboardController
     end
 
     def update
-        if @api_v1_user.update(user_params)
-            json_response("Dados Atualizados com sucesso",true,{},@api_v1_user,model_name, :created)
+        old_pass = params[:old_password]
+        if !old_pass || @api_v1_user.valid_password?(old_pass)
+            if @api_v1_user.update(user_params)
+                json_response("Dados Atualizados com sucesso",true,{},@api_v1_user,model_name, :created)
+            else
+                json_response("Ocorreu algum problema",false,@api_v1_user.errors.messages.values.flatten,{},model_name, :ok)
+            end
         else
-            json_response("Ocorreu algum problema",false,@api_v1_user.errors.messages.values.flatten,{},model_name, :ok)
+            json_response("Password antiga errada",false,@api_v1_user.errors.messages.values.flatten,{},model_name, :ok)
         end
     end
 

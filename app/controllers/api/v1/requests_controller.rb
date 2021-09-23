@@ -121,6 +121,7 @@ class Api::V1::RequestsController < DashboardController
         breack_security
       end
     end
+
     # Only allow a trusted parameter "white list" through.
     def api_v1_request_params
       params.require(:request).permit(:user_id, :description, :date_limit, :province)
