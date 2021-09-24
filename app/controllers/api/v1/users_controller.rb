@@ -8,15 +8,25 @@ class Api::V1::UsersController < DashboardController
 
     def update
         old_pass = params[:old_password]
-        if !old_pass || @api_v1_user.valid_password?(old_pass)
-            if @api_v1_user.update(user_params)
-                json_response("Dados Atualizados com sucesso",true,{},@api_v1_user,model_name, :created)
-            else
-                json_response("Ocorreu algum problema",false,@api_v1_user.errors.messages.values.flatten,{},model_name, :ok)
-            end
-        else
-            json_response("Erro",false,["Password antiga errada"],{},model_name, :ok)
+        if params[:old_password] && !@api_v1_user.valid_password?(old_pass)
+           return json_response("Erro",false,["Password antiga errada"],{},model_name, :ok)
         end
+
+        if !params[:old_password] && (params[:user][:password])
+            return json_response("Erro",false,["É obrigatório a Palavra Passe Antiga"],{},model_name, :ok)
+        end
+
+        if params[:old_password] && (params[:old_password] == (params[:user][:password]))
+            return json_response("Erro",false,["A nova Palavra-passe deve ser diferente da antiga"],{},model_name, :ok)
+        end
+
+        if @api_v1_user.update(user_params)
+            @api_v1_user.authentication_token = params[:token]
+            json_response("Dados Atualizados com sucesso",true,{},@api_v1_user,model_name, :created)
+        else
+            json_response("Ocorreu algum problema",false,@api_v1_user.errors.messages.values.flatten,{},model_name, :ok)
+        end
+       
     end
 
     private

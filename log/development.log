@@ -28638,3 +28638,421 @@ Filter chain halted as :set_api_v1_user rendered or redirected
 Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 830)
 
 
+Started POST "/api/v1/sign_up?user[email]=daila@gmail.com&user[password]=[FILTERED]&user[password_confirmation]=[FILTERED]&user[name]=ariclene&user[phone]=93453434" for ::1 at 2021-09-24 15:40:53 +0100
+Processing by Api::V1::RegistrationsController#create as JSON
+  Parameters: {"user"=>{"email"=>"daila@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"ariclene", "phone"=>"93453434"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "daila@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = $1[0m  [["authentication_token", "s7wzdEZoswvmcUWezoKX"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "authentication_token", "phone", "name") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "daila@gmail.com"], ["encrypted_password", "$2a$12$HUUH3PvIqiTX18or124wf.EQe/yVKAydZYvyl8HXCk3sZk9snDatG"], ["created_at", "2021-09-24 14:40:53.894650"], ["updated_at", "2021-09-24 14:40:53.894650"], ["authentication_token", "s7wzdEZoswvmcUWezoKX"], ["phone", "93453434"], ["name", "ariclene"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:9:in `create'
+  [1m[36mSessionUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:10:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:11:in `create'
+  [1m[36mSessionUser Create (0.4ms)[0m  [1m[32mINSERT INTO "session_users" ("token", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["created_at", "2021-09-24 14:40:53.907144"], ["updated_at", "2021-09-24 14:40:53.907144"]]
+  ↳ app/controllers/api/v1/registrations_controller.rb:11:in `create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/registrations_controller.rb:11:in `create'
+Completed 200 OK in 303ms (Views: 0.5ms | ActiveRecord: 7.0ms | Allocations: 16873)
+
+
+Started POST "/api/v1/sign_in?sign_in[email]=daila@gmail.com&sign_in[password]=[FILTERED]" for ::1 at 2021-09-24 15:41:06 +0100
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"sign_in"=>{"email"=>"daila@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "daila@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:72:in `load_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "daila@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:73:in `load_user'
+  [1m[36mSessionUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:10:in `create'
+  [1m[36mDonor Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "donors" WHERE "donors"."user_id" = $1 LIMIT $2[0m  [["user_id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:14:in `create'
+Completed 200 OK in 316ms (Views: 0.5ms | ActiveRecord: 2.3ms | Allocations: 5040)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 15:42:25 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:24:in `set_api_v1_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `check_token'
+Completed 200 OK in 292ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 2267)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 15:42:30 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:24:in `set_api_v1_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "name" = $2, "phone" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["encrypted_password", "$2a$12$9Zw.31y2Qvai6t7ydWHDZO8MCNnxVV.jfFvUA4FkhDJAs07rEEuiq"], ["name", "Tito"], ["phone", "934647392"], ["updated_at", "2021-09-24 14:42:30.605936"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+Completed 201 Created in 525ms (Views: 0.4ms | ActiveRecord: 3.1ms | Allocations: 5080)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 15:42:35 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:24:in `set_api_v1_user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$/hPKNNxH/6MsQ0CYzp/kI.T3Z2jDQekoBkIRG5G/mQF2EtAgaP89e"], ["updated_at", "2021-09-24 14:42:36.172517"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+Completed 201 Created in 531ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 4966)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 15:43:54 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `set_api_v1_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:26:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$mX.YSVdeRtmMT5npr61EWec5H.TgpKnKUFaaCv6LuNv33RfBkDLGi"], ["updated_at", "2021-09-24 14:43:55.182513"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:12:in `update'
+Completed 201 Created in 560ms (Views: 0.6ms | ActiveRecord: 9.7ms | Allocations: 12300)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=" for ::1 at 2021-09-24 15:47:42 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:25:in `set_api_v1_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:26:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `check_token'
+Completed 200 OK in 271ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 2090)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:03:30 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 500 Internal Server Error in 274ms (ActiveRecord: 2.4ms | Allocations: 9406)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/api/v1/users_controller.rb:19:in `update'
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:03:58 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 500 Internal Server Error in 288ms (ActiveRecord: 7.0ms | Allocations: 9562)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/api/v1/users_controller.rb:19:in `update'
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:04:31 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 500 Internal Server Error in 278ms (ActiveRecord: 4.9ms | Allocations: 9544)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/api/v1/users_controller.rb:19:in `update'
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:05:33 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$1PwEPef/A9jvUSyc905ETeCdNEBQmTsQPn7avj8Q62qdLmFDo7K2a"], ["updated_at", "2021-09-24 15:05:34.449439"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+Completed 500 Internal Server Error in 523ms (Views: 0.2ms | ActiveRecord: 6.8ms | Allocations: 12339)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:8:in `json_response'
+app/controllers/api/v1/users_controller.rb:25:in `update'
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:06:09 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$1tSwL.pmUuEqQQT876pAiONwww6CfvMR.ux41iM3IN8ZXDnM08cNG"], ["updated_at", "2021-09-24 15:06:10.428262"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+Completed 500 Internal Server Error in 525ms (Views: 0.2ms | ActiveRecord: 6.7ms | Allocations: 12270)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:8:in `json_response'
+app/controllers/api/v1/users_controller.rb:25:in `update'
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:07:27 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$yx.C6.uniRm36JAiQTwvq.qeiDHpStVceuwCCxLkRg4PDKqwMfl1i"], ["updated_at", "2021-09-24 15:07:28.422858"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+Completed 500 Internal Server Error in 522ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 4925)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:8:in `json_response'
+app/controllers/api/v1/users_controller.rb:25:in `update'
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:08:56 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:36:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:45:in `check_token'
+Completed 500 Internal Server Error in 265ms (Views: 0.3ms | ActiveRecord: 5.4ms | Allocations: 9161)
+
+
+  
+SystemExit (exit):
+  
+app/controllers/api/v1/users_controller.rb:13:in `exit'
+app/controllers/api/v1/users_controller.rb:13:in `update'
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:12:22 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:40:in `set_api_v1_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:41:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:50:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:29:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$dgbgiUS0DjuVWe1Hd25nz.sIFNcmMP6zPwGE1McdVpnX/O0a7.gie"], ["updated_at", "2021-09-24 15:12:23.251388"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:29:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:29:in `update'
+Completed 500 Internal Server Error in 536ms (Views: 0.2ms | ActiveRecord: 6.8ms | Allocations: 12281)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:8:in `json_response'
+app/controllers/api/v1/users_controller.rb:31:in `update'
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:12:39 +0100
+  
+SyntaxError (/home/cuidado/Documentos/projects/unitel_challenge/safelife-api/app/controllers/api/v1/users_controller.rb:13: syntax error, unexpected ':', expecting `end'
+           return json: {
+                      ^
+/home/cuidado/Documentos/projects/unitel_challenge/safelife-api/app/controllers/api/v1/users_controller.rb:18: syntax error, unexpected ',', expecting `end'
+        }, status: :ok
+         ^
+):
+  
+app/controllers/api/v1/users_controller.rb:13: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:18: syntax error, unexpected ',', expecting `end'
+app/controllers/api/v1/users_controller.rb:13: syntax error, unexpected ':', expecting `end'
+app/controllers/api/v1/users_controller.rb:18: syntax error, unexpected ',', expecting `end'
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:13:02 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:40:in `set_api_v1_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:41:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:50:in `check_token'
+Completed 200 OK in 272ms (Views: 0.2ms | ActiveRecord: 6.2ms | Allocations: 9091)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:13:35 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$6R8f/R.43gwEMtj8AsCBpeLH.2CwE64eXMubJC5cIU0WgjF6qAUlm"], ["updated_at", "2021-09-24 15:13:36.553488"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+Completed 500 Internal Server Error in 517ms (Views: 0.2ms | ActiveRecord: 6.0ms | Allocations: 12266)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/application_controller.rb:8:in `json_response'
+app/controllers/api/v1/users_controller.rb:25:in `update'
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:14:12 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 200 OK in 282ms (Views: 0.2ms | ActiveRecord: 5.7ms | Allocations: 9095)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:14:41 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 200 OK in 298ms (Views: 0.2ms | ActiveRecord: 4.9ms | Allocations: 9073)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=" for ::1 at 2021-09-24 16:22:44 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 200 OK in 264ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 2253)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:28:32 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 200 OK in 289ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 2107)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:28:40 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[36mUser Update (4.2ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$5c5ghKgwhn0vZeOZNLVn2umK4vHSMfx8XJQWy1B4G5UWlJEO72kJC"], ["updated_at", "2021-09-24 15:28:40.743713"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+Completed 201 Created in 523ms (Views: 0.7ms | ActiveRecord: 8.7ms | Allocations: 5337)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:28:44 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 200 OK in 271ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 2089)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:29:01 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$bgctmQCHxAg4.ly7k5/8Qez9M1TSPnp7fCgqxr0j475nL6XTQDH12"], ["updated_at", "2021-09-24 15:29:02.110766"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+Completed 201 Created in 533ms (Views: 0.5ms | ActiveRecord: 3.1ms | Allocations: 4976)
+
+
