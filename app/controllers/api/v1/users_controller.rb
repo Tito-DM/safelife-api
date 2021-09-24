@@ -15,7 +15,7 @@ class Api::V1::UsersController < DashboardController
                 json_response("Ocorreu algum problema",false,@api_v1_user.errors.messages.values.flatten,{},model_name, :ok)
             end
         else
-            json_response("Password antiga errada",false,@api_v1_user.errors.messages.values.flatten,{},model_name, :ok)
+            json_response("Erro",false,["Password antiga errada"],{},model_name, :ok)
         end
     end
 
