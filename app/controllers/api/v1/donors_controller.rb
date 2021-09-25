@@ -61,7 +61,7 @@ class Api::V1::DonorsController < DashboardController
 
     # Only allow a trusted parameter "white list" through.
     def api_v1_donor_params
-      params.require(:donor).permit(:birthdate, :weight, :blood, :province, :gender)
+      params.require(:donor).permit(:birthdate, :weight, :blood, :province, :gender, :user_id)
     end
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation,:name, :phone, :type_user)

@@ -29056,3 +29056,137 @@ Processing by Api::V1::UsersController#update as JSON
 Completed 201 Created in 533ms (Views: 0.5ms | ActiveRecord: 3.1ms | Allocations: 4976)
 
 
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:57:21 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 200 OK in 266ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 2251)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:57:32 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 200 OK in 293ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 2089)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:57:38 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+Completed 200 OK in 557ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 28017)
+
+
+Started PUT "/api/v1/user/a157382c-7472-4d7e-8148-2337faccdbe8?user[name]=Tito&user[email]=daila@gmail.com&user[phone]=934647392&user[password]=[FILTERED]&token=czd3emRFWm9zd3ZtY1VXZXpvS1g=\n&old_password=[FILTERED]" for ::1 at 2021-09-24 16:57:48 +0100
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Tito", "email"=>"daila@gmail.com", "phone"=>"934647392", "password"=>"[FILTERED]"}, "token"=>"czd3emRFWm9zd3ZtY1VXZXpvS1g=\\n", "old_password"=>"[FILTERED]", "id"=>"a157382c-7472-4d7e-8148-2337faccdbe8"}
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:34:in `set_api_v1_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", "a157382c-7472-4d7e-8148-2337faccdbe8"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:35:in `set_api_v1_user'
+  [1m[36mSessionUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "session_users" WHERE "session_users"."token" = $1 LIMIT $2[0m  [["token", "s7wzdEZoswvmcUWezoKX"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `check_token'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["encrypted_password", "$2a$12$lJ0wBErm/uUpfjvr0B5tW.SdU6MagylfyK.xG5tAFBT7dAqORs.vy"], ["updated_at", "2021-09-24 15:57:48.960845"], ["id", "a157382c-7472-4d7e-8148-2337faccdbe8"]]
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in `update'
+Completed 201 Created in 497ms (Views: 0.4ms | ActiveRecord: 2.7ms | Allocations: 4975)
+
+
+Started GET "/" for ::1 at 2021-09-25 17:26:44 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 14.2ms | Allocations: 298)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 1542)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-09-25 17:26:44 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/loading_page/index" for ::1 at 2021-09-25 17:26:51 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/loading_page/index"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rails/info/routes?path=do" for ::1 at 2021-09-25 17:26:55 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"do"}
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 4176)
+
+
+Started GET "/rails/info/routes?path=donor" for ::1 at 2021-09-25 17:26:56 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"donor"}
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 1364)
+
+
+Started GET "/rails/info/routes?path=donors" for ::1 at 2021-09-25 17:26:56 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"donors"}
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1326)
+
+

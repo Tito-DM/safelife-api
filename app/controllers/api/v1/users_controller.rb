@@ -9,7 +9,7 @@ class Api::V1::UsersController < DashboardController
     def update
         old_pass = params[:old_password]
         if params[:old_password] && !@api_v1_user.valid_password?(old_pass)
-           return json_response("Erro",false,["Password antiga errada"],{},model_name, :ok)
+           return json_response("Erro",false,["Palavra Passe antiga errada"],{},model_name, :ok)
         end
 
         if !params[:old_password] && (params[:user][:password])
