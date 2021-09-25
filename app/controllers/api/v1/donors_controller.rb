@@ -21,7 +21,7 @@ class Api::V1::DonorsController < DashboardController
   # POST /api/v1/donors
   def create
     @api_v1_donor = Donor.new(api_v1_donor_params)
-    donor.status = 0
+    @api_v1_donor.status = 0
 
     if @api_v1_donor.save
       json_response("Dador Criado",true,{},@api_v1_donor,model_name, :created)
