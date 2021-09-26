@@ -24,7 +24,14 @@ class Api::V1::DonorsController < DashboardController
     @api_v1_donor.status = 0
 
     if @api_v1_donor.save
-      json_response("Dador Criado",true,{},@api_v1_donor,model_name, :created)
+      u= User.find_by(id: @api_v1_donor.user_id)
+      u.type_user = 1
+      render json: {
+        messages: "Dador criado.",
+        is_success: true,
+        error_messages: {},
+        data: {User: u, Donor: @api_v1_donor}
+    }, status: :ok
     else
       render json: @api_v1_donor.errors.messages.values.flatten, status: :unprocessable_entity
     end
