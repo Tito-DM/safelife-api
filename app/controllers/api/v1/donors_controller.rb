@@ -25,7 +25,7 @@ class Api::V1::DonorsController < DashboardController
 
     if @api_v1_donor.save
       u= User.find_by(id: @api_v1_donor.user_id)
-      u.type_user = 1
+      u.type_user = 0
       render json: {
         messages: "Dador criado.",
         is_success: true,
