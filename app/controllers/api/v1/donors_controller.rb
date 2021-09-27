@@ -20,12 +20,18 @@ class Api::V1::DonorsController < DashboardController
 
   # POST /api/v1/donors
   def create
+    
     @api_v1_donor = Donor.new(api_v1_donor_params)
     @api_v1_donor.status = 0
+    if(Donor.exists?(user_id: @api_v1_donor.user_id))
+      return json_response("Erro",false,["Este utilizador já é Dador"],{},model_name, :ok)
+    end
 
     if @api_v1_donor.save
       u= User.find_by(id: @api_v1_donor.user_id)
       u.type_user = 0
+      u.save
+      u.authentication_token = params[:token]
       render json: {
         messages: "Dador criado.",
         is_success: true,
@@ -35,6 +41,7 @@ class Api::V1::DonorsController < DashboardController
     else
       render json: @api_v1_donor.errors.messages.values.flatten, status: :unprocessable_entity
     end
+   
   end
 
   # PATCH/PUT /api/v1/donors/1
