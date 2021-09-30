@@ -24,10 +24,19 @@ class Api::V1::RequestsController < DashboardController
   # GET /api/v1/requests/1
   def show
     if Request.exists?(id: params[:id])
-      request = ActiveRecord::Base.connection.execute("SELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = #{params[:id]}")
+      request = ActiveRecord::Base.connection.execute("SELECT users.name, users.email, users.phone, requests.* FROM requests inner join users on requests.user_id = users.id WHERE requests.id = ?",params[:id])
+      #pegar use logado params[token]
+      #...
+      if params[:token]
+        user = User.find_by(authentication_token: params[:token])
+        notifications_request = Notification.find_by(request_id: params[:id], user_id: user.id)
+        notifications_request.status = "Lido"
+        notifications_request.save
+      end
+
       json_response("Pedido",true,{},request,model_name, :ok)
     else
-      json_response("Pedido Não encntrado",false,[],@api_v1_request,model_name, :created)
+      json_response("Pedido Não encontrado",false,[],@api_v1_request,model_name, :created)
     end
   end
 

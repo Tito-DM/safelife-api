@@ -1,6 +1,7 @@
 class Request < ApplicationRecord
   belongs_to :user
   has_many :answers_requests, dependent: :delete_all
+  has_many :Notifications, dependent: :delete_all
 
   validates :type_request, presence: true
   validates :description, presence: true
