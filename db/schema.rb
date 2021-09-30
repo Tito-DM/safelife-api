@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_14_223643) do
+ActiveRecord::Schema.define(version: 2021_09_30_094344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 2021_09_14_223643) do
     t.index ["user_id"], name: "index_donors_on_user_id"
   end
 
+  create_table "motifications", force: :cascade do |t|
+    t.uuid "request_id", null: false
+    t.uuid "user_id", null: false
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["request_id"], name: "index_motifications_on_request_id"
+    t.index ["user_id"], name: "index_motifications_on_user_id"
+  end
+
   create_table "notification_donor_to_requests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "request_id", null: false
     t.uuid "donor_id", null: false
@@ -61,6 +71,17 @@ ActiveRecord::Schema.define(version: 2021_09_14_223643) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["donor_id"], name: "index_notification_resquest_to_donors_on_donor_id"
     t.index ["request_id"], name: "index_notification_resquest_to_donors_on_request_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.uuid "request_id", null: false
+    t.uuid "user_id", null: false
+    t.string "type"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["request_id"], name: "index_notifications_on_request_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "requests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -109,9 +130,13 @@ ActiveRecord::Schema.define(version: 2021_09_14_223643) do
   add_foreign_key "answers_requests", "donors"
   add_foreign_key "answers_requests", "requests"
   add_foreign_key "donors", "users"
+  add_foreign_key "motifications", "requests"
+  add_foreign_key "motifications", "users"
   add_foreign_key "notification_donor_to_requests", "donors"
   add_foreign_key "notification_donor_to_requests", "requests"
   add_foreign_key "notification_resquest_to_donors", "donors"
   add_foreign_key "notification_resquest_to_donors", "requests"
+  add_foreign_key "notifications", "requests"
+  add_foreign_key "notifications", "users"
   add_foreign_key "requests", "users"
 end

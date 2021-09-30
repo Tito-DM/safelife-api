@@ -26,7 +26,8 @@ Rails.application.routes.draw do
       end
       mount_devise_token_auth_for 'User', at: 'auth'
       get 'user/password/reset', to: 'password_resets#new'
-
+      get 'notifications', to: 'notifications#index'
+      
       post 'user/password/forgot_password', to: 'password_resets#forgot_password' #param[email]
       #post 'user/password/reset', to: 'password_resets#create'
       get 'user/password/forget/edit', to: 'password_resets#edit_pass' #need param[reset_password_token]
