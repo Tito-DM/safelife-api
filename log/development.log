@@ -29190,3 +29190,397 @@ Processing by Rails::InfoController#routes as */*
 Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 1326)
 
 
+  [1m[36mRequest Load (3.8ms)[0m  [1m[34mSELECT requests.*, notification_donor_to_requests.* FROM "requests" INNER JOIN "notification_donor_to_requests" ON "notification_donor_to_requests"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (0.8ms)[0m  [1m[34mSELECT requests.*, notification_donor_to_requests.* FROM "requests" INNER JOIN "notification_donor_to_requests" ON "notification_donor_to_requests"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (2.2ms)[0m  [1m[34mSELECT requests.*, notification_donor_to_requests.* FROM "requests" INNER JOIN "notification_donor_to_requests" ON "notification_donor_to_requests"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (1.6ms)[0m  [1m[34mSELECT requests.*, notification_donor_to_requests.* FROM "requests" INNER JOIN "notification_donor_to_requests" ON "notification_donor_to_requests"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (1.4ms)[0m  [1m[34mSELECT requests.*, notification_donor_to_requests.* FROM "requests" INNER JOIN "notification_donor_to_requests" ON "notification_donor_to_requests"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (6.6ms)[0m  [1m[34mSELECT requests.*, notification_donor_to_requests.* FROM "requests" INNER JOIN "notification_donor_to_requests" ON "notification_donor_to_requests"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (0.9ms)[0m  [1m[34mSELECT requests.*, notification_request_to_donors.* FROM "requests" INNER JOIN "notification_donor_to_requests" ON "notification_donor_to_requests"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (1.5ms)[0m  [1m[34mSELECT requests.*, notification_donor_to_requests.* FROM "requests" INNER JOIN "notification_donor_to_requests" ON "notification_donor_to_requests"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT requests.*, notification_request_to_donors.* FROM "requests" INNER JOIN "notification_resquest_to_donors" ON "notification_resquest_to_donors"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (2.0ms)[0m  [1m[34mSELECT requests.*, notification_resquest_to_donors.* FROM "requests" INNER JOIN "notification_resquest_to_donors" ON "notification_resquest_to_donors"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/android-icon-192x192.png" for 127.0.0.1 at 2021-09-28 13:30:28 +0100
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/android-icon-192x192.png"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-09-28 13:30:30 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6472277798726841990)[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMotifications (20210930094014)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.3ms)[0m  [1m[35mCREATE TABLE "motifications" ("id" bigserial primary key, "request_id" bigint NOT NULL, "user_id" bigint NOT NULL, "type" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_7035a93c2a"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_398f58bd02"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6472277798726841990)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6472277798726841990)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMotifications (20210930094014)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "motifications" ("id" bigserial primary key, "request_id" uuid NOT NULL, "user_id" uuid NOT NULL, "type" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_7035a93c2a"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_398f58bd02"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_motifications_on_request_id" ON "motifications"  ("request_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_motifications_on_user_id" ON "motifications"  ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210930094014"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6472277798726841990)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6472277798726841990)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateNotifications (20210930094344)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "request_id" uuid NOT NULL, "user_id" uuid NOT NULL, "type" character varying, "status" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_98cda88326"
+FOREIGN KEY ("request_id")
+  REFERENCES "requests" ("id")
+, CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_request_id" ON "notifications"  ("request_id")[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210930094344"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6472277798726841990)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mRequest Load (1.7ms)[0m  [1m[34mSELECT requests.*, notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (1.9ms)[0m  [1m[34mSELECT requests.*, notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (2.2ms)[0m  [1m[34mSELECT requests.*, notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = 1) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRequest Load (1.4ms)[0m  [1m[34mSELECT requests.*, notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = 01a4cb28-209f-4441-b4a5-3e6ee8acb2c0) LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT requests.*, notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0") LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT requests.*, notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0') LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRequest Load (1.7ms)[0m  [1m[34mSELECT requests.*, notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0') LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6472277798726841990)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6472277798726841990)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/notifications?user_id=01%0Aa4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 11:49:58 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01\na4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+Completed 500 Internal Server Error in 201ms (ActiveRecord: 0.0ms | Allocations: 97498)
+
+
+  
+NameError (undefined local variable or method `page' for #<Api::V1::NotificationsController:0x0000561ee24067d8>):
+  
+app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Started GET "/api/v1/notifications?user_id=01%0Aa4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 11:51:15 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01\na4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT notifications.* AS count_column FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01
+a4cb28-209f-4441-b4a5-3e6ee8acb2c0' and notifications.status = 'Enviada') LIMIT $1) subquery_for_count[0m  [["LIMIT", 10]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 4.0ms | Allocations: 4974)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InvalidTextRepresentation: ERROR:  invalid input syntax for type uuid: "01
+a4cb28-209f-4441-b4a5-3e6ee8acb2c0"
+LINE 1: ...est_id" = "requests"."id" WHERE (notifications.user_id = '01
+                                                                    ^
+):
+  
+app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Started GET "/api/v1/notifications?user_id=01%0Aa4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 11:52:13 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01\na4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT notifications.* AS count_column FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01
+a4cb28-209f-4441-b4a5-3e6ee8acb2c0' and notifications.status = 'Enviada') LIMIT $1) subquery_for_count[0m  [["LIMIT", 10]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 3.4ms | Allocations: 3688)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InvalidTextRepresentation: ERROR:  invalid input syntax for type uuid: "01
+a4cb28-209f-4441-b4a5-3e6ee8acb2c0"
+LINE 1: ...est_id" = "requests"."id" WHERE (notifications.user_id = '01
+                                                                    ^
+):
+  
+app/controllers/api/v1/notifications_controller.rb:5:in `index'
+Started GET "/api/v1/notifications?user_id=01%0Aa4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 11:52:50 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01\na4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT notifications.* AS count_column FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01
+a4cb28-209f-4441-b4a5-3e6ee8acb2c0') LIMIT $1) subquery_for_count[0m  [["LIMIT", 10]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 4.9ms | Allocations: 3665)
+
+
+  
+ActiveRecord::StatementInvalid (PG::InvalidTextRepresentation: ERROR:  invalid input syntax for type uuid: "01
+a4cb28-209f-4441-b4a5-3e6ee8acb2c0"
+LINE 1: ...est_id" = "requests"."id" WHERE (notifications.user_id = '01
+                                                                    ^
+):
+  
+app/controllers/api/v1/notifications_controller.rb:4:in `index'
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01' and notifications.status = 'Enviada') LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[36mRequest Load (0.7ms)[0m  [1m[34mSELECT notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01' and notifications.status = 'Enviada') LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '' and notifications.status = 'Enviada') LIMIT $1[0m  [["LIMIT", 10]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRequest Load (3.1ms)[0m  [1m[34mSELECT notifications.* FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0' and notifications.status = 'Enviada') LIMIT $1[0m  [["LIMIT", 10]]
+Started GET "/api/v1/notifications?user_id=01a4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 11:55:20 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT notifications.* AS count_column FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0' and notifications.status = 'Enviada') LIMIT $1) subquery_for_count[0m  [["LIMIT", 10]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.9ms | Allocations: 3669)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "count_column" does not exist
+LINE 1: SELECT COUNT(count_column) FROM (SELECT notifications.* AS c...
+                     ^
+):
+  
+app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Started GET "/api/v1/notifications?user_id=01a4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 11:55:39 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT notifications.* AS count_column FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0' and notifications.status = 'Enviada') LIMIT $1) subquery_for_count[0m  [["LIMIT", 10]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 3.5ms | Allocations: 3684)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "count_column" does not exist
+LINE 1: SELECT COUNT(count_column) FROM (SELECT notifications.* AS c...
+                     ^
+):
+  
+app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Started GET "/api/v1/notifications?user_id=01a4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 11:56:57 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT notifications.* AS count_column FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0' and notifications.status = 'Enviada') LIMIT $1) subquery_for_count[0m  [["LIMIT", 10]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 3.5ms | Allocations: 3684)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "count_column" does not exist
+LINE 1: SELECT COUNT(count_column) FROM (SELECT notifications.* AS c...
+                     ^
+):
+  
+app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Started GET "/api/v1/notifications?user_id=01a4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 11:57:28 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT notifications.* AS count_column FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0' and notifications.status = 'Enviada') LIMIT $1) subquery_for_count[0m  [["LIMIT", 10]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 4.0ms | Allocations: 3674)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "count_column" does not exist
+LINE 1: SELECT COUNT(count_column) FROM (SELECT notifications.* AS c...
+                     ^
+):
+  
+app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Started GET "/api/v1/notifications?user_id=01a4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 11:58:04 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT notifications.* AS count_column FROM "requests" INNER JOIN "notifications" ON "notifications"."request_id" = "requests"."id" WHERE (notifications.user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0' and notifications.status = 'Enviada') LIMIT $1) subquery_for_count[0m  [["LIMIT", 10]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 3.4ms | Allocations: 3662)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  column "count_column" does not exist
+LINE 1: SELECT COUNT(count_column) FROM (SELECT notifications.* AS c...
+                     ^
+):
+  
+app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Started GET "/api/v1/notifications?user_id=01a4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 11:58:50 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+Completed 204 No Content in 4ms (ActiveRecord: 0.0ms | Allocations: 1800)
+
+
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT notifications.* FROM "requests" WHERE (notifications.user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0' and notifications.status = 'Enviada') LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRequest Load (1.0ms)[0m  [1m[34mSELECT notifications.* FROM "requests" WHERE "requests"."user_id" = $1 AND "requests"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+  [1m[36mNotification Load (1.2ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+  [1m[36mNotification Load (1.3ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.8ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+  [1m[36mNotification Load (1.2ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+Started GET "/api/v1/notifications?user_id=01a4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 12:14:43 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 3.3ms | Allocations: 2709)
+
+
+  
+NoMethodError (undefined method `count' for nil:NilClass):
+  
+app/controllers/api/v1/notifications_controller.rb:5:in `index'
+  [1m[36mNotification Load (1.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications"[0m
+  [1m[36mNotification Load (1.3ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT({:user_id=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}) FROM "notifications"[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications"[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT({:conditions=>[{:user_id=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}]}) FROM "notifications"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT({:conditions=>"user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0'"}) FROM "notifications"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT({:conditions=>"user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0'"}) FROM "notifications"[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT({:conditions=>"user_id = '01a4cb28-209f-4441-b4a5-3e6ee8acb2c0'"}) FROM "notifications"[0m
+Started GET "/api/v1/notifications?user_id=01a4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 12:24:24 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 0.9ms | Allocations: 1835)
+
+
+  [1m[36mNotification Load (0.9ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+  [1m[36mNotification Load (1.1ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+Started GET "/api/v1/notifications?user_id=01a4cb28-209f-4441-b4a5-3e6ee8acb2c0" for ::1 at 2021-09-30 12:26:47 +0100
+Processing by Api::V1::NotificationsController#index as JSON
+  Parameters: {"user_id"=>"01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"}
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1 AND "notifications"."status" = $2 LIMIT $3[0m  [["user_id", "01a4cb28-209f-4441-b4a5-3e6ee8acb2c0"], ["status", "Enviada"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/notifications_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.5ms | Allocations: 1821)
+
+
+Started GET "/" for ::1 at 2021-09-30 20:43:44 +0100
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered vendor/bundle/ruby/2.7.0/gems/railties-6.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 11.1ms | Allocations: 298)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.0ms | Allocations: 1542)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-09-30 20:43:44 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/as" for ::1 at 2021-09-30 20:43:48 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/as"):
+  
+actionpack (6.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.8) lib/puma/configuration.rb:228:in `call'
+puma (4.3.8) lib/puma/server.rb:718:in `handle_request'
+puma (4.3.8) lib/puma/server.rb:472:in `process_client'
+puma (4.3.8) lib/puma/server.rb:328:in `block in run'
+puma (4.3.8) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rails/info/routes?path=noti" for ::1 at 2021-09-30 20:43:50 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"noti"}
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 4070)
+
+
+Started GET "/rails/info/routes?path=notifica" for ::1 at 2021-09-30 20:43:51 +0100
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"notifica"}
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1228)
+
+

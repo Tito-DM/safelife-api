@@ -51,8 +51,7 @@ class Api::V1::AnswersRequestsController < DashboardController
   # DELETE /api/v1/answers_requests/1
   def destroy
     @api_v1_answers_request.destroy
-    json_response("Resposta Apagada",true,{},@api_v1_answers_request,model_name, :deleted)
-
+    json_response("Resposta Apagada",true,{},@api_v1_answers_request,model_name, :ok)
   end
 
   private

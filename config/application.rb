@@ -34,8 +34,7 @@ module AppApi
       port: 13107,
       db: 0,
       password: "Ji6zljtmJYq5StjCsekoKc0VYmfdMxW2",
-      namespace: "redis-savelifee-10596014
-      "
+      namespace: "redis-savelifee-10596014"
     }, {
       expires_in: 90.minutes
     }
