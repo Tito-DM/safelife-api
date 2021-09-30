@@ -11,13 +11,7 @@ class AlertDonorWorker
       "AB-"=> ["A-","B-","O-"],
       "O+"=> ["O-"],
     }
-    blood_compatible = bloods[request_description]
-    donors = Donor.all
-    donors.each do |donor|
-      if((blood_compatible.include?(donor.blood) || donor.blood==request_description) && user_id != donor.user_id)
-        RequestMailer.with(user: donor.user_id, request: request_id, donor: donor.id).to_donor_with_same_type.deliver_now
-      end
-    end
+    
   end
   
 end
